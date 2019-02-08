@@ -345,17 +345,18 @@ The difference between these two spectra reveals a prominent peak in the ToF spe
 These photons must travel 125~cm to reach the center of any detector and 130~cm to reach the top, for which it takes light 4.2~ns and 4.3~ns to travel, respectively.
 The value of $C$ used for each detector is equal the value that places the time corresponding to the peak of the target-induced gamma flash at 4~ns.
 
-Under the assumption that neutrons travel to the detectors unimpeded, the calculation of neutron energy from ToF is straightforward.
-This assumption is validated through MCNP simulations that tested the frequency of the scattering of fission neutrons within the target and detector shielding, and is discussed in sections~\ref{subsection:targets} and \ref{subsection:detectors}.
-Figure~\ref{fig:ErgUncertainty}(a) shows the relationship between neutron energy and ToF, and Figure~\ref{fig:ErgUncertainty}(b) shows the measurement uncertainty in neutron energy.
-\begin{figure}[]
-    \subfloat[]{\includegraphics[width=0.45\textwidth]{ToF2Erg.png}}
-    
-    \subfloat[]{\includegraphics[width=0.45\textwidth]{DeltaErg.png}}
-    \caption{(a) Mapping from ToF to neutron energy: $E = \frac{8127}{ToF^{2}}$.
-    (b) Uncertainty in neutron energy measurements as a function of measured neutron energy.}
-    \label{fig:ErgUncertainty}
-\end{figure}
+Under the assumption that the neutrons are non-relativistic and travel directly from the target to the detectors unimpeded, the calculation of neutron energy from ToF is straightforward.
+The assumption that neutrons predominantly travel to the detectors unimpeded was validated by MCNP simulations examining the scattering of fission neutrons within the fission target and detector shielding. These simulations are discussed in sections~\ref{subsection:targets} and \ref{subsection:detectors}.
+
+%Figure~\ref{fig:ErgUncertainty}(a) shows the relationship between neutron energy and ToF, and Figure~\ref{fig:ErgUncertainty}(b) shows the measurement uncertainty in neutron energy.
+%\begin{figure}[]
+ %   \subfloat[]{\includegraphics[width=0.45\textwidth]{ToF2Erg.png}}
+ %   
+   % \subfloat[]{\includegraphics[width=0.45\textwidth]{DeltaErg.png}}
+    %\caption{(a) Mapping from ToF to neutron energy: $E = \frac{8127}{ToF^{2}}$.
+    %(b) Uncertainty in neutron energy measurements as a function of measured neutron energy.}
+    %\label{fig:ErgUncertainty}
+%\end{figure}
 
 \subsection{Particle Position Reconstruction}
 Each detector is not capable of measuring the position of a detected particle along the axes parallel to its width (15.24~cm) or depth (3.81~cm), which contributes $\pm3^{\circ}$ to the total angular uncertainty.
@@ -410,8 +411,6 @@ Aside from this difference in the time window triggering mechanism, identical me
 
 \section{Analysis}
 \label{Analysis}
-\subsection{Cancelation of Detector Efficiencies, Drifts, and Geometric Phase Space}
-\label{subsec:SPDPCancelation}
 The efficiency and acceptance of the neutron detection system varies greatly over its opening angle range of 20$^{\circ}$ to 180$^{\circ}$, as illustrated in Fig.~\ref{fig:DetAcceptance}.
 This is both due to the neutron detection system's non-spherical symmetry and to varying efficiency as a function of particle position on the detector.
 In order to give a result that is sensitive to angular correlations, but is highly insensitive to detector efficiencies and experimental drifts in PMT voltage, accelerator current, \emph{etc}., angular correlation is determined by dividing a correlated neutron distribution by an uncorrelated neutron distribution. That is,
@@ -419,7 +418,11 @@ In order to give a result that is sensitive to angular correlations, but is high
 \label{eq:angularCorr}
 \text{angular correlation }  = \frac{nn_{\text{corr}}(\theta)}{nn_{\text{uncorr}}(\theta)},
 \end{equation}
-where $nn_{\text{corr}}(\theta)$ is the accidental-coincidence subtracted opening angle distribution, the determination of which is described in section~\ref{Reconstruction of Accidental Coincidence}, and where $nn_{\text{uncorr}}(\theta)$\footnote{While this notation implies that coincident events are due solely to neutrons, about 3\% of total  $nn_{\text{corr}}(\theta)$ events are not due to neutrons. This percentage was determined by comparing data from a non-neutron producing Al target to that from a $^{238}$U target (see Fig.~\ref{fig:Noise})} is the uncorrelated neutron distribution, which is produced by the pairing of neutron events that occurred during different pulses.
+where $nn_{\text{corr}}(\theta)$ is the accidental-coincidence subtracted opening angle distribution, and $nn_{\text{uncorr}}(\theta)$ is the uncorrelated neutron distribution, which is produced by pairing neutron events that occurred during different pulses\footnote{An event is considered a neutron event if its ToF is measured to be between of 35 and 130 ns (see Fig.~\ref{fig:ToF}B)}. The subtraction of accidental-coincidences to produce $nn_{\text{corr}}(\theta)$ amounts to a 10\% correction, the procedure of which is covered in section~\ref{Reconstruction of Accidental Coincidence}. The construction of $nn_{\text{uncorr}}(\theta)$ is described in detail in section~\ref{subsec:SPDPCancelation}.
+
+\subsection{Cancelation of Detector Efficiencies, Drifts, and Geometric Phase Space}
+\label{subsec:SPDPCancelation}
+%\footnote{While this notation implies that coincident events are due solely to neutrons, about 3\% of total  $nn_{\text{corr}}(\theta)$ events are not due to neutrons. This percentage was determined by comparing data from a non-neutron producing Al target to that from a $^{238}$U target (see Fig.~\ref{fig:Noise})} 
 \begin{figure}[h]
 \includegraphics[width=0.45\textwidth]{DetAcceptance.png}
 \caption{Raw n-n opening angle measurement from the photofission of $^{238}$U. 
@@ -496,7 +499,7 @@ It can be shown, however, that accounting for any number of coincidences, from z
 \end{equation}
 To determine the value of $\lambda$, one would need the ability to distinguish between true and accidental coincidences, as $\lambda$ refers only to the rate of accidental coincidences.
 Such information is not known, but the largest possible value for $\lambda$ is the mean number of events per pulse, as this assumes that all events are uncorrelated.
-For this work, this places an upper bound on $\lambda$ of $3\times 10^{-6}$, which is small enough to neglect all terms on the order of $\lambda^3$ or greater.
+For this work, this places an upper bound on $\lambda^2$ of $3\times 10^{-6}$, which is small enough to neglect all terms on the order of $\lambda^3$ or greater.
 
 For the case of different-pulse pairs, a ``coincidence'' is said to occur when there is an event in both pulses.
 The total per-pulse-pair coincidence frequency is the square of the Poissonian probability of there being one event in a single pulse, since a pulse-pair coincidence consists of two neutron events, one in each pulse.
@@ -702,32 +705,32 @@ For the measurement of $^{238}$U photofission, there were a total of 2,952 n-n c
 \FloatBarrier
 \begin{figure}
 \centering
-    \includegraphics[width = 0.47\textwidth]{FinalDUResultw_freya0KDE.png}
+    \includegraphics[width = 0.47\textwidth]{FinalDUResultw_freya0(fix)KDE.png}
     \caption{$\theta_{nn}$ distribution with minimum energy threshold cuts applied to all neutrons.
-    The number of events contributing to each plot are, starting from the upper left and moving clockwise:1489, 2952, and 314 .}
+    The number of events contributing to each plot, \textbf{n}, is shown.}
     \label{fig:DU(0)}
 \end{figure}
 \begin{figure}
 \centering
-    \includegraphics[width = .47\textwidth]{FinalDUResultw_freya2KDE.png}
+    \includegraphics[width = .47\textwidth]{FinalDUResultw_freya2KDE(fix).png}
     \caption{ $\theta_{nn}$ distribution with cuts requiring that the energy of both coincident neutrons be within the specified range.
-    The number of events contributing to each plot are, starting from the upper left and moving clockwise: 433, 266, and 303.}
+    The number of events contributing to each plot, \textbf{n}, is shown. Note that the bottom plots of this figure and Fig.~\ref{fig:DU(0)} are identical.}
     \label{fig:DU(2)}
 \end{figure}
 
 \begin{figure}
 \centering
-    \includegraphics[width = 0.47\textwidth]{FinalCf252Resultw_freya0KDE.png}
+    \includegraphics[width = 0.47\textwidth]{FinalCf252Resultw_freya0KDE(fix).png}
     \caption{
     $\theta_{nn}$ distribution a minimum energy threshold cuts applied to all neutrons.
-    The number of events contributing to each plot are, starting from the upper left and moving clockwise: 1262, 5451, 12519, 21882 .}
+    The number of events contributing to each plot, \textbf{n}, is shown.}
     \label{fig:Cf(0)}
 \end{figure}
 \begin{figure}
 \centering
-    \includegraphics[width = 0.47\textwidth]{FinalCf252Resultw_freya2KDE.png}
+    \includegraphics[width = 0.47\textwidth]{FinalCf252Resultw_freya2(fix)KDE.png}
     \caption{$\theta_{nn}$ distribution with cuts requiring that the energy of both coincident neutrons be within the specified range.
-    The number of events contributing to each plot are, starting from the lower left and moving clockwise: 1198, 1567, 1456, 1291 .}
+    The number of events contributing to each plot, \textbf{n}, is shown. Note that the lower right plots of this figure and Fig.~\ref{fig:Cf(0)} are identical.}
     \label{fig:Cf(2)}
 \end{figure}
 
@@ -757,7 +760,7 @@ A definitive interpretation of this decreased n-n correlation for large opening 
 \begin{figure}
     \includegraphics[width = 0.45\textwidth]{theta_abs_LEGO.png}
     \caption{Correlation is shown between the angles of each neutron with respect to the incident photon beam, denoted by $\theta 1_{abs}$ and $\theta 2_{abs}$.
-    Empty bins exist because of incomplete $\theta_{abs}$ coverage.}
+    Empty bins exist because of intrinsic geometrical phase-space.}
     \label{fig:theta_abs_LEGO}
 \end{figure}
 
