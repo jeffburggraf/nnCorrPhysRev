@@ -481,29 +481,29 @@ Y_{\text{raw}}(\theta)= Y_{\text{corr}}(\theta) + Y_{\text{acc}}(\theta) \, ,
 \end{equation}
 where $Y_{\text{raw}}(\theta)$ and $Y_{\text{acc}}(\theta)$ are the per-pulse n-n yields as a function of opening angle, $\theta$, for all n-n events, and accidental n-n events, respectively.
 
-Because the events comprising $Y_{\text{acc}}(\theta)$ consist of two independent single neutron events, the same exact relationship exists among pairs of single neutron events that occurred during different pulses.
+Because the n-n coincidences comprising $Y_{\text{acc}}(\theta)$ consist of two independent detected neutrons, the same exact relationship exists among pairs of single neutrons that were detected during different pulses.
 % given that the two different pulses occurred at virtually the same time and thus under the same experimental conditions.
-Therefore, the opening angle distribution of paired single neutron events from different pulses, denoted $P_{\scaleto{DP}{4pt}}(\theta)$, is proportional to $Y_{\text{acc}}(\theta)$.
+Therefore, the opening angle distribution formed by pairing neutrons that were detected during different pulses, denoted $P_{\scaleto{DP}{4pt}}(\theta)$, is proportional to $Y_{\text{acc}}(\theta)$.
 In other words,  $P_{\scaleto{DP}{4pt}}(\theta)$ and $Y_{\text{acc}}(\theta)$ have the same shape.
-However, $Y_{\text{acc}}(\theta)$ is not equal to $P_{\scaleto{DP}{4pt}}(\theta)$, because there are, on average, twice as many neutron events in a pulse-pair than there are in a single pulse.
+However, $Y_{\text{acc}}(\theta)$ is not equal to $P_{\scaleto{DP}{4pt}}(\theta)$, because there are, on average, twice as many detected neutrons in a pulse-pair than there are in a single pulse.
 For this reason, as the following analysis shows,~$Y_{\text{acc}}(\theta) = \frac{1}{2}P_{\scaleto{DP}{4pt}}(\theta)$, under the condition that $Y_{\text{acc}}(\theta)$ is normalized to the number of pulses and $P_{\scaleto{DP}{4pt}}(\theta)$ to the number of pulse-pairs looked at.
 
-The per-pulse rate of the detection of uncorrelated neutron events is assumed to follow the Poissonian distribution, which describes the occurrence of independent random events.
-Let $\lambda$ represent the mean number of uncorrelated neutron events per pulse.
-The total per-pulse accidental coincidence rate for single pulses, denoted by $\sum_{\theta} Y_{\text{acc}}(\theta)$, is equal to the Poissonian probability of there being exactly two events detected in a single pulse\footnote{Cases of greater than two-fold coincidence are not considered in this analysis, as it is not necessary because of the low detection rates during this work.}:% It can be shown, however, that accounting for any number of coincidences, from zero all the way up to $\infty$-fold coincident events in a pulse or pulse-pair, will give the same answer.}:
+The statistics of the detected uncorrelated neutrons per pulse is assumed to follow a Poisson distribution, which describes the occurrence of independent random events.
+Let $\lambda$ represent the mean number of uncorrelated detected neutrons per pulse.
+The accidental coincidence rate per pulse integrated over all opening angles, denoted by $\sum_{\theta} Y_{\text{acc}}(\theta)$, is equal to the probability of there being exactly two detected uncorrelated neutrons detected in a single pulse\footnote{Cases of greater than two-fold coincidence are not considered in this analysis, as it is not necessary because of the low detection rates during this work.}:% It can be shown, however, that accounting for any number of coincidences, from zero all the way up to $\infty$-fold coincident events in a pulse or pulse-pair, will give the same answer.}:
 \begin{equation} \label{math:SP}
     \begin{split}
     \sum_{\theta}Y_{\text{acc}}(\theta) & = \frac{e^{-\lambda}\lambda^{2}}{2!} \\
         &\approx \frac{\lambda^2}{{2}} + \mathcal{O}(\lambda^3) \, .
     \end{split}
 \end{equation}
-To determine the value of $\lambda$, one would need the ability to determine which events are correlated, as $\lambda$ quantifies the per-pulse rate of uncorrelated, independent neutron events.
-Such information is not known, but the largest possible value for $\lambda$ is the mean number of neutron events per pulse, as this assumes that all neutron events are uncorrelated.
-For this work, this places an upper bound on $\lambda^2$ of $3\times 10^{-6}$, which is small enough to neglect all terms on the order of $\lambda^3$ or greater.
+To determine the value of $\lambda$, one would need the ability to determine which events are correlated, as $\lambda$ quantifies the per-pulse rate of uncorrelated, independent detected neutrons.
+Such information is not known, but the largest possible value for $\lambda$ is the mean number of detected neutrons per pulse, as this assumes that all neutrons are uncorrelated.
+For this work, this places an upper bound on $\lambda^2$ of $3\times 10^{-5}$, which is small enough to neglect all terms on the order of $\lambda^3$ or greater.
 
-For the case of different-pulse pairs, a n-n coincidence is said to occur when there is a neutron event in both pulses.
-In this case, the total per-pulse-pair n-n coincidence rate is the square of the Poissonian probability of there being one neutron event in a single pulse, since a pulse-pair n-n coincidence consists of two neutron events, one in each pulse.
-Cases in which there are two or more neutron events in a given pulse can be neglected.
+For the case of different-pulse pairs, a n-n coincidence is said to occur when there is a detected neutron in both pulses.
+In this case, the total per-pulse-pair n-n coincidence rate is the square of the probability of there being one detected neutron in a single pulse, since a pulse-pair n-n coincidence consists of two detected neutrons, one in each pulse.
+Cases in which there are two or more detected neutrons in a given pulse can be neglected.
 The total per-pulse-pair coincidence rate, $\sum_{\theta} P_{\scaleto{DP}{4pt}}(\theta)$, is given by 
 \begin{equation} \label{math:DP}
     \begin{split}
