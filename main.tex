@@ -414,9 +414,9 @@ This is both due to the neutron detection system's non-spherical symmetry and to
 In order to give a result that is sensitive to angular correlations, but is highly insensitive to detector efficiencies and experimental drifts in PMT voltage, accelerator current, \emph{etc}., angular correlation is determined by dividing a correlated neutron distribution by an uncorrelated neutron distribution. That is,
 \begin{equation}
 \label{eq:angularCorr}
-\text{angular correlation }  = \frac{nn_{\text{corr}}(\theta)}{nn_{\text{uncorr}}(\theta)},
+\text{angular correlation }  = \frac{Y_{\text{corr}}(\theta)}{P_{\text{uncorr}}(\theta)},
 \end{equation}
-where $nn_{\text{corr}}(\theta)$ is the accidental-coincidence subtracted opening angle distribution, and $nn_{\text{uncorr}}(\theta)$ is the uncorrelated neutron distribution, which is produced by pairing neutron events that occurred during different pulses\footnote{An event is considered a neutron event if its ToF is measured to be between of 35 and 130 ns (see Fig.~\ref{fig:ToF}B)}. The subtraction of accidental-coincidences to produce $nn_{\text{corr}}(\theta)$ amounts to a 10\% correction, the procedure of which is covered in section~\ref{Reconstruction of Accidental Coincidence}. The construction of $nn_{\text{uncorr}}(\theta)$ is described in detail in section~\ref{subsec:SPDPCancelation}.
+where $Y_{\text{corr}}(\theta)$ is the n-n yield after the subtraction of accidental n-n events, and $P_{\text{uncorr}}(\theta)$ is a contrived distribution of uncorrelated n-n events, which is produced by pairing neutron events that occurred during different pulses\footnote{To be clear, a neutron event is the detection of a particle with a ToF between of 35 and 130 ns (see Fig.~\ref{fig:ToF}B)}. The subtraction of accidental n-n events to produce $Y_{\text{corr}}(\theta)$ amounts to a 10\% correction, the procedure of which is covered in section~\ref{Reconstruction of Accidental Coincidence}. The construction of $P_{\text{uncorr}}(\theta)$ is described in detail in section~\ref{subsec:SPDPCancelation}.
 
 \subsection{Cancelation of Detector Efficiencies, Drifts, and Geometric Phase Space}
 \label{subsec:SPDPCancelation}
@@ -429,14 +429,15 @@ This distribution is highly influenced by the detection system's geometry and ef
 \label{fig:DetAcceptance}
 \end{figure}
 
-The construction of $nn_{\text{uncorr}}(\theta)$ is achieved by examining pulses in pairs of two, under the requirement that both pulses occurred within 0.2 seconds of each other in order to increase the chance that they occurred under the same experimental conditions.
-For each pulse-pair that has two neutron events in both pulses, all possible pairs of uncorrelated neutrons are examined (a total of 4 in this case), and the opening angle of each uncorrelated n-n pair is calculated.
+The construction of $P_{\text{uncorr}}(\theta)$ is achieved by examining pulse-pairs under the requirement that both pulses occurred within 0.2 seconds of each other.
+This requirement is imposed in order to ensure that paired neutron events occurred under the same experimental conditions amid possible drifting of accelerator current and PMT voltages, and varying rates of noise.
+For each pulse-pair that has two neutron events in both pulses, all possible pairs of uncorrelated neutrons are examined (a total of 4 n-n pairs per pulse-pair), and the opening angle of each uncorrelated n-n pair is calculated.
 The reason for only using pulse-pairs in which each pulse has two events is to reduce differences in the energy distribution of correlated and uncorrelated neuron pairs.
-Section~\ref{sec:n_n_erg_dist} discusses these differences and their potential to affect the final result in detail.
+As addressed in section~\ref{sec:n_n_erg_dist}, these differences have little potential to significantly affect the final result.
 
-Figure~\ref{fig:SPDPNormalization}(a) shows the measured $nn_{\text{corr}}(\theta)$ yield distribution of neutrons from the photofission of $^{238}$U.
+Figure~\ref{fig:SPDPNormalization}(a) shows the measured yield distribution of correlated neutrons, $Y_{\text{corr}}(\theta)$, from the photofission of $^{238}$U.
 The structure seen here is reflective of the underlying n-n angular correlations as well as the geometric acceptance and efficiencies of the neutron detectors.
-Figure~\ref{fig:SPDPNormalization}(b) reveals how a clear picture of n-n correlations emerges when taking the ratio between $nn_{\text{corr}}(\theta)$ and $nn_{\text{uncorr}}(\theta)$.
+Figure~\ref{fig:SPDPNormalization}(b) reveals how a clear picture of n-n angular correlations emerges when taking the ratio between $Y_{\text{corr}}(\theta)$ and $P_{\text{uncorr}}(\theta)$.
 \begin{figure}[]
 \centering
     \includegraphics[width=0.45\textwidth]{SPDPNormalization.png}
@@ -447,20 +448,21 @@ Figure~\ref{fig:SPDPNormalization}(b) reveals how a clear picture of n-n correla
 
 \subsection{Subtraction of Accidental Coincidences}
 \label{Reconstruction of Accidental Coincidence}
-The detection of two uncorrelated events in coincidence, whether caused by neutrons, photons, or noise, is referred to as an \emph{accidental coincidence}, or just \emph{accidental} for short.
-A small number of accidental photon events will exist in the neutron time of flight range because of the smearing of the gamma flash.
-There are also accidentals due to noise, which can be estimated with a non-neutron producing target made from aluminum (see Fig.~\ref{fig:Noise}).
+The observation of two uncorrelated events in the neutron ToF range, whether caused by neutrons, photons, or noise, is referred to as an \emph{accidental coincidence}.
+A small number of accidental coincidences are due to photons because the smearing of the gamma flash causes it to slightly overlap with neutron ToF range.
+Accidental coincidences due to noise can be estimated with a non-neutron producing target made from aluminum (see Fig.~\ref{fig:Noise}).
 The accelerator's current was adjusted so that there are, on average, less than 1.0 fissions per accelerator pulse, but nevertheless, statistical fluctuations in the number of fissions per pulse result in accidental coincident neutrons that originated from different, and therefore, uncorrelated fissions.
 There are also uncorrelated neutrons produced when multiple $(\gamma, n)$ reactions occur in a single pulse.
 
 The $^{238}$U cross-section of $(\gamma, n)$, integrated over the relevant bremsstrahlung energy distribution, is about a factor of 5.5 times greater than it is for photofission (see Fig.~\ref{fig:CrossSection}).
-As a result, the raw neutron coincidence data will contain a significant number of neutron coincidences from multiple $(\gamma, n)$ reactions in relation to neutron coincidences from fission.
-If accidentals were not subtracted from the result, then they would tend to wash out the signal from correlated neutrons. 
+As a result, the raw n-n coincident yield will contain a significant number of n-n coincidences from multiple $(\gamma, n)$ reactions in relation to n-n coincidences from fission.
+The presence of accidental n-n coincidences has the effect of washing out the signal from correlated neutrons. 
 \begin{figure}[]
 \centering
     \includegraphics[width=0.45\textwidth]{Noise.png}
-    \caption{An Al target was designed to scatter the same number of photons as the DU target, thus serving as an equivalent non-neutron producing target well-suited for noise estimates.
-    The rate of coincident events for the Al target is 3\% that of the DU target. 
+    \caption{An Al target was designed to scatter the same number of photons as the $^{238}$U target, thus serving as an equivalent non-neutron producing target well-suited for noise estimates.
+    The rate of coincident events in the neutron ToF range while using the Al target was 3\% that of the $^{238}$U target.
+    Thus, 3\% of events used in the determination of n-n angular correlations in $^{238}$U can be attributed to noise.
         }
     \label{fig:Noise}
 \end{figure}
@@ -472,47 +474,52 @@ If accidentals were not subtracted from the result, then they would tend to wash
     \label{fig:CrossSection}
 \end{figure}
 
-The raw measurement consists of a mix of correlated and accidental neutron coincidences, that is
+The raw measurement of n-n yield consists of a mix of correlated and accidental neutron coincidences, that is
 \begin{equation}
 \label{eq:corr_uncorr}
-nn_{\text{raw}}(\theta)= nn_{\text{corr}}(\theta) + nn_{\text{acc}}(\theta) \, ,
+Y_{\text{raw}}(\theta)= Y_{\text{corr}}(\theta) + Y_{\text{acc}}(\theta) \, ,
 \end{equation}
-where $nn_{\text{raw}}(\theta)$ and $nn_{\text{acc}}(\theta)$ are the rates, per pulse, of the detection of neutron pairs with opening angle of $\theta$ for all events and for accidental coincident events, respectively.
+where $Y_{\text{raw}}(\theta)$ and $Y_{\text{acc}}(\theta)$ are the per-pulse n-n yields as a function of opening angle, $\theta$, for all n-n events, and accidental n-n events, respectively.
 
-Because accidental coincidences consist of two independent events, it does not matter whether these two events occurred during the same pulse or during different pulses, given that the two different pulses occurred at around the same time and thus under the same experimental conditions.
-Therefore, $nn_{\scaleto{DP}{4pt}}(\theta)$, the distribution from different-pulse neutron events, is proportional to $nn_{\text{acc}}(\theta)$.
-In other words,  $nn_{\scaleto{DP}{4pt}}(\theta)$ and $nn_{\text{acc}}(\theta)$ have the same shape.
-However, $nn_{\text{acc}}(\theta)$ is not equal to $nn_{\scaleto{DP}{4pt}}(\theta)$, because there are, on average, twice as many events in a pulse-pair than there are in a single pulse.
-For this reason, as the following analysis shows,~$nn_{\text{acc}}(\theta) = \frac{1}{2}nn_{\scaleto{DP}{4pt}}(\theta)$.
+Because the events comprising $Y_{\text{acc}}(\theta)$ consist of two independent single neutron events, the same exact relationship exists among pairs of single neutron events that occurred during different pulses.
+% given that the two different pulses occurred at virtually the same time and thus under the same experimental conditions.
+Therefore, the opening angle distribution of paired single neutron events from different pulses, denoted $P_{\scaleto{DP}{4pt}}(\theta)$, is proportional to $Y_{\text{acc}}(\theta)$.
+In other words,  $P_{\scaleto{DP}{4pt}}(\theta)$ and $Y_{\text{acc}}(\theta)$ have the same shape.
+However, $Y_{\text{acc}}(\theta)$ is not equal to $P_{\scaleto{DP}{4pt}}(\theta)$, because there are, on average, twice as many neutron events in a pulse-pair than there are in a single pulse.
+For this reason, as the following analysis shows,~$Y_{\text{acc}}(\theta) = \frac{1}{2}P_{\scaleto{DP}{4pt}}(\theta)$, under the condition that $Y_{\text{acc}}(\theta)$ is normalized to the number of pulses and $P_{\scaleto{DP}{4pt}}(\theta)$ to the number of pulse-pairs looked at.
 
-The number of uncorrelated events detected per pulse is assumed to follow the Poissonian distribution, which describes the occurrence of independent random events.
-Let $\lambda$ represent the mean number of uncorrelated events per pulse.
-The total per-pulse accidental coincidence frequency for single pulses, denoted by $\sum_{\theta} nn_{\text{acc}}(\theta)$, is equal to the Poissonian probability of there being exactly two events detected in a single pulse\footnote{For the sake of brevity, cases of greater than two-fold coincidence are not considered in this analysis, as it is not necessary because of the low detection rates during this work.
-It can be shown, however, that accounting for any number of coincidences, from zero all the way up to $\infty$-fold coincident events in a pulse or pulse-pair, will give the same answer.}:
+The per-pulse rate of the detection of uncorrelated neutron events is assumed to follow the Poissonian distribution, which describes the occurrence of independent random events.
+Let $\lambda$ represent the mean number of uncorrelated neutron events per pulse.
+The total per-pulse accidental coincidence rate for single pulses, denoted by $\sum_{\theta} Y_{\text{acc}}(\theta)$, is equal to the Poissonian probability of there being exactly two events detected in a single pulse\footnote{Cases of greater than two-fold coincidence are not considered in this analysis, as it is not necessary because of the low detection rates during this work.}:% It can be shown, however, that accounting for any number of coincidences, from zero all the way up to $\infty$-fold coincident events in a pulse or pulse-pair, will give the same answer.}:
 \begin{equation} \label{math:SP}
     \begin{split}
-    \sum_{\theta} nn_{\text{acc}}(\theta) & = \frac{e^{-\lambda}\lambda^{2}}{2!} \\
+    \sum_{\theta}Y_{\text{acc}}(\theta) & = \frac{e^{-\lambda}\lambda^{2}}{2!} \\
         &\approx \frac{\lambda^2}{{2}} + \mathcal{O}(\lambda^3) \, .
     \end{split}
 \end{equation}
-To determine the value of $\lambda$, one would need the ability to distinguish between true and accidental coincidences, as $\lambda$ refers only to the rate of accidental coincidences.
-Such information is not known, but the largest possible value for $\lambda$ is the mean number of events per pulse, as this assumes that all events are uncorrelated.
+To determine the value of $\lambda$, one would need the ability to determine which events are correlated, as $\lambda$ quantifies the per-pulse rate of uncorrelated, independent neutron events.
+Such information is not known, but the largest possible value for $\lambda$ is the mean number of neutron events per pulse, as this assumes that all neutron events are uncorrelated.
 For this work, this places an upper bound on $\lambda^2$ of $3\times 10^{-6}$, which is small enough to neglect all terms on the order of $\lambda^3$ or greater.
 
-For the case of different-pulse pairs, a ``coincidence'' is said to occur when there is an event in both pulses.
-The total per-pulse-pair coincidence frequency is the square of the Poissonian probability of there being one event in a single pulse, since a pulse-pair coincidence consists of two neutron events, one in each pulse.
-Cases in which there are more than two events in a given pulse are neglected here because they occur at a rate that is a factor of 100 times less than the rate of pulses with only a single event.
-The total per-pulse-pair coincidence frequency, $\sum_{\theta} nn_{\scaleto{DP}{4pt}}(\theta)$, is given by 
+For the case of different-pulse pairs, a n-n coincidence is said to occur when there is a neutron event in both pulses.
+In this case, the total per-pulse-pair n-n coincidence rate is the square of the Poissonian probability of there being one neutron event in a single pulse, since a pulse-pair n-n coincidence consists of two neutron events, one in each pulse.
+Cases in which there are two or more neutron events in a given pulse can be neglected.
+The total per-pulse-pair coincidence rate, $\sum_{\theta} P_{\scaleto{DP}{4pt}}(\theta)$, is given by 
 \begin{equation} \label{math:DP}
     \begin{split}
-   \sum_{\theta} nn_{\scaleto{DP}{4pt}}(\theta)&= \left(e^{-\lambda}\lambda\right)^{2} \\
+   \sum_{\theta} P_{\scaleto{DP}{4pt}}(\theta)&= \left(e^{-\lambda}\lambda\right)^{2} \\
     &\approx \lambda^2 + \mathcal{O}(\lambda^3) \, .
     \end{split}
 \end{equation}
-For the reasons explained above, $nn_{\scaleto{DP}{4pt}}(\theta)$ and $nn_{\text{acc}}(\theta)$ have the same shape, thus, from Eq.'s (\ref{math:DP}) and (\ref{math:SP}) it follows that 
+For the reasons explained above, $P_{\scaleto{DP}{4pt}}(\theta)$ and $Y_{\text{acc}}(\theta)$ have the same shape, thus, from Eq.'s (\ref{math:DP}) and (\ref{math:SP}) it follows that 
 \begin{equation}
 \label{eq:uncorr_DP}
-nn_{\text{acc}}(\theta) = \frac{1}{2}nn_{\scaleto{DP}{4pt}}(\theta) \,.
+Y_{\text{acc}}(\theta) = \frac{1}{2}P_{\scaleto{DP}{4pt}}(\theta) \,.
+\end{equation}
+Finally, the distribution of solely correlated n-n events is recovered as follows
+\begin{equation}
+\label{eq:uncorr_DP}
+Y_{\text{corr}}(\theta) = Y_{\text{raw}}(\theta) - \frac{1}{2}P_{\scaleto{DP}{4pt}}(\theta) \,.
 \end{equation}
 
 \section{Potential sources of error}
@@ -737,6 +744,8 @@ For the measurement of $^{238}$U photofission, there were a total of 2,952 n-n c
 While these results are consistent with the effect of the kinematic focusing of the neutrons due to the recoil of the fission fragments, the data show a small but statistically significant decrease in the n-n opening angle correlation in the region from about 165$^{\circ}$ to 180$^{\circ}$, which can be seen in Figs.~\ref{fig:SPDPNormalization} and ~\ref{fig:theta_abs_two_neutron}, as well as in Figs.~\ref{fig:DU(0)} and \ref{fig:DU(2)}.
 This feature is not evident in previous work on spontaneous and neutron induced fission.
 The effect is particularly strong for the neutron energy cuts being applied in the upper right plots of both Figs.~\ref{fig:DU(0)} and \ref{fig:DU(2)}, which yield p-values of 0.01 under the null hypothesis that the true distribution flattens out around 160$^{\circ}$ and remains flat all the way to 180$^{\circ}$.
+A similar effect appears in the results reported in ref~\cite{Sokolov2010} for the thermal neutron-induced fission of $^{233}$U and $^{235}$U, but not for the spontaneous fission of $^{252}$Cf or the neutron-induced fission of $^{239}$Pu.
+% (insert in sentance above after the word effect?)  ,although less pronounced than that seen in the present work,)
 
 As previously discussed in section~\ref{sec:level1}, photofission differs from spontaneous and neutron induced fission in that the fission fragments for the photon-induced reaction exhibit an asymmetry in their angle of emission, with the most likely orientation of the fission axis lying perpendicular to the direction of the incident photon.
 With this in mind, the following series of angular cuts were made on the data.
@@ -780,18 +789,15 @@ Neutron-neutron angular correlation measurements were also made using neutrons f
 Measured n-n opening angle correlations in the photofission of $^{238}$U do not agree very well with simulations using FREYA version 2.0.3, which uses a neutron-induced model to approximate photofission.
 These data will be useful for fine-tuning the photofission models that will be incorporated into future versions of FREYA.
 
-In addition, we report for the first time an anomaly that was observed in the rate of neutron emission at opening angles near 180$^{\circ}$, in which diminished rates resulted in a local maximum at about 160$^{\circ}$ instead of the expected 180$^{\circ}$, as seen in all past measurements of neutron-induced and spontaneous fission.
-We offer two possible explanations for this effect relating to the unique feature of the asymmetric angular emission of fission fragments in photofission:
-\begin{enumerate*}[label=(\roman*), itemjoin={{, }}, itemjoin*={{, or }}]
-  \item There is a decrease in neutron emission along the fission axis
-  \item the neutrons may indeed be emitted isotropically in the rest frame of the fission fragment, but one fragment essentially shadows the neutrons emitted from the other fragment, either through absorption or scattering.
-  \end{enumerate*}
+In addition, we report for the first time a pronounced anomaly in the n-n angular distributions from photofission, in which the rate of neutron emission at opening angles near 180$^{\circ}$ is diminished, resulting in a local maximum at about 160$^{\circ}$ instead of the expected 180$^{\circ}$.
+We offer one possible explanation for this effect. %relating to the unique feature of the asymmetric angular emission of fission fragments in photofission.
+The neutrons may indeed be emitted isotropically in the rest frame of each fission fragment, but there is a decrease in neutron emission along the fission axis because one fragment essentially shadows the neutrons emitted from the other fragment, either through absorption or scattering.
 While these measurements do not provide a definitive interpretation of this decreased n-n correlation for large opening angles in photofission, further study has the potential to shed light on the time evolution of neutron emission in photofission.
 
 These first measurements of n-n correlations in photofission will provide the impetus for future modeling of the fundamental physics of fission.
 
 \section{Acknowledgments}
-This work has been supported by the National Nuclear Security Administration, grant DE-NA002488. We wish to thank the staff of the Idaho Accelerator Center for their assistance in this work. We also wish to acknowledgment early contributions to this work by our friend and colleague the late David V. Jordan of the Pacific Northwest National Laboratory. 
+This work has been supported by the National Nuclear Security Administration, grant DE-NA002488. We wish to thank the staff of the Idaho Accelerator Center for their assistance in this work. We also wish to acknowledge early contributions to this work by our friend and colleague the late David V. Jordan of the Pacific Northwest National Laboratory. 
 
 %\bibliographystyle{plain}
 \bibliography{./refs.bib}
