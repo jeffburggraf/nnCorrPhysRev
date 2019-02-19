@@ -414,9 +414,9 @@ This is both due to the neutron detection system's non-spherical symmetry and to
 In order to give a result that is sensitive to angular correlations, but is highly insensitive to detector efficiencies and experimental drifts in PMT voltage, accelerator current, \emph{etc}., angular correlation is determined by dividing a correlated neutron distribution by an uncorrelated neutron distribution. That is,
 \begin{equation}
 \label{eq:angularCorr}
-\text{angular correlation }  = \frac{Y_{\text{corr}}(\theta)}{P_{\text{uncorr}}(\theta)},
+\text{angular correlation }  = \frac{nn_{\text{corr}}(\theta)}{nn_{\text{uncorr}}(\theta)},
 \end{equation}
-where $Y_{\text{corr}}(\theta)$ is the n-n yield after the subtraction of accidental n-n events, and $P_{\text{uncorr}}(\theta)$ is a contrived distribution of uncorrelated n-n events, which is produced by pairing neutron events that occurred during different pulses\footnote{To be clear, a neutron event is the detection of a particle with a ToF between of 35 and 130 ns (see Fig.~\ref{fig:ToF}B)}. The subtraction of accidental n-n events to produce $Y_{\text{corr}}(\theta)$ amounts to a 10\% correction, the procedure of which is covered in section~\ref{Reconstruction of Accidental Coincidence}. The construction of $P_{\text{uncorr}}(\theta)$ is described in detail in section~\ref{subsec:SPDPCancelation}.
+where $nn_{\text{corr}}(\theta)$ is the n-n yield after the subtraction of accidental n-n events, and $nn_{\text{uncorr}}(\theta)$ is a contrived distribution of uncorrelated n-n events, which is produced by pairing neutron events that occurred during different pulses\footnote{To be clear, a neutron event is the detection of a particle with a ToF between of 35 and 130 ns (see Fig.~\ref{fig:ToF}B)}. The subtraction of accidental n-n events to produce $nn_{\text{corr}}(\theta)$ amounts to a 10\% correction, the procedure of which is covered in section~\ref{Reconstruction of Accidental Coincidence}. The construction of $nn_{\text{uncorr}}(\theta)$ is described in detail in section~\ref{subsec:SPDPCancelation}.
 
 \subsection{Cancelation of Detector Efficiencies, Drifts, and Geometric Phase Space}
 \label{subsec:SPDPCancelation}
@@ -429,15 +429,15 @@ This distribution is highly influenced by the detection system's geometry and ef
 \label{fig:DetAcceptance}
 \end{figure}
 
-The construction of $P_{\text{uncorr}}(\theta)$ is achieved by examining pulse-pairs under the requirement that both pulses occurred within 0.2 seconds of each other.
+The construction of $nn_{\text{uncorr}}(\theta)$ is achieved by examining pulse-pairs under the requirement that both pulses occurred within 0.2 seconds of each other.
 This requirement is imposed in order to ensure that paired neutron events occurred under the same experimental conditions amid possible drifting of accelerator current and PMT voltages, and varying rates of noise.
 For each pulse-pair that has two neutron events in both pulses, all possible pairs of uncorrelated neutrons are examined (a total of 4 n-n pairs per pulse-pair), and the opening angle of each uncorrelated n-n pair is calculated.
 The reason for only using pulse-pairs in which each pulse has two events is to reduce differences in the energy distribution of correlated and uncorrelated neuron pairs.
 As addressed in section~\ref{sec:n_n_erg_dist}, these differences have little potential to significantly affect the final result.
 
-Figure~\ref{fig:SPDPNormalization}(a) shows the measured yield distribution of correlated neutrons, $Y_{\text{corr}}(\theta)$, from the photofission of $^{238}$U.
+Figure~\ref{fig:SPDPNormalization}(a) shows the measured yield distribution of correlated neutrons, $nn_{\text{corr}}(\theta)$, from the photofission of $^{238}$U.
 The structure seen here is reflective of the underlying n-n angular correlations as well as the geometric acceptance and efficiencies of the neutron detectors.
-Figure~\ref{fig:SPDPNormalization}(b) reveals how a clear picture of n-n angular correlations emerges when taking the ratio between $Y_{\text{corr}}(\theta)$ and $P_{\text{uncorr}}(\theta)$.
+Figure~\ref{fig:SPDPNormalization}(b) reveals how a clear picture of n-n angular correlations emerges when taking the ratio between $nn_{\text{corr}}(\theta)$ and $nn_{\text{uncorr}}(\theta)$.
 \begin{figure}[]
 \centering
     \includegraphics[width=0.45\textwidth]{SPDPNormalization.png}
@@ -477,49 +477,68 @@ The presence of accidental n-n coincidences has the effect of washing out the si
 The raw measurement of n-n yield consists of a mix of correlated and accidental neutron coincidences, that is
 \begin{equation}
 \label{eq:corr_uncorr}
-Y_{\text{raw}}(\theta)= Y_{\text{corr}}(\theta) + Y_{\text{acc}}(\theta) \, ,
+nn_{\text{raw}}(\theta)= nn_{\text{corr}}(\theta) + nn_{\text{acc}}(\theta) \, ,
 \end{equation}
-where $Y_{\text{raw}}(\theta)$ and $Y_{\text{acc}}(\theta)$ are the per-pulse n-n yields as a function of opening angle, $\theta$, for all n-n events, and accidental n-n events, respectively.
+where $nn_{\text{raw}}(\theta)$ and $nn_{\text{acc}}(\theta)$ are the per-pulse n-n yields as a function of opening angle, $\theta$, for all n-n events, and accidental n-n events, respectively.
 
-Because the n-n coincidences comprising $Y_{\text{acc}}(\theta)$ consist of two independent detected neutrons, the same exact relationship exists among pairs of single neutrons that were detected during different pulses.
+Because the n-n coincidences comprising $nn_{\text{acc}}(\theta)$ consist of two independent detected neutrons, the same exact relationship exists among pairs of single neutrons that were detected during different pulses.
 % given that the two different pulses occurred at virtually the same time and thus under the same experimental conditions.
-Therefore, the opening angle distribution formed by pairing neutrons that were detected during different pulses, denoted $P_{\scaleto{DP}{4pt}}(\theta)$, is proportional to $Y_{\text{acc}}(\theta)$.
-In other words,  $P_{\scaleto{DP}{4pt}}(\theta)$ and $Y_{\text{acc}}(\theta)$ have the same shape.
-However, $Y_{\text{acc}}(\theta)$ is not equal to $P_{\scaleto{DP}{4pt}}(\theta)$, because there are, on average, twice as many detected neutrons in a pulse-pair than there are in a single pulse.
-For this reason, as the following analysis shows,~$Y_{\text{acc}}(\theta) = \frac{1}{2}P_{\scaleto{DP}{4pt}}(\theta)$, under the condition that $Y_{\text{acc}}(\theta)$ is normalized to the number of pulses and $P_{\scaleto{DP}{4pt}}(\theta)$ to the number of pulse-pairs looked at.
+Therefore, the opening angle distribution formed by pairing neutrons that were detected during different pulses, denoted $nn_{dp}(\theta)$, is proportional to $nn_{\text{acc}}(\theta)$.
+In other words,  $nn_{dp}(\theta)$ and $nn_{\text{acc}}(\theta)$ have the same shape.
+However, $nn_{\text{acc}}(\theta)$ is not equal to $nn_{dp}(\theta)$, because there are, on average, twice as many detected neutrons in a pulse-pair than there are in a single pulse.
+For this reason, as the following analysis shows,~$nn_{\text{acc}}(\theta) = \frac{1}{2}nn_{dp}(\theta)$, under the condition that $nn_{\text{acc}}(\theta)$ is normalized to the number of pulses and $nn_{dp}(\theta)$ to the number of pulse-pairs looked at.
 
 The statistics of the detected uncorrelated neutrons per pulse is assumed to follow a Poisson distribution, which describes the occurrence of independent random events.
-Let $\lambda$ represent the mean number of uncorrelated detected neutrons per pulse.
-The accidental coincidence rate per pulse integrated over all opening angles, denoted by $\sum_{\theta} Y_{\text{acc}}(\theta)$, is equal to the probability of there being exactly two detected uncorrelated neutrons detected in a single pulse\footnote{Cases of greater than two-fold coincidence are not considered in this analysis, as it is not necessary because of the low detection rates during this work.}:% It can be shown, however, that accounting for any number of coincidences, from zero all the way up to $\infty$-fold coincident events in a pulse or pulse-pair, will give the same answer.}:
+The probability of the detection of $k$ uncorrelated neutrons in a given pulses is
+\begin{equation} \label{math:Pois}
+p(k) = \frac{e^{-\lambda}\lambda^{k}}{k!} \, ,
+\end{equation}
+where $\lambda$ represents the mean number of uncorrelated detected neutrons per pulse.
+In principle, $\lambda$ equals the total number of detected uncorrelated neutrons divided by the total number of pulses.
+Data from the present experiment consists of accelerator pulses resulting in the detection of either zero, one, or two neutrons.
+All detected neutrons from accelerator pulses which yield one detected neutron are counted towards the total number of detected uncorrelated neutrons.
+Accelerator pulses which yield two detected neutrons, however, are counted in one of the following two ways: if the two detected neutrons are uncorrelated, then both neutrons are counted, and, if the two detected neutrons are correlated, then only one is counted because Poissonian statistics can only account for a strictly independent and uncorrelated set of random events.
+%The resulting number of detected neutrons counted is then divided by the total number of pulses to give $\lambda$.
+Such determination of $\lambda$ cannot be done in practice, because one would need to know which pairs of detected neutrons are correlated.
+However, the largest possible value for $\lambda$ is the total number of detected neutrons divided by the total number of pulses, as this quantity counts all detected neutrons, regardless of whether some are correlated.
+For this work, this places an upper bound on $\lambda$ of $5.5\times 10^{-3}$ detected neutrons per pulse, which is small enough to neglect all terms on the order of $\lambda^3$ or greater in the following analysis.
+
+The probability of there being a detected uncorrelated n-n pair is denoted by $P^{\text{n-n}}_{\text{sp}}$ when looking at single pulses, and by $P^{\text{n-n}}_{\text{dp}}$ when looking at pulse-pairs.
+As explained above, the set of all detected uncorrelated n-n pairs from the same pulse--from which $nn_{\text{acc}}(\theta)$ is derived--and the set of all detected uncorrelated n-n pairs from different-pulse pairs--from which $nn_{dp}(\theta)$ is derived--are governed by the exact same physics and are subject to the exact same experimental conditions.
+The only difference between $nn_{dp}(\theta)$ and $nn_{\text{acc}}(\theta)$ is statistical, in that detected n-n pairs occur twice as frequently in $nn_{dp}(\theta)$ than in $nn_{\text{acc}}(\theta)$.
+Thus, all that remains to be shown is that  $P^{\text{n-n}}_{\text{sp}} = \frac{1}{2} P^{\text{n-n}}_{\text{dp}}$
+
+Because $P^{\text{n-n}}_{\text{sp}}$ represents the probability of the detection of two uncorrelated neutrons in a single pulse, $P^{\text{n-n}}_{\text{sp}}$ is equal to $p(2)$.
+Using Eq.~\ref{math:Pois},
+%The accidental coincidence rate per pulse integrated over all opening angles, denoted by $\sum_{\theta} nn_{\text{acc}}(\theta)$, is equal to the probability of there being exactly two detected uncorrelated neutrons detected in a single pulse
+%\footnote{Cases of greater than two-fold coincidence are not considered in this analysis, as it is not necessary because of the low detection rates during this work.}:% It can be shown, however, that accounting for any number of coincidences, from zero all the way up to $\infty$-fold coincident events in a pulse or pulse-pair, will give the same answer.}:
 \begin{equation} \label{math:SP}
     \begin{split}
-    \sum_{\theta}Y_{\text{acc}}(\theta) & = \frac{e^{-\lambda}\lambda^{2}}{2!} \\
+    P^{\text{n-n}}_{\text{sp}} & = \frac{e^{-\lambda}\lambda^{2}}{2!} \\
         &\approx \frac{\lambda^2}{{2}} + \mathcal{O}(\lambda^3) \, .
     \end{split}
 \end{equation}
-To determine the value of $\lambda$, one would need the ability to determine which events are correlated, as $\lambda$ quantifies the per-pulse rate of uncorrelated, independent detected neutrons.
-Such information is not known, but the largest possible value for $\lambda$ is the mean number of detected neutrons per pulse, as this assumes that all neutrons are uncorrelated.
-For this work, this places an upper bound on $\lambda^2$ of $3\times 10^{-5}$, which is small enough to neglect all terms on the order of $\lambda^3$ or greater.
 
-For the case of different-pulse pairs, a n-n coincidence is said to occur when there is a detected neutron in both pulses.
-In this case, the total per-pulse-pair n-n coincidence rate is the square of the probability of there being one detected neutron in a single pulse, since a pulse-pair n-n coincidence consists of two detected neutrons, one in each pulse.
-Cases in which there are two or more detected neutrons in a given pulse can be neglected.
-The total per-pulse-pair coincidence rate, $\sum_{\theta} P_{\scaleto{DP}{4pt}}(\theta)$, is given by 
+For the case of $P^{\text{n-n}}_{\text{dp}}$, an uncorrelated n-n pair occurs when there is a detected neutron in both pulses.
+Because terms on the order of $\lambda^{3}$ are being neglected, pulse-pairs in which one or both of the pulses in the pair comprise two or more detected neutrons are not considered. 
+Thus, $P^{\text{n-n}}_{\text{dp}}$ is equal to the probability of there being exactly one detected neutron in each pulse, which is the square of the probability of there being exactly one detected neutron in a single pulse, namely, $p(1)^2$. %in Eq.~\ref{math:SP}.
+Thus, again using Eq.~\ref{math:Pois},
 \begin{equation} \label{math:DP}
     \begin{split}
-   \sum_{\theta} P_{\scaleto{DP}{4pt}}(\theta)&= \left(e^{-\lambda}\lambda\right)^{2} \\
+  P^{\text{n-n}}_{\text{dp}}&= \left(e^{-\lambda}\lambda\right)^{2} \\
     &\approx \lambda^2 + \mathcal{O}(\lambda^3) \, .
     \end{split}
 \end{equation}
-For the reasons explained above, $P_{\scaleto{DP}{4pt}}(\theta)$ and $Y_{\text{acc}}(\theta)$ have the same shape, thus, from Eq.'s (\ref{math:DP}) and (\ref{math:SP}) it follows that 
+
+Because $P^{\text{n-n}}_{\text{dp}}$ and $P^{\text{n-n}}_{\text{sp}}$ determine the relative amplitudes of $nn_{dp}(\theta)$ and $nn_{\text{acc}}(\theta)$, respectively, and because the two distributions have the same shape, from Eq.'s (\ref{math:DP}) and (\ref{math:SP}), it follows that
 \begin{equation}
 \label{eq:uncorr_DP}
-Y_{\text{acc}}(\theta) = \frac{1}{2}P_{\scaleto{DP}{4pt}}(\theta) \,.
+nn_{\text{acc}}(\theta) = \frac{1}{2}nn_{dp}(\theta) \,.
 \end{equation}
-Finally, the distribution of solely correlated n-n events is recovered as follows
+Finally, from Eq.'s ~\ref{eq:uncorr_DP} and~\ref{eq:corr_uncorr}, the distribution of solely correlated n-n pairs can be recovered from the raw measurement as follows
 \begin{equation}
-\label{eq:uncorr_DP}
-Y_{\text{corr}}(\theta) = Y_{\text{raw}}(\theta) - \frac{1}{2}P_{\scaleto{DP}{4pt}}(\theta) \,.
+\label{math:acc_final}
+nn_{\text{corr}}(\theta) = nn_{\text{raw}}(\theta) - \frac{1}{2}nn_{dp}(\theta) \,.
 \end{equation}
 
 \section{Potential sources of error}
