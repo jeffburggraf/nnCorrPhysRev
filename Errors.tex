@@ -33,7 +33,7 @@ Comparison of the calculated angular correlation results, with and without such 
 \subsection{Detector Cross-talk}
 \label{crosstalk}
 \textit{Cross-talk} occurs when, after a particle is detected once, the same particle, by any means, causes a detection to be registered in a different detector.
-For example, upon detection, a particle may undergo elastic scattering and then travel into a another detector where it is detected again, or, it may produce secondary particles that are detected.
+For example, upon detection, a particle may undergo elastic scattering and then travel into another detector where it is detected again, or, it may produce secondary particles that are detected.
 The two coincident detections of a cross-talk event are causally correlated, and thus they have the potential to contaminate the signal from correlated fission neutrons.
 If both detections occur during the ToF range typical for fission neutrons, then the cross-talk event cannot be distinguished from the detection of two correlated neutrons.
 
@@ -53,12 +53,12 @@ In order to support the claim that the design of the neutron detection system re
 
 \subsubsection{Simulation of Detector Cross-talk}
 The cross-talk simulation included all scintillators, shielding, detector supporting structures, and the concrete walls surrounding the experimental cell.
-MCNP-PoliMi's built-in $^{252}$Cf spontaneous fission source was used, which emits neutrons with the correct correlations and multiplicities.
+MCNP-PoliMi's built-in $^{252}$Cf spontaneous fission source was used, which emits neutrons with the correct correlations and multiplicities according to previous measurements.
 Detector response was modeled using a program included with the MCNP-PoliMi distribution called MPPost~\cite{MPPost}.
 The model is based on the electron equivalent light output (MeVee) produced by particles as they undergo collisions with carbon and hydrogen within organic plastic scintillators.
 A minimum deposited energy of 0.4 MeV (equivalent to 0.05 MeVee for neutrons) was assumed for detectable particles, which was chosen because the neutron detection system exhibited a sharp decline in detection efficiency for neutrons below 0.4 MeV.
 
-For neutron collisions with hydrogen, the light output in MeVee, denoted $L$, is calculated by the following empirically derived formula
+For neutron collisions with hydrogen, the light output in MeVee, denoted $L$, is calculated by the following empirically derived formula~\cite{MPPost}
 \begin{displaymath}
 L = 0.0364 \Delta E_n^2 +  0.125 \Delta E_n \, ,
 \end{displaymath}
@@ -71,14 +71,17 @@ As seen in Fig.~\ref{fig:Cf252MCNPVsEXP}, this model of the detection process pr
 \begin{figure}
     \centering
     \includegraphics[width = \figsize\textwidth]{Cf252MCNPVsEXP.png}
-    \caption{Measured \emph{versus} simulated ToF spectrum from the SF of $^{252}$Cf.
-        The simulation used the detector response model outlined in ref~\cite{MPPost}}
+    \caption{
+    Measured \emph{versus} simulated ToF spectrum from the SF of $^{252}$Cf.
+    The simulation used the detector response model outlined in ref~\cite{MPPost}.
+    The simulated and measured curves are normalized in order to facilitate comparison.
+    }
     \label{fig:Cf252MCNPVsEXP}
-\end{figure}
+\end{figure} % todo: line numbers 
 
 Figure~\ref{fig:CrosstalkVScoincidence} shows the distribution of cross-talk events and true n-n coincidences as a function of reconstructed opening angle.
 It is worth noting that, according to this simulation, the effect of cross-talk is not only small, but is also distributed over a wide range of angles rather than being concentrated around 0 degrees as one might expect.
-Angles greater than 125 degrees are not shown in Fig.~\ref{fig:CrosstalkVScoincidence} because cross-talk events at large angles can be readily identified in analysis due to the large amount of time required for a neutron to travel the these distances.
+Angles greater than 125 degrees are not shown in Fig.~\ref{fig:CrosstalkVScoincidence} because cross-talk events at large angles can be readily identified in analysis due to the large amount of time required for a neutron to travel these distances.
 The simulation was initially performed with 5 cm of lead shielding placed behind the scintillators, and the number of cross-talk events accounted for 11\% of the total coincident neutron events.
 This value fell to 3\% when polyethylene was used instead of lead, motivating the placement of 10~cm of polyethylene behind the detectors instead of lead.
 \begin{figure}
@@ -87,7 +90,8 @@ This value fell to 3\% when polyethylene was used instead of lead, motivating th
     \caption{
     MCNP-PoLiMi simulation of the number of cross-talk events \emph{versus} correlated n-n events as a function of reconstructed opening angle.
     Cross-talk accounted for 3\% of total events.
-    Simulated cross-talk events do not occur primarily at small angles, but is instead spread out over a wide range of angles.
+    Simulated cross-talk events do not occur primarily at small angles, but are instead spread out over a wide range of angles.
+    Any cross-talk occurring at angles larger than 125$^{\circ}$ will be removed from the experimental data by the cuts applied to neutron ToF.
     }
     \label{fig:CrosstalkVScoincidence}
 \end{figure}
