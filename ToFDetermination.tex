@@ -1,0 +1,55 @@
+\subsection{Particle Time of Flight and Energy Determination}
+\label{ToF_reconstruction}
+The ToF of detected particles is used to distinguish between neutrons and photons and to determine neutron energy.
+A particle's reconstructed position is used to determine direction of motion, which is then used to calculate the opening angle between pairs of detected particles.
+Position and ToF are each determined using the timing of coincident signals from both PMTs of a detector.
+
+The sum of the times required for scintillation light to travel from the point of scintillation to both PMTs is equal to the time required for the light to travel the full length of the scintillator, which is a constant for light that travels parallel to the length of the scintillator.
+This is supported by data, shown in Fig.~\ref{fig:ConstPMTAvg}, which were produced from a series of tests in which a collimated $^{60}$Co source was placed at seven different locations along a scintillator.
+One of the two coincident photons emitted by $^{60}$Co reaches the scintillator and the other is detected by an auxiliary detector serving as the trigger. 
+The photons incident on the scintillator have a spot size of less than 1~cm due to source collimation.
+These events all have equal transit time, regardless of the $^{60}$Co source's position. %because the coincident photons are emitted simultaneously and the distance they must travel is unchanged. 
+
+In Figure~\ref{fig:ConstPMTAvg}(a), it can be seen that the time required for the scintillation light to propagate through the scintillator has a large effect on the timing of each PMT alone, however, the average of the times of both PMTs is a constant, unaffected by the location at which the particle undergoes scintillation.
+For this reason, taking the average of signals from two PMTs is advantageous because it removes the roughly 5~ns timing error that would otherwise exist due to the time required for scintillation light to propagate through the scintillator.
+The requirement that there be coincident events in both of a detector's PMTs also aids in reducing noise.
+\begin{figure}[h]
+\centering
+\subfloat[]{\hspace{-0.5cm}\includegraphics[width=\figsmall\textwidth]{ConstPMTAvg.png}}
+
+\subfloat[]{\includegraphics[width=\figsmall\textwidth]{ConstPMTAvgProject.png}}
+\caption{A collimated $^{60}$Co source is used to produce photon events with constant ToF at seven locations along the detector.
+$^{60}$Co produces coincident photons, and one is detected by the scintillator and the other by a separate trigger detector.
+ $\Delta t$ is the timing of a PMT signal relative to a signal from the trigger detector. 
+ In (a), it can be seen that the average between signals from both PMTs does not depend on position.
+By using the PMT average, there is a reduction in error due to the time required for scintillation light to travel through the scintillator.
+The uncertainty in ToF measurements is equal to the standard deviation seen in (b), or about $\pm$2~ns, because all photons from the $^{60}$Co source have the same ToF.}
+\label{fig:ConstPMTAvg}
+\end{figure}
+
+During photofission measurements, ToF is calculated by the following expression:
+\begin{equation}
+\label{eq:ToF}
+\text{ToF} = t^{PMTs}_{\text{avg}} - t_{\text{beam}} + C \, ,
+\end{equation}
+where $t^{PMTs}_{\text{avg}}$ is the average of the times of signals from both PMTs of a scintillator, $t_{\text{beam}}$ is the time of a signal provided by the accelerator at the beginning of each pulse, and $C$ is a constant timing offset.
+Any process that produces a timing delay that does not change from pulse to pulse contributes to $C$.
+For example, the time required for photons to travel from the bremsstrahlung radiator to the target, the propagation of signals through the cables connecting the PMTs, delays in the electronics, {\em{etc}}.
+
+The value of $C$, which may be different for each detector, is determined by comparing the timing spectra of the gamma flash produced by a non-neutron producing aluminum target, to that produced when no target is used.
+The difference between these two spectra reveals a prominent peak in the ToF spectrum due to photons that scatter from the aluminum target.
+These photons must travel 125~cm to reach the center of any detector and 130~cm to reach the top, for which it takes light 4.2~ns and 4.3~ns to travel, respectively.
+The value of $C$ used for each detector is equal to the value that places the time corresponding to the peak of the target-induced gamma flash at 4~ns.
+
+Under the assumption that the neutrons are non-relativistic and travel directly from the target to the detectors unimpeded, the calculation of neutron energy from ToF is straightforward.
+The assumption that neutrons predominantly travel to the detectors unimpeded was validated by MCNP simulations examining the scattering of fission neutrons within the fission target and detector shielding. These simulations are discussed in sections~\ref{subsection:targets} and \ref{subsection:detectors}.
+
+%Figure~\ref{fig:ErgUncertainty}(a) shows the relationship between neutron energy and ToF, and Figure~\ref{fig:ErgUncertainty}(b) shows the measurement uncertainty in neutron energy.
+%\begin{figure}[]
+ %   \subfloat[]{\includegraphics[width=0.45\textwidth]{ToF2Erg.png}}
+ %   
+   % \subfloat[]{\includegraphics[width=0.45\textwidth]{DeltaErg.png}}
+    %\caption{(a) Mapping from ToF to neutron energy: $E = \frac{8127}{ToF^{2}}$.
+    %(b) Uncertainty in neutron energy measurements as a function of measured neutron energy.}
+    %\label{fig:ErgUncertainty}
+%\end{figure}

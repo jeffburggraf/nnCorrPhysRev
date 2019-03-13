@@ -1,4 +1,4 @@
-\subsection{Correlated \emph{versus} uncorrelated n-n energy distribution} 
+\mysubsection{Correlated versus uncorrelated n-n energy distribution}
 \label{sec:n_n_erg_dist}
 In order to effectively minimize the dependence of the result on detector geometry/efficiency, the numerator and denominator of Eq.~\ref{eq:angularCorr} must comprise neutron pairs with a similar energy distribution.
 Note that accidental coincident neutrons from $(\gamma,n)$ are completely removed from $nn_{\text{corr}}(\theta)$, the numerator in Eq.~\ref{eq:angularCorr}, by the subtraction of accidental coincidences, but are not removed from the denominator, $nn_{\text{uncorr}}(\theta)$.
@@ -7,7 +7,7 @@ Doing so increases the selection of neutrons from fission as opposed to $(\gamma
 %accidental coincidence neutrons from fission and $(\gamma,n)$ have different energy distributions, and 
 
 When examining differences between the neutron energy distributions in $nn_{\text{corr}}(\theta)$ and $nn_{\text{uncorr}}(\theta)$, it is important to consider how the energies of both neutrons forming n-n pairs vary together, or, in other words, their joint energy distribution.
-Fig.~\ref{fig:ErgDiffLego} shows the ratio between the rates for correlated and uncorrelated n-n pairs of various binned energies.
+Figure~\ref{fig:ErgDiffLego} shows the ratio between the rates for correlated and uncorrelated n-n pairs of various binned energies.
 The effect that these discrepancies in energy distribution have on the final result can be examined by applying a weighting factor to each event in $nn_{\text{uncorr}}(\theta)$ such that a recalculation of the result in Fig.~\ref{fig:ErgDiffLego} produces a flat curve.
 A comparison of the determined angular correlation with and without the application of these weighting factors to all uncorrelated n-n events is seen in Fig.~\ref{fig:WeightedErgDiff}.
 The resulting differences in angular correlation are negligible.
@@ -30,7 +30,7 @@ Comparison of the calculated angular correlation results, with and without such 
     \label{fig:WeightedErgDiff}
 \end{figure}
 
-\subsection{Detector Cross-talk}
+\mysubsection{Detector Cross-talk}
 \label{crosstalk}
 \textit{Cross-talk} occurs when, after a particle is detected once, the same particle, by any means, causes a detection to be registered in a different detector.
 For example, upon detection, a particle may undergo elastic scattering and then travel into another detector where it is detected again, or, it may produce secondary particles that are detected.
@@ -42,7 +42,7 @@ In this work, the issue of cross-talk is approached differently by employing the
 By using shielding to reduce cross-talk, this measurement is less dependent on the details of the models used by MCNP-PoLiMi to simulate neutron transport and detection.
 MCNP-PoLiMi simulations are used in this work only to verify that the effect of cross-talk is negligible.
 
-The scintillators used here are much larger than those used in similar works, such as in refs~\cite{Pozzi2016,Verbeke2018}, allowing them to be placed much farther from the fission source without causing a ruinous loss in coincidence rates. 
+The scintillators used here are much larger than those used in similar works, such as in Refs.~\cite{Pozzi2016,Verbeke2018}, allowing them to be placed much farther from the fission source without causing a detrimental loss in coincidence rates. 
 An increase in the distance between the detectors and the fission source makes this measurement less sensitive to angular uncertainty, which depends directly on the uncertainty in the position of a detected particle due to, for example, the scattering of neutrons from detector shielding.
 For this reason, larger amounts of shielding can be used without concern of introducing large errors.
  
@@ -51,11 +51,11 @@ For this reason, upon being detected, a neutron must scatter from one or more in
 This fact follows from the conservation of energy and momentum.
 In order to support the claim that the design of the neutron detection system reduced cross-talk to negligible rates, a detailed MCNP-PoliMi~\cite{MCNP_POLIMI} simulation was performed in which a built-in $^{252}$Cf source is positioned at the center of a model of the neutron detection system.
 
-\subsubsection{Simulation of Detector Cross-talk}
+\mysubsubsection{Simulation of Detector Cross-talk}
 The cross-talk simulation included all scintillators, shielding, detector supporting structures, and the concrete walls surrounding the experimental cell.
 MCNP-PoliMi's built-in $^{252}$Cf spontaneous fission source was used, which emits neutrons with the correct correlations and multiplicities according to previous measurements.
 Detector response was modeled using a program included with the MCNP-PoliMi distribution called MPPost~\cite{MPPost}.
-The model is based on the electron equivalent light output (MeVee) produced by particles as they undergo collisions with carbon and hydrogen within organic plastic scintillators.
+The model is based on the MeV electron equivalent (MeVee) light output produced by particles as they undergo collisions with carbon and hydrogen within organic plastic scintillators.
 A minimum deposited energy of 0.4 MeV (equivalent to 0.05 MeVee for neutrons) was assumed for detectable particles, which was chosen because the neutron detection system exhibited a sharp decline in detection efficiency for neutrons below 0.4 MeV.
 
 For neutron collisions with hydrogen, the light output in MeVee, denoted $L$, is calculated by the following empirically derived formula~\cite{MPPost}
@@ -72,7 +72,7 @@ As seen in Fig.~\ref{fig:Cf252MCNPVsEXP}, this model of the detection process pr
     \centering
     \includegraphics[width = \figsize\textwidth]{Cf252MCNPVsEXP.png}
     \caption{
-    Measured \emph{versus} simulated ToF spectrum from the SF of $^{252}$Cf.
+    Measured versus simulated ToF spectrum from the SF of $^{252}$Cf.
     The simulation used the detector response model outlined in ref~\cite{MPPost}.
     The simulated and measured curves are normalized in order to facilitate comparison.
     }
@@ -88,7 +88,7 @@ This value fell to 3\% when polyethylene was used instead of lead, motivating th
     \centering
     \includegraphics[width = \figsize\textwidth]{CrosstalkVScoincidence.png}
     \caption{
-    MCNP-PoLiMi simulation of the number of cross-talk events \emph{versus} correlated n-n events as a function of reconstructed opening angle.
+    MCNP-PoLiMi simulation of the number of cross-talk events versus correlated n-n events as a function of reconstructed opening angle.
     Cross-talk accounted for 3\% of total events.
     Simulated cross-talk events do not occur primarily at small angles, but are instead spread out over a wide range of angles.
     Any cross-talk occurring at angles larger than 125$^{\circ}$ will be removed from the experimental data by the cuts applied to neutron ToF.
