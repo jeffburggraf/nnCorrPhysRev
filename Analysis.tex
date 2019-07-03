@@ -1,7 +1,7 @@
 
 The efficiency and acceptance of the neutron detection system varies greatly over its opening angle range of 20$^{\circ}$ to 180$^{\circ}$, as illustrated in Fig.~\ref{fig:DetAcceptance}.
 This is both due to the neutron detection system's non-spherical symmetry and to varying efficiency as a function of particle position on the detector.
-In order to give a result that is sensitive to angular correlations, but is highly insensitive to detector efficiencies and experimental drifts in PMT voltage, accelerator current, \emph{etc}., angular correlation is determined by dividing a correlated neutron distribution by an uncorrelated neutron distribution. That is,
+In order to give a result that is sensitive to angular correlations, but is highly insensitive to detector efficiencies and experimental drifts in PMT voltage, accelerator current, \emph{etc}., the angular correlation is determined by dividing a correlated neutron distribution by an uncorrelated neutron distribution. That is,
 \begin{equation}
 \label{eq:angularCorr}
 \text{angular correlation }  = \frac{nn_{\text{corr}}(\theta)}{nn_{\text{uncorr}}(\theta)},
@@ -16,7 +16,7 @@ The subtraction of accidental n-n coincidences to produce $nn_{\text{corr}}(\the
 \begin{figure}[h]
 \includegraphics[width=\figsize\textwidth]{./DetAcceptance.png}
 \caption{Raw n-n opening angle yield from the photofission of $^{238}$U. 
-This distribution is highly influenced by the detection system's geometry and efficiency.
+This distribution is highly influenced by the detection system's geometric acceptance and efficiency.
 }
 \label{fig:DetAcceptance}
 \end{figure}
@@ -43,7 +43,7 @@ Figure~\ref{fig:SPDPNormalization}(b) reveals how a clear picture of n-n angular
 \begin{figure}[]
 \centering
     \includegraphics[width=\figsmall\textwidth]{SPDPNormalization.png}
-    \caption{(a) n-n opening angle distribution from the photofission of $^{238}$U before normalization, and, (b) after normalizing to the distribution of uncorrelated n-n events from different pulses.
+    \caption{ n-n opening angle distribution from the photofission of $^{238}$U before the normalization procedure seen in Eq.~\ref{eq:angularCorr} (a), and after normalization (b).
     All measured neutrons have an energy greater than 0.4 MeV.}
     \label{fig:SPDPNormalization}
 \end{figure}
@@ -54,7 +54,8 @@ Figure~\ref{fig:SPDPNormalization}(b) reveals how a clear picture of n-n angular
 The observation of two uncorrelated signals in the neutron ToF range, whether caused by neutrons, photons, or noise, is referred to as an \emph{accidental coincidence}.
 %A small number of accidental coincidences are due to photons because the smeared gamma flash slightly overlaps with neutron ToF range.
 Accidental coincidences due to noise and photons, which are estimated using a non-neutron producing aluminum target (see Fig.~\ref{fig:Noise}), amount to about 3\% of all coincidences.
-Accidental coincidences due to neutrons are minimized by adjusting the accelerator's current so that there are, on average, less than 1.0 fission per accelerator pulse, nevertheless, statistical fluctuations in the number of fissions per pulse result in the production of accidental coincident neutrons that originated from different, and therefore, uncorrelated fissions.
+Accidental coincidences due to neutrons are minimized by adjusting the accelerator's current so that there are, on average, less than 1.0 fissions per accelerator pulse.
+Nevertheless, statistical fluctuations in the number of fissions per pulse result in the production of accidental coincident neutrons that originated from different, and therefore, uncorrelated fissions.
 There are also accidental neutron coincidences caused by the occurrence of multiple $(\gamma, n)$ reactions in a single pulse.
 The energy integrated $(\gamma, n)$ cross-section of $^{238}$U, weighted by the bremsstrahlung energy distribution, is about a factor of 5.5 times greater than it is for photofission (see Fig.~\ref{fig:CrossSection}).
 As a result, the raw n-n coincident yield will contain a significant number of n-n coincidences from multiple $(\gamma, n)$ reactions in relation to n-n coincidences from fission.
@@ -62,7 +63,7 @@ The presence of accidental n-n coincidences has the effect of washing out the si
 \begin{figure}[]
 \centering
     \includegraphics[width=\figsize\textwidth]{Noise.png}
-    \caption{An Al target was designed to scatter the same number of photons as the $^{238}$U target, thus serving as an equivalent non-neutron producing target well-suited for noise estimates.
+    \caption{An Al target was designed have the same thickness, in radiation lengths, as the $^{238}$U target, thus serving as an equivalent non-neutron producing target well-suited for noise estimates.
     The rate of the detection of coincident events in the neutron ToF range while using the Al target was 3\% that of the $^{238}$U target.
     Thus, 3\% of coincident events used in the determination of n-n angular correlations in $^{238}$U can be attributed to noise.
         }
@@ -72,8 +73,11 @@ The presence of accidental n-n coincidences has the effect of washing out the si
 \centering
     \includegraphics[width=\figsize\textwidth]{CrossSections.png}
     \caption{(top) ENDF cross-sections of $(\gamma$,fiss), direct $(\gamma$,n), and direct $(\gamma$,2n).
-    (bottom) Cross-sections weighted by the simulated relative rate of bremsstrahlung photons that reach the target as a function of photon energy. The integrated cross-sections of $(\gamma, n)$ is 5.5 times greater than for $(\gamma, \text{fiss})$. }
-    \label{fig:CrossSection}
+    (bottom) Cross-sections weighted by the simulated relative rate of bremsstrahlung photons that reach the target as a function of photon energy. 
+    The integrated cross-sections of $(\gamma, n)$ is 5.5 times greater than for $(\gamma, \text{fiss})$. 
+    Assuming a $\overline{\nu}$ of 2 neutrons/fission, the bremsstrahlung beam produces about 2.7 times more neutrons via $(\gamma$,n) than $(\gamma$,fiss) within the target.
+        \label{fig:CrossSection}
+        }
 \end{figure}
 
 The raw measurement of n-n yield consists of a mix of correlated and accidental neutron coincidences, that is
@@ -88,7 +92,7 @@ Because the n-n coincidences comprising $nn_{\text{acc}}(\theta_{nn})$ consist o
 Therefore, the opening angle distribution formed by pairing neutrons that were detected during different pulses, denoted $nn_{dp}(\theta_{nn})$, is proportional to $nn_{\text{acc}}(\theta_{nn})$.
 $nn_{dp}(\theta_{nn})$ is constructed from the set of all possible pulse-pairs formed by pulses that occurred within 0.2 seconds of each other.
 The restriction in time difference is applied in order to increase the chance that pulse pairs together occurred under similar experimental conditions.
-There are no other restrictions on which pulses can be used in this case
+There are no other restrictions on which pulses can be used in this case.
 Thus, many pulse-pairs used for the construction of $nn_{dp}(\theta_{nn})$ will contain no detected neutrons.
 % This is different than the construction of $nn_{\text{uncorr}}(\theta_{nn})$, which only used pulse-pairs in which there was an n-n coincidence in both pulses.
 

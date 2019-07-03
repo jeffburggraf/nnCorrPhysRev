@@ -22,6 +22,7 @@
 \makeatother
 %\usepackage{calc}
 
+
 \usepackage{placeins}
 \usepackage{rotating}
 \usepackage{setspace}
@@ -53,6 +54,8 @@
 \def\FigCfToF{\figsmall}
 \def\FigBremDistSize{\figsmall}
 \def\FigWiringDiagramSize{\figsmall}
+\def\Angle{90}
+\def\WireAngle{0}
 
 \newcommand{\figFacilityBarrier}{}
 \newcommand{\figWiringDiagramBarrier}{}
@@ -60,7 +63,9 @@
 
 \newcommand{\mysubsection}{\subsection}
 \newcommand{\mysubsubsection}{\subsubsection}
+\def\onlyThesis{}
 
+\bibliographystyle{unsrt}
 %\usepackage[switch]{lineno} % default option is 'left'
 %\setlength\columnsep{25pt}
 
@@ -70,10 +75,11 @@
 
 \usepackage{lineno}
 
-\bibliographystyle{unsrtnat}
+%\bibliographystyle{unsrtnat}
 
 \usepackage{subfig}
 \graphicspath{{/Users/jeffreyburggraf/PycharmProjects/nnCorrPhysRev/figs/}}
+
 \begin{document}
 \preprint{APS/123-QED}
 
@@ -113,7 +119,7 @@ Neutron-neutron angular correlations are determined by taking the ratio between 
         \item[Results] The angular correlation of neutrons from the photofission of $^{238}$U shows a high dependence on neutron energy as well as a dependence on the angle of the emitted neutrons with respect to the incoming photon beam.
         Angular correlations were also measured using neutrons from the spontaneous fission of $^{252}$Cf, showing good agreement with past measurements.
         \item[Conclusions] The measured angular correlations reflect the underlying back-to-back nature of the fission fragments.
-        An anomalous decline in n-n yield was observed for opening angles near 180$^{\circ}$. % the cause of which is unclear? 
+        An anomalous decline in n-n yield was observed for opening angles near 180$^{\circ}$ for $^{238}$U. % the cause of which is unclear? 
     \end{description}
 %\begin{description}
 %\item[PACS numbers]

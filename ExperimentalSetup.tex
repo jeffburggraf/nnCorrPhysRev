@@ -3,10 +3,11 @@ See section~\ref{beam} for the accelerator parameters used during the experiment
 Figure~\ref{fig:Facility} shows a top-down diagram of the experimental arrangement.
 
 \begin{figure}[h]
-\includegraphics[width=\FigFacilitySize\textwidth, angle=90]{ExpArangment.jpg}
+\includegraphics[width=\FigFacilitySize\textwidth, angle=\Angle]{ExpArangment.jpg}
 \caption{To-scale, top down diagram of the experimental setup.
 An electron beam impinges upon a 3.8 cm thick Al radiator, and the resulting bremsstrahlung beam enters the experimental cell from the top.
 The supporting structure for each detector has been labeled according to the angle, in degrees, between the center of each detector and direction of the incoming photon beam.
+The fission target, a 0.05$\times$2$\times$4 cm$^3$ $^{238}$U cuboid, is rotated slowly about the vertical axis in order to mimic the effect of using a cylindrical target.
 }
 \label{fig:Facility}
 \end{figure}
@@ -25,7 +26,7 @@ In order to increase the chance that scintillation light remains inside the scin
 \begin{figure}[]
     \centering
     \includegraphics[width = \figsize\textwidth]{Detectors.png}
-    \caption{3-D render of the bare, unshielded scintillators, along with PMTs and light guides.
+    \caption{3-D rendering of the bare, unshielded scintillators, along with PMTs and light guides.
     Most of the open space between the scintillators was occupied by shielding, as seen in Fig.~\ref{fig:Facility}.}
     \label{fig:DetGeom}
 \end{figure}
@@ -34,19 +35,22 @@ Ten out of the fourteen scintillators had dimensions of 76.2$\times$15.2$\times$
 The remaining four, the forward-most detectors located at $\pm$ 30$^{\circ}$ with respect to the beam, had dimensions of 25.4$\times$15.2$\times$3.8 cm$^3$.
 These scintillators, 1/3 the length of the rest, are the result of the segmentation of two normally sized scintillators in order to address the high photon flux at these locations caused by the forward scattering of photons from the target.
 Prior to segmentation, a photon was registered in the forward-most detectors at a rate of about 0.9 photons per pulse, and because the electronics were operated in single hit mode (see section~\ref{sec:electronics}), this greatly reduced the effective neutron detection efficiency.
-After segmentation and optimization of shielding, the photon detection rate was about 0.2 photons per pulse in each segmented detector.
+After segmentation and optimization of shielding, the photon detection rate was about 0.2 photons per pulse in each segmented detector.\onlyThesis
 The segmented detectors also differ from the rest in that they were instrumented with only a single PMT, and therefore provide a comparatively lower precision in energy and position measurements.
 In order to test for systematic errors that may have resulted from the use of the segmented detectors, opening angle measurements were compared with and without their use, and the differences were well within experimental errors.
 
 The relative efficiencies of the neutron detectors as a function of neutron energy were calculated by dividing measured and known yields from the SF of $^{252}$Cf taken from MCNP.
-The results are shown in Fig.~\ref{fig:RelErgEfficiency}, which is produced from the aggregate of events in all detectors.
+The results are shown in Fig.~\ref{fig:RelErgEfficiency}.
+
 See section~\ref{Analysis} for a discussion of how the effects of detector efficiency are accounted for in this work.
 \begin{figure}[]
     \centering
     \includegraphics[width = \figsize\textwidth]{RelErgEfficiency.png}
-    \caption{The overall relative efficiency of the neutron detection system as a function of neutron energy is calculated by dividing the measured energy distribution by the theoretical energy distribution of neutrons from the SF of $^{252}$Cf.
-   The fit function is empirical.
-    }
+    \vspace{10cm}
+
+     \includegraphics[width = \figsize\textwidth]{RelPosEfficiency.png}
+     
+       \caption{(top) The mean relative neutron detection efficiency of all detectors as a function of neutron energy is calculated by dividing the measured energy distribution by the known energy distribution of neutrons from the SF of $^{252}$Cf. The relative efficiency differs from detector to detector, as demonstrated by the shaded region corresponding to the standard deviation of the relative efficiencies. The error bars represent the uncertainty in the mean. (bot) Mean relative neutron detection efficiency as a function of the reconstructed position along the detectors longest axis. }
     \label{fig:RelErgEfficiency}
 \end{figure}
 
@@ -77,10 +81,10 @@ The differences in shielding design among the detectors can be seen in Fig~\ref{
 
 \subsection{Bremsstrahlung Photon Beam}
 \label{beam}
-In order to ensure that all correlated neutrons produced are due to fission, the bremsstrahlung end-point was set to 10.5~MeV, safely below the ($\gamma, 2n$) threshold of 11.28~MeV for $^{238}$U.
+In order to ensure that all correlated neutrons produced are due to fission, the bremsstrahlung end-point energy was set to 10.5~MeV, safely below the ($\gamma, 2n$) threshold of 11.28~MeV for $^{238}$U.
 Aluminum was chosen for the bremsstrahlung radiator because it has a neutron knockout threshold above the energy of the electron beam, which ensured that the radiator would not be a source of fast neutrons with the potential to interfere with the experiment.
-Downstream from the bremsstrahlung radiator is a sweeping magnet that removes charged particles from the photon beam.
-Next, the beam traveled through a series of polyethylene and lead collimators on its way into the experimental cell in which the target was located (see Fig.~\ref{fig:Facility}).
+A sweeping magnet was placed downstream from the bremsstrahlung radiator to remove charged particles from the photon beam.
+Following the sweeping magnet, the beam traveled through a series of polyethylene and lead collimators on its way into the experimental cell in which the target was located (see Fig.~\ref{fig:Facility}).
 Figure~\ref{fig:BremDist} shows the energy distribution of photons that reach the target according to an MCNP simulation that modeled the collimation and production of the bremsstrahlung photons.
 
 The electron beam pulse width was set to 3~ns at a repetition rate of 240~Hz with a 1.1~A peak current.
@@ -108,13 +112,14 @@ The 3~ns pulse width was small compared to the median neutron ToF of 80~ns, and 
 A depleted uranium (DU) target in the shape of a thin strip with dimensions of 4$\times$2$\times$0.05 $\text{cm}^3$ was used as the primary target.
 $^{238}$U was chosen as the fission target because it is an even-even nucleus, and as a consequence, the fission fragments are emitted with a high degree of anisotropy with respect to the photon beam direction~\cite{1977FragAss}.
 
-Any target comprised of heavy nuclei has a significant potential to scatter fission neutrons before they exit the target, which is a cause for concern, because neutrons that scatter from heavy nuclei are likely to be deflected at large angles, resulting in the measurement of $\theta_{nn}$'s unconnected to the underlying fission kinematics.
-The rate of $\theta_{nn}$'s perturbed by neutron scattering within the $^{238}$U target was estimated by an MCNP simulation to be 6\%.
+Any target comprised of heavy nuclei has a significant potential to scatter fission neutrons before they exit the target.
+This is a cause for concern, because neutrons that scatter from heavy nuclei are likely to be deflected at large angles, resulting in the measurement of $\theta_{nn}$'s unconnected to the underlying fission kinematics.
+As discussed in detail in section~\ref{subsection:Elastic_scattering}, an MCNP simulation estimated that 6\% of reconstructed $\theta_{nn}$'s are perturbed due to neutron scattering within the $^{238}$U target.
 Moreover, it is more likely that neutrons emitted along the wide, 2~cm, axis of the $^{238}$U target undergo a scattering event than neutrons emitted along the thinnest, 0.05~cm, axis.
 As a result, detectors located collinear to the widest axis of the target would see relatively fewer neutrons due to increased scattering along this axis. 
 This bias is removed by slowly rotating the target about the vertical axis during data acquisition at a rate of one rotation per 8 seconds.
 %Because this measurement is of a statistical process, rotating the target gives the same effect as if a cylindrical target were used.
-See section~\ref{subsection:Elastic_scattering} for discussion of issues regarding neutron scattering within the fission target.  
+%See section~\ref{subsection:Elastic_scattering} for discussion of issues regarding neutron scattering within the fission target.  
 
 \subsection{Electronics}
 \label{sec:electronics}
@@ -125,12 +130,12 @@ Analog signals from the PMTs were fed into a leading edge discriminator (CAEN Mo
 The threshold and supply voltages were determined individually for each detector to minimize noise, while simultaneously matching the efficiencies of all the detectors as closely as possible.
 Logic signals from the discriminator were converted to ECL logic and fed into a CAEN model V1290A TDC.
 The timing of signals from the PMTs were always measured relative to a signal from the accelerator provided at the beginning of each pulse.
-Even though a multi-hit TDC was being used, only the first signal from any given PMT is used each pulse due to concerns over dead-time within the electronics and signal reflections within the cables.
+Even though a multi-hit TDC was used, only the first signal in each pulse from any given PMT was taken into account due to concerns over dead-time within the electronics and signal reflections within the cables.
 On the software side, the CODA 2.5 ~\cite{CODA} software package developed by Jefferson Laboratory was used to read out the data from the TDC and digitally store it for analysis.
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=\FigWiringDiagramSize\textwidth]{WiringDiagram.png}
+\includegraphics[width=\FigWiringDiagramSize\textwidth, angle=\WireAngle]{WiringDiagram.png}
 \caption{Wiring diagram of the electronics setup. }
 \label{fig:WiringDiagram}
 \end{figure}
