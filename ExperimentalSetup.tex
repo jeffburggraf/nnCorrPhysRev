@@ -5,7 +5,7 @@ Figure~\ref{fig:Facility} shows a top-down diagram of the experimental arrangeme
 \begin{figure}[h]
 \includegraphics[width=\FigFacilitySize\textwidth, angle=\Angle]{ExpArangment.jpg}
 \caption{To-scale, top down diagram of the experimental setup.
-An electron beam impinges upon a 3.8 cm thick Al radiator, and the resulting bremsstrahlung beam enters the experimental cell from the top.
+An electron beam impinges upon a 3.8 cm thick Al radiator, and the resulting bremsstrahlung beam enters the experimental cell from the top of the figure.
 The supporting structure for each detector has been labeled according to the angle, in degrees, between the center of each detector and direction of the incoming photon beam.
 The fission target, a 0.05$\times$2$\times$4 cm$^3$ $^{238}$U cuboid, is rotated slowly about the vertical axis in order to mimic the effect of using a cylindrical target.
 }
@@ -27,7 +27,8 @@ In order to increase the chance that scintillation light remains inside the scin
     \centering
     \includegraphics[width = \figsize\textwidth]{Detectors.png}
     \caption{3-D rendering of the bare, unshielded scintillators, along with PMTs and light guides.
-    Most of the open space between the scintillators was occupied by shielding, as seen in Fig.~\ref{fig:Facility}.}
+    Most of the open space between the scintillators was occupied by shielding, as seen in Fig.~\ref{fig:Facility}.
+    }
     \label{fig:DetGeom}
 \end{figure}
 
@@ -39,10 +40,10 @@ After segmentation and optimization of shielding, the photon detection rate was 
 The segmented detectors also differ from the rest in that they were instrumented with only a single PMT, and therefore provide a comparatively lower precision in energy and position measurements.
 In order to test for systematic errors that may have resulted from the use of the segmented detectors, opening angle measurements were compared with and without their use, and the differences were well within experimental errors.
 
-The relative efficiencies of the neutron detectors as a function of neutron energy were calculated by dividing measured and known yields from the SF of $^{252}$Cf taken from MCNP.
+The relative efficiencies of the neutron detectors as a function of neutron energy and detector location were calculated by dividing the measured by the known yields of neutrons from the SF of $^{252}$Cf.
 The results are shown in Fig.~\ref{fig:RelErgEfficiency}.
-
-See section~\ref{Analysis} for a discussion of how the effects of detector efficiency are accounted for in this work.
+Note that the effects of the uncertainty in measured neutron energy (see Fig.~\ref{fig:ErgUncertainty}) are folded into this calculation.
+The analysis techniques described in section~\ref{Analysis} are designed to eliminate the effects of detector efficiency from the final result.
 \begin{figure}[]
     \centering
     \includegraphics[width = \figsize\textwidth]{RelErgEfficiency.png}
@@ -50,7 +51,7 @@ See section~\ref{Analysis} for a discussion of how the effects of detector effic
 
      \includegraphics[width = \figsize\textwidth]{RelPosEfficiency.png}
      
-       \caption{(top) The mean relative neutron detection efficiency of all detectors as a function of neutron energy is calculated by dividing the measured energy distribution by the known energy distribution of neutrons from the SF of $^{252}$Cf. The relative efficiency differs from detector to detector, as demonstrated by the shaded region corresponding to the standard deviation of the relative efficiencies. The error bars represent the uncertainty in the mean. (bot) Mean relative neutron detection efficiency as a function of the reconstructed position along the detectors longest axis. }
+       \caption{(top) The mean relative neutron detection efficiency of all detectors as a function of neutron energy is calculated by dividing the measured energy distribution by the known energy distribution of neutrons from the SF of $^{252}$Cf. The relative efficiency differs from detector to detector, as demonstrated by the shaded region, which corresponds to the standard deviation of the relative efficiencies of all detectors. The error bars represent the uncertainty in the mean. (bot) Mean relative neutron detection efficiency as a function of the reconstructed position along the detectors longest axis. }
     \label{fig:RelErgEfficiency}
 \end{figure}
 
@@ -109,7 +110,7 @@ The 3~ns pulse width was small compared to the median neutron ToF of 80~ns, and 
     (b) Comparison between the Al and DU targets show a pronounced increase in events between 35 and 130~ns due to the introduction of neutrons.}
     \label{fig:ToF}
 \end{figure}
-A depleted uranium (DU) target in the shape of a thin strip with dimensions of 4$\times$2$\times$0.05 $\text{cm}^3$ was used as the primary target.
+A depleted uranium (DU) target in the shape of a thin strip with dimensions of 4$\times$2$\times$0.05 $\text{cm}^3$ and a mass of 7.6 g was used as the primary target.
 $^{238}$U was chosen as the fission target because it is an even-even nucleus, and as a consequence, the fission fragments are emitted with a high degree of anisotropy with respect to the photon beam direction~\cite{1977FragAss}.
 
 Any target comprised of heavy nuclei has a significant potential to scatter fission neutrons before they exit the target.
