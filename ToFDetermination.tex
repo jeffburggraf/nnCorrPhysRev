@@ -36,7 +36,19 @@ where $t^{PMTs}_{\text{mean}}$ is the mean of the times of signals from both PMT
 Any process that produces a timing delay that does not change from pulse to pulse contributes to $C$.
 For example, the time required for photons to travel from the bremsstrahlung radiator to the target, the propagation of signals through the cables connecting the PMTs, delays in the electronics, {\em{etc}}.
 
-The value of $C$, which may be different for each detector, is determined by comparing the timing spectra of the gamma flash produced by a non-neutron producing aluminum target, to that produced when no target is used.
+\begin{figure}[]
+\centering
+    \subfloat[]{\includegraphics[width=\figsmall\textwidth]{MTvsAl.png}} \figToFNewline
+    \subfloat[]{\includegraphics[width=\figsmall\textwidth]{DUvsAl.png}}
+    \caption{(a) Comparison between the ToF spectrum of a non-neutron producing target made from Al, to the ToF spectrum produced when no target is used.
+    The large increase in events around 4~ns is due to photons that scatter from the Al target.
+    When no target is in place, sources of the peak include the collimator leading into the experimental cell and the beam dump.
+    The photon peak seen here is used to find the timing offsets that make it so $t=0$ corresponds to the moment of fission.
+    (b) Comparison between the Al and DU targets show a pronounced increase in events for DU between 35 and 130~ns due to the introduction of neutrons.}
+    \label{fig:ToF}
+\end{figure}
+
+The value of $C$, which may be different for each detector, is determined by comparing the timing spectra of the gamma flash produced by a non-neutron producing aluminum target, to that produced when no target is used (see Fig.~\ref{fig:ToF}).
 The difference between these two spectra reveals a prominent peak in the ToF spectrum due to photons that scatter from the aluminum target.
 These photons must travel 125~cm to reach the center of any detector and 130~cm to reach the top, for which it takes light 4.2~ns and 4.3~ns to travel, respectively.
 The value of $C$ used for each detector is equal to the value that places the time corresponding to the peak of the target-induced gamma flash at 4~ns.

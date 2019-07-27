@@ -40,12 +40,21 @@ This issue is addressed in section~\ref{sec:n_n_erg_dist}, where it is shown tha
 Figure~\ref{fig:SPDPNormalization}(a) shows the measured yield distribution of correlated neutrons, $nn_{\text{corr}}(\theta)$, from the photofission of $^{238}$U.
 The structure seen here is reflective of the underlying n-n angular correlations as well as the geometric acceptance and efficiencies of the neutron detectors.
 Figure~\ref{fig:SPDPNormalization}(b) reveals how a clear picture of n-n angular correlations emerges when taking the ratio between $nn_{\text{corr}}(\theta)$ and $nn_{\text{uncorr}}(\theta)$.
+Applying the same technique to a measurement of coincident neutrons from the photodisintegration of D$_{2}$O produces a flat line as expected (see Fig.~\ref{fig:D2OCorr})
+
+
 \begin{figure}[]
 \centering
     \includegraphics[width=\figsmall\textwidth]{SPDPNormalization.png}
     \caption{ n-n opening angle distribution from the photofission of $^{238}$U before the normalization procedure seen in Eq.~\ref{eq:angularCorr} (a), and after normalization (b).
     All measured neutrons have an energy greater than 0.4 MeV.}
     \label{fig:SPDPNormalization}
+\end{figure}
+\begin{figure}[]
+\centering
+    \includegraphics[width=\figsmall\textwidth]{D2OCorr.png}
+    \caption{A measurement of the angular correlation of uncorrelated neutrons emitted by the photodisintegration of D$_{2}$O gives the expected uniform distribution.}
+    \label{fig:D2OCorr}
 \end{figure}
 
 \subsection{Subtraction of Accidental Coincidences}
@@ -97,7 +106,7 @@ Many pulse-pairs used for the construction of $nn_{dp}(\theta_{nn})$ will contai
 % This is different than the construction of $nn_{\text{uncorr}}(\theta_{nn})$, which only used pulse-pairs in which there was an n-n coincidence in both pulses.
 
 While $nn_{dp}(\theta_{nn})$ and $nn_{\text{acc}}(\theta_{nn})$ are proportional, $nn_{\text{acc}}(\theta_{nn})$ is not equal to $nn_{dp}(\theta_{nn})$,  because there are, on average, more detected neutrons per pulse-pair than per pulse.
-As the following analysis shows,~$nn_{\text{acc}}(\theta_{nn}) = \frac{1}{2}nn_{dp}(\theta_{nn})$, under the condition that $nn_{\text{acc}}(\theta_{nn})$ is normalized to the number of pulses and $nn_{dp}(\theta_{nn})$ to the number of pulse-pairs looked at.
+As the following analysis shows,~$nn_{\text{acc}}(\theta_{nn}) = \frac{1}{2}nn_{dp}(\theta_{nn})$, under the condition that $nn_{\text{acc}}(\theta_{nn})$ is normalized to the number of pulses and $nn_{dp}(\theta_{nn})$ to the number of pulse-pairs considered.
 When looking at single pulses, the probability of there being a detected uncorrelated n-n pair is denoted by $P^{\text{n-n}}_{\text{sp}}$, and when looking at pulse-pairs, by $P^{\text{n-n}}_{\text{dp}}$.
 Thus, $P^{\text{n-n}}_{\text{sp}}$ and $P^{\text{n-n}}_{\text{dp}}$ determine the relative rates of $nn_{\text{acc}}(\theta_{nn})$ and $nn_{dp}(\theta_{nn})$, respectively.
 
