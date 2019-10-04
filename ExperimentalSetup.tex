@@ -17,7 +17,7 @@ The fission target, a 0.05$\times$2$\times$4 cm$^3$ $^{238}$U cuboid, is rotated
 \label{subsection:detectors}
 The detection system measures neutron position and time of flight (ToF), which is defined as the time taken for a particle to travel from the fission target to a detector.
 The purpose of the ToF measurement is to determine the kinetic energy of detected neutrons and to distinguish between photons and neutrons.
-The detection system's positional precision is $\pm$9~cm, which gives an average angular precision of $\pm6^{\circ}$ in opening angle reconstruction.
+The detection system's positional precision is $\pm$9~cm, which gives an average angular precision of $\pm6^{\circ}$ in opening angle reconstruction for a target to detector distance of 1.25 m.
 
 The detection system consists of fourteen shielded scintillators made from Polyvinyl Toluene (PVT) arranged in a ring around the target (see Figs.~\ref{fig:Facility} and~\ref{fig:DetGeom}).
 Attached to both ends of each scintillator are 10-cm long, non-scintillating, ultra-violet transmitting, plastic light-guides.
@@ -66,7 +66,7 @@ For a detailed discussion about the issue of cross-talk, see section~\ref{crosst
 The front face of each detector was subject to the highest photon flux due to the scattering of the bremsstrahlung beam from the target.
 The detection of a photon renders the given detector unable to detect any subsequent fission neutrons from the same pulse due to the detector recovery time.
 Lead mitigates this problem by reducing photon flux, but has the side effect of scattering neutrons.
-If a neutron scatters prior to being detected, the ToF measurement and position reconstruction are incorrect.
+If a neutron scatters prior to being detected, the ToF measurement and position reconstruction are corrupted.
 The extent of measurement errors caused by lead shielding were quantified using an MCNP simulation, and, accordingly, 2.5~cm of lead was placed along the front face of the detectors.
 This diminished photon detection rates to reasonable levels, and, according to the simulation, leads to a root-mean-square error in opening angle and ToF of 1$^{\circ}$ and 0.3~ns, respectively, due to neutron elastic scattering.
 
