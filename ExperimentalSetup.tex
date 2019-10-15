@@ -17,8 +17,7 @@ The fission target, a 0.05$\times$2$\times$4 cm$^3$ $^{238}$U cuboid, is rotated
 \label{subsection:detectors}
 The detection system measures neutron position and time of flight (ToF), which is defined as the time taken for a particle to travel from the fission target to a detector.
 The purpose of the ToF measurement is to determine the kinetic energy of detected neutrons and to distinguish between photons and neutrons.
-The detection system's positional precision is $\pm$9~cm, which gives an average angular precision of $\pm6^{\circ}$ in opening angle reconstruction for a target to detector distance of 1.25 m.
-
+The detection system's positional precision is $\pm$9~cm, which results in an average opening angular precision of $\pm6^{\circ}$ for a target to detector distance of 1.25 m. 
 The detection system consists of fourteen shielded scintillators made from Polyvinyl Toluene (PVT) arranged in a ring around the target (see Figs.~\ref{fig:Facility} and~\ref{fig:DetGeom}).
 Attached to both ends of each scintillator are 10-cm long, non-scintillating, ultra-violet transmitting, plastic light-guides.
 A Hamamatsu 580-17 photomultiplier (PMT) tube is fixed to each light-guide using optical glue.
@@ -32,15 +31,15 @@ In order to increase the chance that scintillation light remains inside the scin
     \label{fig:DetGeom}
 \end{figure}
 
-Ten out of the fourteen scintillators had dimensions of 76.2$\times$15.2$\times$3.8 cm$^3$.
-The remaining four, the forward-most detectors located at $\pm$ 30$^{\circ}$ with respect to the beam, had dimensions of 25.4$\times$15.2$\times$3.8 cm$^3$.
-These scintillators, 1/3 the length of the rest, are the result of the segmentation of two normally sized scintillators in order to address the high photon flux at these locations caused by the forward scattering of photons from the target.
+Ten of the fourteen scintillators had dimensions of 76.2$\times$15.2$\times$3.8 cm$^3$.
+The remaining four, located the nearest to the beam line at $\pm$ 30$^{\circ}$ with respect to the beam, had dimensions of 25.4$\times$15.2$\times$3.8 cm$^3$.
+These scintillators, 1/3 the length of the rest, are the result of the segmentation of two normally sized scintillators in order to lower the relatively high photon detection rates near the beam line.
 Prior to segmentation, a photon was registered in the forward-most detectors at a rate of about 0.9 photons per pulse, and because the electronics were operated in single hit mode (see section~\ref{sec:electronics}), this greatly reduced the effective neutron detection efficiency.
 After segmentation and optimization of shielding, the photon detection rate was about 0.2 photons per pulse in each segmented detector.\onlyThesis
 The segmented detectors also differ from the rest in that they were instrumented with only a single PMT, and therefore provide a comparatively lower precision in energy and position measurements.
 In order to test for systematic errors that may have resulted from the use of the segmented detectors, opening angle measurements were compared with and without their use, and the differences were well within experimental errors.
 
-The relative efficiencies of the neutron detectors as a function of neutron energy and detector location were calculated by dividing the measured by the known yields of neutrons from the SF of $^{252}$Cf.
+The relative efficiencies of the neutron detectors as a function of neutron energy and detector location were calculated by dividing the measured by the yields of neutrons from the SF of $^{252}$Cf according to MCNP.
 The results are shown in Fig.~\ref{fig:RelErgEfficiency}.
 Note that the effects of the uncertainty in measured neutron energy (seen in Fig.~\ref{fig:ErgUncertainty}) are folded into this calculation.
 The analysis techniques described in section~\ref{Analysis} are designed to eliminate the effects of detector efficiency from the final result.
@@ -59,7 +58,7 @@ The analysis techniques described in section~\ref{Analysis} are designed to elim
 \label{shielding}
 The detector shielding, depicted in Fig.~\ref{fig:shielding}, was constructed using lead and polyethylene with the aim of reducing detector cross-talk, the detection of photons, and noise.
 The sides of each scintillator were shielded with 5 cm of lead followed by 5 cm of polyethylene to reduce the chance of neutron cross-talk.
-Lead was not placed behind the scintillators after an MCNP-POLIMI simulation indicated that cross-talk would occur at significant rates otherwise.
+Lead was not placed behind the scintillators after an MCNP-POLIMI simulation indicated that the additional lead would significantly increase cross-talk rates.
 Instead, 10~cm of polyethylene was placed behind the scintillators.
 For a detailed discussion about the issue of cross-talk, see section~\ref{crosstalk}.
 
