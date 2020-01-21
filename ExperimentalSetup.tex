@@ -3,7 +3,7 @@ See section~\ref{beam} for the accelerator parameters used during the experiment
 Figure~\ref{fig:Facility} shows a top-down diagram of the experimental arrangement.
 
 \begin{figure}[h]
-\includegraphics[width=\FigFacilitySize\textwidth, angle=\Angle]{ExpArangment.jpg}
+\includegraphics[width=0.5\textwidth]{ExpArangment.png}
 \caption{To-scale, top down diagram of the experimental setup.
 An electron beam impinges upon a 3.8 cm thick Al radiator, and the resulting bremsstrahlung beam enters the experimental cell from the top of the figure.
 The supporting structure for each detector has been labeled according to the angle, in degrees, between the center of each detector and direction of the incoming photon beam.
@@ -46,8 +46,7 @@ The analysis techniques described in section~\ref{Analysis} are designed to elim
 \begin{figure}[]
     \centering
     \includegraphics[width = \figsize\textwidth]{RelErgEfficiency.png}
-    \vspace{10cm}
-
+    %\vspace{10cm}
      \includegraphics[width = \figsize\textwidth]{RelPosEfficiency.png}
      
        \caption{(top) The mean relative neutron detection efficiency of all detectors as a function of neutron energy is calculated by dividing the measured energy distribution by the known energy distribution of neutrons from the SF of $^{252}$Cf. The relative efficiency differs from detector to detector, as demonstrated by the shaded region, which corresponds to the standard deviation of the relative efficiencies of all detectors. The error bars represent the uncertainty in the mean. (bot) Mean relative neutron detection efficiency as a function of the reconstructed position along the detectors longest axis. }
@@ -112,6 +111,13 @@ This bias is removed by slowly rotating the target about the vertical axis durin
 
 \subsection{Electronics}
 \label{sec:electronics}
+\begin{figure*}[ht!]
+\centering
+\includegraphics[width=0.95\textwidth, angle=\WireAngle]{WiringDiagram.png}
+\caption{Wiring diagram of the electronics setup. }
+\label{fig:WiringDiagram}
+\end{figure*}
+\figWiringDiagramBarrier
 A data acquisition system based on the NIM/VME standard was used.
 A schematic of the data acquisition logic is shown in Figure~\ref{fig:WiringDiagram}.
 The PMTs are supplied negative voltages ranging from 1300 to 1500 V by a LeCroy 1458 high voltage mainframe.
@@ -122,13 +128,6 @@ The timing of signals from the PMTs were always measured relative to a signal fr
 Even though a multi-hit TDC was used, only the first signal in each pulse from any given PMT was taken into account due to concerns over dead-time within the electronics and signal reflections within the cables.
 On the software side, the CODA 2.5 ~\cite{CODA} software package developed by Jefferson Laboratory was used to read out the data from the TDC and digitally store it for analysis.
 
-\onecolumngrid
-\begin{figure}[h]
-\centering
-\includegraphics[width=\textwidth, angle=\WireAngle]{WiringDiagram.png}
-\caption{Wiring diagram of the electronics setup. }
-\label{fig:WiringDiagram}
-\end{figure}
-\figWiringDiagramBarrier
-\twocolumngrid
+
+
 
