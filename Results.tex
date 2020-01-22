@@ -1,10 +1,10 @@
 \mysubsection{Comparisons with FREYA}
 The n-n opening angle correlation is calculated using the methods outlined in Sec.~\ref{Analysis}, in which a correlated neutron yield is divided by an uncorrelated yield.
-The results are compared with output from FREYA~\cite{FREYA} (Fission Reaction Event Yield Algorithm), which was developed by the collaborative efforts of researchers from Lawrence Berkeley National Laboratory,  Lawrence Livermore National Laboratory, Los Alamos National Laboratory, and University of Michigan Nuclear Engineering, and has been included in MCNP beginning with version 6.2.
+The results are compared with output from FREYA~\cite{FREYAFounders,FREYA2018} (Fission Reaction Event Yield Algorithm), which was developed by the collaborative efforts of researchers from Lawrence Berkeley National Laboratory,  Lawrence Livermore National Laboratory, Los Alamos National Laboratory, and University of Michigan Nuclear Engineering, and has been included in MCNP since version 6.2.
  
 The most recent release of FREYA (version 2.0.3) does not contain photofission directly, but instead uses neutron-induced fission as an {\em{ad hoc}} photofission model~\cite{FREYA_photofission}.
 Representing photofission in this manner is a crude approximation, unsupported by experimental verification.
-Nonetheless, due to the current lack of accepted photofission models, the approximate approach, included in FREYA version 2.0.3, is compared with the results of the present work.
+Nonetheless, due to the current lack of accepted photofission models, the approximate approach included in FREYA version 2.0.3 is compared with the results of the present work.
 %Nonetheless, the results of the present work are compared to this model, as it was the only photofission model available to the authors of the present work.
 
 For a given nucleus with Z protons and A total nucleons, the code selects the neutron-induced fission model for a Z(A-1) nucleus, and chooses an incident neutron energy such that the compound ZA nucleus will have, relative to ZA's ground state, an excitation energy that is equal to the energy of the would-be incident photon.
