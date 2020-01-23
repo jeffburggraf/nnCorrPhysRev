@@ -9,10 +9,10 @@ The sum of the times required for scintillation light to travel from the point o
 This is supported by data, shown in Fig.~\ref{fig:ConstPMTAvg}, which were produced from a series of tests in which a collimated $^{60}$Co source was placed at seven different locations along a scintillator.
 One of the two coincident photons emitted by $^{60}$Co reaches the scintillator and the other is detected by an auxiliary detector serving as the trigger. 
 The photons incident on the scintillator have a spot size of less than 1~cm due to source collimation.
-These events all have equal transit time, regardless of the $^{60}$Co source's position. %because the coincident photons are emitted simultaneously and the distance they must travel is unchanged. 
+%These events all have equal transit time, regardless of the $^{60}$Co source's position. %because the coincident photons are emitted simultaneously and the distance they must travel is unchanged. 
 
-In Figure~\ref{fig:ConstPMTAvg}(a), it can be seen that the time required for the scintillation light to propagate along the scintillator has a large effect on the timing of each PMT alone, however, the average of the times of both PMTs is a constant, unaffected by the location at which the particle undergoes scintillation.
-For this reason, taking the average of signals from two PMTs is advantageous because it removes the roughly 5~ns timing error that would otherwise exist due to the time required for scintillation light to propagate along the scintillator.
+In Figure~\ref{fig:ConstPMTAvg}(a), it can be seen that the time required for the scintillation light to propagate along the scintillator has a large effect on the timing of each PMT alone, however, the average of the times of both PMTs is a constant within $\pm$2 ns. %unaffected by the location at which the particle undergoes scintillation.
+For this reason, taking the average of signals from two PMTs is advantageous because it reduces the timing error by eliminating variation in the time required for scintillation light to propagate along the scintillator.
 The requirement that there be coincident events in both of a detector's PMTs also aids in reducing noise.
 
 \begin{figure}[]
@@ -57,7 +57,7 @@ The value of $C$ used for each detector is equal to the value that places the ti
 
 %For 10 MeV neutrons, relativistic and non-relativistic energy calculations differ by about 1\%.
 The kinetic energy of a detected neutron is determined straightforwardly from its velocity, which is determined from its ToF under the assumption that the neutron traveled directly from the target to the detectors unimpeded.
-According to a series of MCNP simulations examining the scattering of fission neutrons within detector shielding and the fission target, neutrons predominantly travel to the detectors unimpeded.
+This assumption is true for the vast majority of fission neutrons according to a series of MCNP simulations examining the scattering of fission neutrons within detector shielding and the fission target.
 These simulations are discussed in sections~\ref{subsection:targets} and \ref{subsection:detectors}.
 
 Figure~\ref{fig:ErgUncertainty} shows the measurement uncertainty in neutron energy due to error in the ToF determination.
