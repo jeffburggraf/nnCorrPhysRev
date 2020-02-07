@@ -1,0 +1,972 @@
+% ****** Start of file apssamp.tex ******
+%
+%   This file is part of the APS files in the REVTeX 4.1 distribution.
+%   Version 4.1r of REVTeX, August 2010
+%
+%   Copyright (c) 2009, 2010 The American Physical Society.
+%
+%   See the REVTeX 4 README file for restrictions and more information.
+%
+
+
+
+\documentclass[%
+ reprint,
+ calc,
+ amsmath,amssymb,
+ aps,
+ nofootinbib
+]{revtex4-1}
+
+\makeatletter
+\def\pdfstartlink@attr{}
+\makeatother
+%\usepackage{calc}
+
+
+
+\usepackage{placeins}
+\usepackage{rotating}
+\usepackage{setspace}
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage[font=small,labelfont=bf]{caption}
+\captionsetup{justification=raggedright,singlelinecheck=false}
+\usepackage{relsize}
+\usepackage{scalerel}
+\usepackage[]{hyperref}
+\usepackage{xcolor}
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black},
+    citebordercolor=white,
+    filebordercolor=white,
+    linkbordercolor=white,
+    filecolor=black
+}
+\usepackage{pifont} % http://ctan.org/pkg/pifont
+
+\def\figsize{0.47}
+\def\figsmall{0.45}
+\def\FigShieldingSize{0.30}
+\def\FigFacilitySize{0.85}
+\def\FigCfToF{\figsmall}
+\def\FigBremDistSize{\figsmall}
+\def\FigWiringDiagramSize{\figsmall}
+\def\Angle{90}
+\def\WireAngle{0}
+
+\newcommand{\figFacilityBarrier}{}
+\newcommand{\figWiringDiagramBarrier}{}
+\newcommand{\figToFNewline}{\newline}
+
+\newcommand{\mysubsection}{\subsection}
+\newcommand{\mysubsubsection}{\subsubsection}
+\def\onlyThesis{}
+
+\bibliographystyle{unsrt}
+%\usepackage[switch]{lineno} % default option is 'left'
+%\setlength\columnsep{25pt}
+
+\interfootnotelinepenalty=10000
+% double spacing for edits
+%\linespread{2.5}
+
+\usepackage{lineno}
+
+%\bibliographystyle{unsrtnat}
+
+\usepackage{subfig}
+\graphicspath{{../figs/}}
+
+\begin{document}
+\preprint{APS/123-QED}
+
+\title{Neutron-Neutron Correlations in the Photofission of U-238
+}
+
+
+\author{J. Burggraf}
+\author{D.S. Dale}
+\author{T. Forest}
+\affiliation{
+ Department of Physics, Idaho State University, Pocatello, ID 83201\\}
+
+\author{G. Warren}
+\author{S. Stave}
+\author{S. Behling}
+\author{E. Church}
+\affiliation{
+ Pacific Northwest National Laboratory, PO Box 999, Richland, Washington 99352
+}
+
+\date{\today}
+\begin{abstract}
+    \begin{description}
+        \item[Background] In the fission of actinides, the nearly back-to-back motion of the fission fragments has a strong effect on the kinematics of fission neutrons.
+        This leads to a favoring of opening angles near 0$^{\circ}$ and 180$^{\circ}$ in the neutron-neutron (n-n) opening angle distribution of correlated neutron pairs from the same fission event.
+        
+        \item[Purpose] To measure the n-n opening angle and energy correlations in the photofission of $^{238}$U.
+        As of this writing, measurements of correlated n-n opening angle distributions have been reported only for the spontaneous and neutron-induced fission of actinides.
+        This work is the first to report such a measurement using photofission and will provide useful experimental input for photofission models used in codes such as MCNP and FREYA.
+
+        \item[Methods] Fission is induced using bremsstrahlung photons produced via a low duty factor, pulsed, linear electron accelerator.
+        The bremsstrahlung photon beam impinges upon a $^{238}$U target that is surrounded by a large neutron scintillation detection system capable of measuring particle position and time of flight, from which n-n opening angle and energy are measured.
+Neutron-neutron angular correlations are determined by taking the ratio between a correlated n-n distribution and an uncorrelated n-n distribution formed by the pairing of neutrons produced during different beam pulses.
+        This analysis technique greatly diminishes effects due to detector efficiencies, acceptance, and experimental drifts.
+
+        \item[Results] The angular correlation of neutrons from the photofission of $^{238}$U shows a high dependence on neutron energy as well as a dependence on the angle of the emitted neutrons with respect to the incoming photon beam.
+        Angular correlations were also measured using neutrons from the spontaneous fission of $^{252}$Cf, showing good agreement with past measurements.
+        \item[Conclusions] The measured angular correlations reflect the underlying back-to-back nature of the fission fragments.
+        An anomalous decline in n-n yield was observed for opening angles near 180$^{\circ}$ for $^{238}$U. % the cause of which is unclear? 
+    \end{description}
+%\begin{description}
+%\item[PACS numbers]
+%May be entered using the \verb+\pacs{#1}+ command.
+%\end{description}
+\end{abstract}
+
+\maketitle
+
+% \tableofcontents
+%\linenumbers
+
+\section{Overview of Neutron-Neutron Angular Correlations in Fission}
+%\mysubsection{Neutron-Neutron Angular Correlations in Fission}
+The fission process is characterized by the emission of neutrons.
+%Neutron emission in fission can be classified into two categories depending on the time of emission: delayed and prompt.
+The time taken for a neutron to be emitted can be categorized as either prompt or delayed.
+Prompt fission neutrons are defined as neutrons that are emitted either immediately after ($<10^{-14}$ seconds) fission, or during the scission of the nucleus, and account for $\sim99\%$ of neutron emission~\cite{Caldwell2017DelayedNs}.
+Delayed neutrons are not relevant to the present work because they account for only $\sim1\%$ of total neutron emission in actinide photofission~\cite{Caldwell2017DelayedNs}, and they are emitted milliseconds to minutes after fission which is well outside the neutron acceptance timing window of the present work.
+
+Prompt fission neutron production occurs by means of two distinct mechanisms.
+The dominant mechanism is neutron emission from the fully accelerated fragments.
+The second mechanism, referred to as \textit{early} or \textit{scission} neutron emission, is the emission of neutrons during either the scission of the nucleus or the acceleration of the fission fragments.
+A large number of past studies have established that the majority of prompt fission neutrons (80\%--98\%) are emitted from the fully accelerated fragments, while scission neutrons account for the remaining 2\%--20\% percent~\cite{Scission2005}.
+The nature of scission neutrons has remained elusive since their first tentative observation in 1962 by Bowman \emph{et al.}~\cite{Bowman}.
+
+\mysubsection{Theoretical Basis}
+%A useful observational input for prompt neutron modeling is the neutron-neutron (n-n) opening angle distribution of correlated neutron pairs, as seen in the lab frame, hereafter denoted $\theta_{nn}$.
+The neutron-neutron (n-n) opening angle distribution of correlated neutron pairs, as seen in the lab frame, is widely used for the quantification of n-n angular correlations.
+Angular correlations in fission neutrons arise due to the kinematics of the fission fragments.
+%There are, on average, about 2 or 3 neutrons released per fission, depending on the target isotope and how the fission is induced.
+It has been shown that neutrons released from the fully accelerated fission fragments are evaporated isotropically in the fragment's rest frame, and are emitted at speeds comparable to that of the fragments themselves~\cite{JORGENSEN}.
+This leads to the well-known U--shaped distribution in neutron-neutron opening angle ($\theta_{nn}$), which has been reported in studies of neutron-induced, spontaneous, and in this work, photofission.
+%An example of a typical $\theta_{nn}$ distribution is seen in Fig.~\ref{fig:Cf252_us_vs_them}.
+
+The U--shaped distribution of $\theta_{nn}$ can be understood as the result of the boost provided to the neutrons by the fission fragments in binary fission.
+Due to the conservation of momentum, the fully accelerated fission fragments are traveling nearly back-to-back, and neutrons emitted from different fragments are boosted in opposite directions, whereas neutrons emitted from the same fragment are boosted in the same direction.
+Thus, because the velocities of the fission fragments are large enough to account for a significant portion of the kinetic energy of fission neutrons, neutron pairs emitted from the accelerated fragments exhibit a favoring of opening angles near 0$^{\circ}$ if emitted from the same fragment and 180$^{\circ}$ if emitted from different fragments, and consequently, result in a suppression of opening angles near $90^{\circ}$.
+% GAW - comment - is it kinetic energy or momentum? Sorry, long time since I thought about boosting between frames
+% GAW - comment - Why is this even being mentioned here? I don't see yet how it fits in
+
+The favoring of large and small n-n opening angles shows a strong dependence on neutron energy.
+Neutrons with higher energy are more likely to have been emitted along the same direction as the fission fragments and are therefore expected to favor large and small opening angles.
+On the other hand, neutrons emitted with lower energy are more susceptible to kinematical focusing along the direction of the recoil of the emitting fragment.
+The $\theta_{nn}$ distribution and its dependence on neutron energy are expected to shed light on several fundamental aspects of the fission process including the neutron multiplicity distributions associated with the light and heavy fission fragments, the nuclear temperatures of the fission fragments, and the mass distribution of the fission fragments as a function of energy released.
+In addition, the unique kinematics of fission and the resulting n-n correlations have the potential to be the basis for a new tool to characterize fissionable materials~\cite{Talou2018}. % diifferential
+
+%Furthermore, n-n opening angle measurements are useful for the study of scission neutrons.
+%Scission neutrons are thought to be emitted isotropically in the lab frame, and so they have the effect of flattening out the U-shaped n-n opening angle distribution.
+%Because of this effect, these measurements add to the growing breadth of nuclear data needed to confirm the exact extent of the scission-neutron component in fission, which remains an open problem in nuclear physics.
+
+
+\mysubsection{Past Measurements: Spontaneous and Neutron Induced Fission}
+%As of this writing, tabulated data for photofission is far scarcer than for neutron induced fission.
+The first measurement of the angular correlation among coincident neutrons from fission was performed by Debenedetti \emph{et al.}~\cite{1948twoNCorr} in 1948 from neutron induced fission of $^{235}\text{U}$.
+The next measurement of this type was performed by Pringle and Brooks in 1975~\cite{1975Cf252}, in which neutrons emitted from the spontaneous fission (SF) of $^{252}$Cf were found to have high coincidence rates at opening angles near 0$^{\circ}$ and $180^{\circ}$.
+In order to produce a result that is insensitive to the effects of detector geometry and efficiency, the present work uses techniques similar to those used in reference~\cite{1975Cf252}, in which a ratio is taken between a correlated opening angle distribution and an uncorrelated opening angle distribution.
+Measurements of n-n angular correlation in the SF of $^{252}$Cf, the most studied case of correlated neutron emission in fission (see Refs.~\cite{1975Cf252, Pozzi2014, 2008CF252, Verbeke2018}), were also performed in the present work and show good agreement with past measurements, as seen in Fig.~\ref{fig:Cf252_us_vs_them}.
+Correlated n-n measurements have also been performed using thermal neutron induced fission of $^{235}$U, $^{233}$U, and $^{239}$Pu~\cite{Sokolov2010}, as well as the SF of $^{240}$Pu~\cite{Pozzi2016}.
+\begin{figure}[h]
+\centering
+\includegraphics[width=\figsmall\textwidth]{Cf252_us_vs_them.png}
+\caption{$\theta_{nn}$ distribution from the spontaneous fission of $^{252}$Cf.
+ The minimum neutron energy cut-off for Pringle~\cite{1975Cf252}, Gagarski~\cite{2008CF252}, and Pozzi~\cite{Pozzi2016} is 0.425 MeV, 0.425 MeV, and 0.7 MeV, respectively, and for this work is 0.4 MeV.
+}
+\label{fig:Cf252_us_vs_them}
+\end{figure}
+
+\mysubsection{Considerations for Photofission}
+\label{sec:level1}
+The photofission reaction occurs after the absorption of a photon by the nucleus. 
+For photon energies between 6 and 25 MeV, this absorption occurs primarily via the giant dipole resonance (GDR) excitation.
+One distinct and useful aspect of photofission, relative to neutron-induced fission, is the low transfer of angular momentum to the nucleus, which gives rise to a simpler set of selection rules for the transfer of angular momentum.
+For the photofission of even-even nuclei, excitation occurs primarily via electric dipole transitions, and to a lesser extent electric quadrupole transitions, which gives rise to anisotropies in the fission fragment angular distributions that are far more pronounced than for other types of fission~\cite{1977FragAss,Mueller2014}.
+
+These anisotropies are expressed in the angular distribution of emitted neutrons.
+For these reasons, photofission is increasingly being used as a means to study sub-nuclear structures and the fundamentals of the fission process.
+Such studies are needed in order to validate various model parameters required for an accurate theoretical description of the fission process.
+
+\section{Experimental Setup}
+This experiment was carried out at the Idaho Accelerator Center (IAC), using their short-pulsed linear accelerator, which is an L--band frequency (1300 MHz) electron linear accelerator.
+See section~\ref{beam} for the accelerator parameters used during the experiment.
+Figure~\ref{fig:Facility} shows a top-down diagram of the experimental arrangement.
+
+\begin{figure}[h]
+\includegraphics[width=0.5\textwidth]{ExpArangment.png}
+\caption{To-scale, top down diagram of the experimental setup.
+An electron beam impinges upon a 3.8 cm thick Al radiator, and the resulting bremsstrahlung beam enters the experimental cell from the top of the figure.
+The supporting structure for each detector has been labeled according to the angle, in degrees, between the center of each detector and direction of the incoming photon beam.
+The fission target, a 0.05$\times$2$\times$4 cm$^3$ $^{238}$U cuboid, is rotated slowly about the vertical axis in order to replicate the effect of using a cylindrical target.
+}
+\label{fig:Facility}
+\end{figure}
+\figFacilityBarrier
+
+\subsection{Detectors}
+\label{subsection:detectors}
+The detection system measures neutron position and time of flight (ToF), which is defined as the time taken for a particle to travel from the fission target to a detector.
+The purpose of the ToF measurement is to determine the kinetic energy of detected neutrons and to distinguish between photons and neutrons.
+The detection system's positional precision is $\pm$9~cm, which results in an average opening angular precision of $\pm6^{\circ}$ for a target to detector distance of 1.25 m. 
+The detection system consists of fourteen shielded scintillators made from Polyvinyl Toluene (PVT) arranged in a ring around the target (see Figs.~\ref{fig:Facility} and~\ref{fig:DetGeom}).
+Attached to both ends of each scintillator are 10-cm long, non-scintillating, ultra-violet transmitting, plastic light-guides.
+A Hamamatsu 580-17 photomultiplier (PMT) tube is fixed to each light-guide using optical glue.
+In order to increase the chance that scintillation light remains inside the scintillator, the scintillators were polished to remove micro-imperfections and were then wrapped in reflective aluminized mylar.
+\begin{figure}[]
+    \centering
+    \includegraphics[width = \figsize\textwidth]{Detectors.png}
+    \caption{3-D rendering of the bare, unshielded scintillators, along with PMTs and light guides.
+    Most of the open space between the scintillators was occupied by shielding, as seen in Fig.~\ref{fig:Facility}.
+    }
+    \label{fig:DetGeom}
+\end{figure}
+
+Ten of the fourteen scintillators had dimensions of 76.2$\times$15.2$\times$3.8 cm$^3$.
+The remaining four, located nearest to the beam line at $\pm$ 30$^{\circ}$ with respect to the beam, had dimensions of 25.4$\times$15.2$\times$3.8 cm$^3$.
+These scintillators, 1/3 the length of the rest, are the result of the segmentation of two normally sized scintillators in order to lower the relatively high photon detection rates near the beam line.
+Prior to segmentation, a photon was registered in the forward-most detectors at a rate of about 0.9 photons per pulse, and because the electronics were operated in single hit mode (see section~\ref{sec:electronics}), this greatly reduced the effective neutron detection efficiency.
+After segmentation and optimization of shielding, the photon detection rate was about 0.2 photons per pulse in each segmented detector.\onlyThesis
+The segmented detectors also differ from the rest in that they were instrumented with only a single PMT, and therefore provide a comparatively lower precision in energy and position measurements.
+In order to test for systematic errors that may have resulted from the use of the segmented detectors, opening angle measurements were compared with and without their use, and the differences were well within experimental errors.
+
+The relative efficiencies of the neutron detectors as a function of neutron energy and detector location were calculated by dividing the measured yields by the yields of neutrons from the SF of $^{252}$Cf according to MCNP.
+The results are shown in Fig.~\ref{fig:RelErgEfficiency}.
+Note that the effects of the uncertainty in measured neutron energy (seen in Fig.~\ref{fig:ErgUncertainty}) are folded into this calculation.
+The analysis techniques described in section~\ref{Analysis} are designed to eliminate the effects of detector efficiency from the final result.
+\begin{figure}[]
+    \centering
+    \includegraphics[width = \figsize\textwidth]{RelErgEfficiency.png}
+    %\vspace{10cm}
+     \includegraphics[width = \figsize\textwidth]{RelPosEfficiency.png}
+     
+       \caption{(top) The mean relative neutron detection efficiency of all detectors as a function of neutron energy is calculated by dividing the measured energy distribution by the known energy distribution of neutrons from the SF of $^{252}$Cf. The relative efficiency differs from detector to detector, as demonstrated by the shaded region, which corresponds to the standard deviation of the relative efficiencies of all detectors. The error bars represent the uncertainty in the mean. (bot) Mean relative neutron detection efficiency as a function of the reconstructed position along the detectors longest axis. }
+    \label{fig:RelErgEfficiency}
+\end{figure}
+
+\subsection{Detector Shielding}
+\label{shielding}
+The detector shielding, depicted in Fig.~\ref{fig:shielding}, was constructed using lead and polyethylene with the aim of reducing detector cross-talk, the detection of photons, and noise.
+The sides of each scintillator were shielded with 5 cm of lead followed by 5 cm of polyethylene to reduce the chance of neutron cross-talk.
+Lead was not placed behind the scintillators after an MCNP-POLIMI simulation indicated that the additional lead would significantly increase cross-talk rates.
+Instead, 10~cm of polyethylene was placed behind the scintillators.
+For a detailed discussion about the issue of cross-talk, see section~\ref{crosstalk}.
+
+The front face of each detector was subject to the highest photon flux due to the scattering of the bremsstrahlung beam from the target.
+The detection of a photon renders the given detector unable to detect any subsequent fission neutrons from the same pulse due to the detector recovery time.
+Lead mitigates this problem by reducing photon flux, but has the side effect of scattering neutrons.
+If a neutron scatters prior to being detected, the ToF measurement and position reconstruction are corrupted.
+The extent of measurement errors caused by lead shielding was quantified using an MCNP simulation, and, accordingly, 2.5~cm of lead was placed along the front face of the detectors.
+This diminished photon detection rates to reasonable levels, and, according to the simulation, leads to a root-mean-square error in opening angle and ToF of 1$^{\circ}$ and 0.3~ns, respectively, due to neutron elastic scattering.
+
+Because of the particularly high photon flux at the sides of all detectors located directly adjacent to the beam, an additional 2" of lead was placed along the sides of these detectors.
+For the same reason, an additional 2" of lead was also placed along the front faces of the detectors farthest downstream, located at $\pm30^{\circ}$ from the beam line.
+The differences in shielding design among the detectors can be seen in Fig.~\ref{fig:Facility}.
+\begin{figure}
+    \centering
+    \includegraphics[width = \FigShieldingSize\textwidth]{DetShielding.png}
+    \caption{Detector shielding was designed to reduce the detection of photons, room return, and detector cross-talk.}
+    \label{fig:shielding}
+\end{figure}
+
+\subsection{Bremsstrahlung Photon Beam}
+\label{beam}
+In order to ensure that all correlated neutrons produced are due to fission, the bremsstrahlung end-point energy was set to 10.5~MeV, safely below the ($\gamma, 2n$) threshold of 11.28~MeV for $^{238}$U.
+Aluminum was chosen for the bremsstrahlung radiator because it has a neutron knockout threshold above the energy of the electron beam, which ensured that the radiator would not be a source of fast neutrons with the potential to interfere with the experiment.
+A sweeping magnet was placed downstream from the bremsstrahlung radiator to remove charged particles from the photon beam.
+Following the sweeping magnet, the beam traveled through a series of polyethylene and lead collimators on its way into the experimental cell in which the target was located (see Fig.~\ref{fig:Facility}).
+Figure~\ref{fig:BremDist} shows the energy distribution of photons that reach the target according to an MCNP simulation that modeled the collimation and production of the bremsstrahlung photons.
+
+The electron beam pulse width was set to 3~ns at a repetition rate of 240~Hz with a 1.1~A peak current.
+The 3~ns pulse width was small compared to the median neutron ToF of 80~ns, and thus made a small contribution to the uncertainty in the neutron energy determination.
+\begin{figure}[h]
+\centering
+\includegraphics[width=\FigBremDistSize\textwidth]{MCNPBremDistribution.png}
+\caption{MCNP simulation of the energy distribution of the bremsstrahlung photons that reach the fission target. Photons with an energy below 2 MeV are excluded.}
+\label{fig:BremDist}
+\end{figure}
+
+\subsection{DU Target}
+\label{subsection:targets}
+A depleted uranium (DU) target in the shape of a thin strip with dimensions of 4$\times$2$\times$0.05 $\text{cm}^3$ and a mass of 7.6 g was used as the primary target.
+$^{238}$U was chosen as the fission target because it is an even-even nucleus, and as a consequence, the fission fragments are emitted with a high degree of anisotropy with respect to the photon beam direction~\cite{1977FragAss}.
+
+Any target comprised of heavy nuclei has a significant potential to scatter fission neutrons before they exit the target.
+This is cause for concern, because neutrons that scatter from heavy nuclei are likely to be deflected at large angles, resulting in the incorrect reconstruction of $\theta_{nn}$.
+As discussed in detail in section~\ref{subsection:Elastic_scattering}, an MCNP simulation estimated that 6\% of reconstructed $\theta_{nn}$'s are perturbed due to neutron scattering within the $^{238}$U target.
+Moreover, it is more likely that neutrons emitted along the wide, 2~cm, axis of the $^{238}$U target undergo a scattering event than neutrons emitted along the thinnest, 0.05~cm, axis.
+As a result, detectors located collinear to the widest axis of the target would see relatively fewer neutrons due to increased scattering along this axis. 
+This bias is removed by slowly rotating the target about the vertical axis during data acquisition at a rate of one rotation per 8 seconds.
+%Because this measurement is of a statistical process, rotating the target gives the same effect as if a cylindrical target were used.
+%See section~\ref{subsection:Elastic_scattering} for discussion of issues regarding neutron scattering within the fission target.  
+
+\subsection{Electronics}
+\label{sec:electronics}
+\begin{figure*}[ht!]
+\centering
+\includegraphics[width=0.95\textwidth, angle=\WireAngle]{WiringDiagram.png}
+\caption{Wiring diagram of the electronics setup. }
+\label{fig:WiringDiagram}
+\end{figure*}
+\figWiringDiagramBarrier
+A data acquisition system based on the NIM/VME standard was used.
+A schematic of the data acquisition logic is shown in Figure~\ref{fig:WiringDiagram}.
+The PMTs are supplied negative voltages ranging from 1300 to 1500 V by a LeCroy 1458 high voltage mainframe.
+Analog signals from the PMTs were fed into a leading edge discriminator (CAEN Mod. N841) with input thresholds ranging from 30 mV to 50 mV.
+The threshold and supply voltages were determined individually for each detector to minimize noise, while simultaneously matching the efficiencies of all the detectors as closely as possible.
+Logic signals from the discriminator were converted to ECL logic and fed into a CAEN model V1290A TDC.
+The timing of signals from the PMTs were always measured relative to a signal from the accelerator provided at the beginning of each pulse.
+Even though a multi-hit TDC was used, only the first signal in each pulse from any given PMT was taken into account due to concerns over dead-time within the electronics and signal reflections within the cables.
+On the software side, the CODA 2.5 ~\cite{CODA} software package developed by Jefferson Laboratory was used to read out the data from the TDC and digitally store it for analysis.
+
+\section{Measurement Techniques}
+
+\subsection{Particle Time of Flight and Energy Determination}
+\label{ToF_reconstruction}
+The ToF of detected particles is used to distinguish between neutrons and photons as well as determine neutron energy.
+A particle's reconstructed position is used to determine direction of motion, which is then used to calculate the opening angle between pairs of detected particles.
+Position and ToF are each determined using the timing of coincident signals from both PMTs of a given detector.
+
+The sum of the times required for scintillation light to travel from the point of scintillation to both PMTs is equal to the time required for the light to travel the full length of the scintillator, which is a constant for light that travels parallel to the length of the scintillator.
+This is supported by data, shown in Fig.~\ref{fig:ConstPMTAvg}, which were produced from a series of tests in which a collimated $^{60}$Co source was placed at seven different locations along a scintillator.
+One of the two coincident photons emitted by $^{60}$Co reaches the scintillator and the other is detected by an auxiliary detector serving as the trigger. 
+The photons incident on the scintillator have a spot size of less than 1~cm due to source collimation.
+%These events all have equal transit time, regardless of the $^{60}$Co source's position. %because the coincident photons are emitted simultaneously and the distance they must travel is unchanged. 
+
+In Figure~\ref{fig:ConstPMTAvg}(a), it can be seen that the time required for the scintillation light to propagate along the scintillator has a large effect on the timing of each PMT alone, however, the average of the times of both PMTs is a constant within $\pm$2 ns. %unaffected by the location at which the particle undergoes scintillation.
+For this reason, taking the average of signals from two PMTs is advantageous because it reduces the timing error by eliminating variation in the time required for scintillation light to propagate along the scintillator.
+The requirement that there be coincident events in both of a detector's PMTs also aids in reducing noise.
+
+\begin{figure}[]
+\centering
+\subfloat[]{\hspace{-0.5cm}\includegraphics[width=\figsmall\textwidth]{ConstPMTAvg.png}}
+
+\subfloat[]{\includegraphics[width=\figsmall\textwidth]{ConstPMTAvgProject.png}}
+\caption{A collimated $^{60}$Co source is used to produce photon events with constant ToF at seven locations along the detector.
+$^{60}$Co produces coincident photons, and one is detected by the scintillator and the other by a separate trigger detector.
+ $\Delta t$ is the timing of a PMT signal relative to a signal from the trigger detector. 
+ In (a), it can be seen that the average between signals from both PMTs does not depend on position.
+By using the PMT average, there is a reduction in error due to the time required for scintillation light to travel along the scintillator.
+The uncertainty in ToF measurements is equal to the standard deviation seen in (b), or about $\pm$2~ns, because all photons from the $^{60}$Co source have the same ToF.}
+\label{fig:ConstPMTAvg}
+\end{figure}
+
+During photofission measurements, ToF is calculated by the following expression:
+\begin{equation}
+\label{eq:ToF}
+\text{ToF} = t^{PMTs}_{\text{mean}} - t_{\text{beam}} + C \, ,
+\end{equation}
+where $t^{PMTs}_{\text{mean}}$ is the mean of the times of signals from both PMTs of a scintillator, $t_{\text{beam}}$ is the time of a signal provided by the accelerator at the beginning of each pulse, and $C$ is a constant timing offset.
+Any process that produces a timing delay that does not change from pulse to pulse contributes to $C$.
+For example, the time required for photons to travel from the bremsstrahlung radiator to the target, the propagation of signals through the cables connecting the PMTs, delays in the electronics, {\em{etc}}.
+
+\begin{figure}[]
+\centering
+    \subfloat[]{\includegraphics[width=\figsmall\textwidth]{MTvsAl.png}} \figToFNewline
+    \subfloat[]{\includegraphics[width=\figsmall\textwidth]{DUvsAl.png}}
+    \caption{(a) Comparison between the ToF spectrum of a non-neutron producing target made from Al, to the ToF spectrum produced when no target is used.
+    The large increase in events around 4~ns is due to photons that scatter from the Al target.
+    When no target is in place, sources of the peak include the collimator leading into the experimental cell and the beam dump.
+    The photon peak seen here is used to find the timing offsets that make it so $t=0$ corresponds to the moment of fission.
+    (b) Comparison between the Al and DU targets show a pronounced increase in events for DU between 35 and 130~ns due to the introduction of neutrons.}
+    \label{fig:ToF}
+\end{figure}
+
+The value of $C$, which is different for each detector, is determined by comparing the timing spectra of the gamma flash produced by a non-neutron producing aluminum target, to that produced when no target is used (see Fig.~\ref{fig:ToF}).
+The difference between these two spectra reveals a prominent peak in the ToF spectrum due to photons that scatter from the aluminum target.
+These photons must travel 125~cm to reach the center of any detector and 130~cm to reach the top, for which it takes light 4.2~ns and 4.3~ns to travel, respectively.
+The value of $C$ used for each detector is equal to the value that places the time corresponding to the peak of the target-induced gamma flash at 4~ns.
+
+%For 10 MeV neutrons, relativistic and non-relativistic energy calculations differ by about 1\%.
+The kinetic energy of a detected neutron is determined straightforwardly from its velocity, which is determined from its ToF under the assumption that the neutron traveled directly from the target to the detectors unimpeded.
+This assumption is true for the vast majority of fission neutrons according to a series of MCNP simulations examining the scattering of fission neutrons within detector shielding and the fission target.
+These simulations are discussed in sections~\ref{subsection:targets} and \ref{subsection:detectors}.
+
+Figure~\ref{fig:ErgUncertainty} shows the measurement uncertainty in neutron energy due to error in the ToF determination.
+\begin{figure}[]
+%    \subfloat[]{\includegraphics[width=\figsmall\textwidth]{ToF2Erg.png}}
+    \subfloat[]{\includegraphics[width=\figsmall\textwidth]{DeltaErg.png}}
+    \caption{%(a) Mapping from ToF to neutron energy: $E = \frac{8127}{ToF^{2}}$.
+    Uncertainty in neutron energy measurements as a function of measured neutron energy.}
+    \label{fig:ErgUncertainty}
+\end{figure}
+
+\subsection{Particle Position Reconstruction}
+Each detector is not capable of measuring the position of a detected particle along the axes parallel to its width (15.24~cm) or depth (3.81~cm), which contributes $\pm3^{\circ}$ to the total angular uncertainty.
+The position of a detected particle along the 76.2~cm length of the scintillator is calculated using the timing difference of signals from both of a detector's PMTs.
+Assuming that scintillation light travels from an initial point, let it be $x$~cm from the center of a scintillator, to both PMTs at a velocity that is constant with respect to the scintillator's length-wise axis, then the difference between the times at which the light will reach each PMT ($\Delta t^{PMTs}$) is given by:
+\begin{equation}
+\label{eq:PMTDiff1}
+\begin{split}
+\Delta t^{PMTs} & = t^{PMT_1}-t^{PMT_2} \\ 
+& = \frac{(L/2 + x) n_{\text{eff}}}{c} - \frac{(L/2-x) n_{\text{eff}}}{c} \\
+& = 2x \frac{n_{\text{eff}}}{c}  \, .
+\end{split}
+\end{equation}
+Solving for $x$ gives 
+\begin{equation}
+\label{eq:position}
+x = \frac{c}{2n_{\text{eff}}} \Delta t^{PMTs} \, ,
+\end{equation}
+where $t^{PMT_{1}}$ and $t^{PMT_{2}}$ are the times of signals from each of a detector's PMTs relative to the accelerator gun pulse, $L$ is the length of the scintillator, $c$ is the speed of light, $n_{\text{eff}}$ is the effective index of refraction of the scintillation material.
+A linear least squares  fit between $x$ and $\Delta t^{PMTs}$ was performed on data gathered using coincident photons emitted by a collimated $^{60}$Co source, as described in the previous section.
+The resulting fit parameters, seen in Fig.~\ref{fig:PMTDifference}, are used to find the position of detected particles.
+\begin{figure}[]
+    \centering    
+    \includegraphics[width = \figsize\textwidth]{PMTDifference.png}
+    \caption{
+    A collimated $^{60}$Co source is used to produce photon events at five different positions along the scintillator.
+    The mean PMT timing difference of events at each position varies linearly with respect to the distance of the $^{60}$Co source from the center of the detector. 
+    The result of a linear least squares fit to this data is used to calculate the position of detected particles along the length of each scintillator.
+    }
+    \label{fig:PMTDifference}
+\end{figure}
+
+Using the slope of the linear fit in Fig.~\ref{fig:PMTDifference}, along with Eq.~\ref{eq:position}, an effective index of refraction of the scintillation material is calculated to be 2.0.
+This index of refraction is said to be ``effective" because its measurement is sensitive only to the scintillation light's average speed projected onto the axis parallel to the scintillator's longest dimension, which is equal to the intrinsic speed of light in the material only when said light is traveling parallel to the scintillator's length.
+While the detection of scintillation light by both PMTs favors light paths which are parallel or nearly-parallel to the scintillator's length, there is some reflection of detected scintillation light from the boundaries of the scintillator.
+This effect contributes to the $\pm9$~cm measurement uncertainty in particle position reconstruction.
+As a result of these effects, the index of refraction measured here is $\sim{25}\%$ greater than the true value for the scintillation material.  
+
+\subsection{Measurements with $^{252}$Cf}
+\begin{figure}[h]
+\includegraphics[width=\figsize\textwidth]{Cf252ToF.png}
+\caption{Measured ToF spectrum from the SF of $^{252}$Cf. The sharp peak on the left is due to fission photons, followed by another peak due to fission neutrons.}
+\label{fig:Cf252ToF}
+\end{figure}
+A $^{252}$Cf source was placed at the center of the detection system shown in Fig.~\ref{fig:Facility} in order to measure the n-n opening angle distribution.
+Several such past measurements have been performed (see Refs.~\cite{1975Cf252, Pozzi2014, 2008CF252, Verbeke2018}), and serve as a means to validate the methods used throughout this study.
+
+The $^{252}$Cf source produces a cleaner ToF spectrum than photofission due to the lack of beam related backgrounds (see Fig.~\ref{fig:Cf252ToF}), and therefore these measurements have a better signal to noise ratio.
+Also, there is no concern over the detection of accidental neutron coincidences because the fission rate of the $^{252}$Cf source was about 3,500 fissions/s, making it highly unlikely that multiple fissions will occur during the electronic acceptance time window of 150~ns.
+The beginning of the 150~ns neutron acceptance time window was triggered by a 2-fold coincidence, within a 4~ns window, between two separate 10$\times$10$\times$5 cm$^3$ plastic scintillators, one placed above and the other below the source at a distance of 30~cm.
+Aside from this difference in the time window triggering mechanism, identical methods were used for both photofission and SF measurements.
+\FloatBarrier
+
+\section{Analysis}
+\label{Analysis}
+
+The efficiency and acceptance of the neutron detection system varies greatly over its opening angle range of 20$^{\circ}$ to 180$^{\circ}$, as illustrated in Fig.~\ref{fig:DetAcceptance}.
+This is both due to the neutron detection system's non-spherical symmetry and to varying efficiency as a function of particle position on the detector.
+In order to give a result that is sensitive to angular correlations, but is highly insensitive to detector efficiencies and experimental drifts in PMT voltage, accelerator current, \emph{etc}., the angular correlation is determined by dividing a correlated neutron distribution by an uncorrelated neutron distribution.
+That is,
+\begin{equation}
+\label{eq:angularCorr}
+\text{angular correlation }  = \frac{nn_{\text{corr}}(\theta)}{nn_{\text{uncorr}}(\theta)},
+\end{equation}
+where $nn_{\text{corr}}(\theta)$ is the n-n yield after the subtraction of accidental n-n coincidences, and $nn_{\text{uncorr}}(\theta)$ is a contrived distribution of uncorrelated n-n pairs, which is produced by pairing neutron events that occurred during different pulses.
+%\footnote{A neutron event is the detection of a particle with a ToF between of 35 and 130 ns (see Fig.~\ref{fig:ToF}b). All n-n yields are normalized per accelerator pulse.}
+The subtraction of accidental n-n coincidences to produce $nn_{\text{corr}}(\theta)$ amounts to a 10\% correction, the procedure of which is covered in section~\ref{Reconstruction of Accidental Coincidence}. The construction of $nn_{\text{uncorr}}(\theta)$ is described in detail in section~\ref{subsec:SPDPCancelation}.
+
+\subsection{Cancelation of Detector Efficiencies, Drifts, and Geometric Phase Space}
+\label{subsec:SPDPCancelation}
+%\footnote{While this notation implies that coincident events are due solely to neutrons, about 3\% of total  $nn_{\text{corr}}(\theta)$ events are not due to neutrons. This percentage was determined by comparing data from a non-neutron producing Al target to that from a $^{238}$U target (see Fig.~\ref{fig:Noise})} 
+\begin{figure}[h]
+\includegraphics[width=\figsize\textwidth]{./DetAcceptance.png}
+\caption{Raw n-n opening angle yield from the photofission of $^{238}$U. 
+This distribution is highly influenced by the detection system's geometric acceptance and efficiency.
+}
+\label{fig:DetAcceptance}
+\end{figure}
+
+The construction of $nn_{\text{uncorr}}(\theta)$ is achieved by pairing detected neutrons that were produced during different accelerator pulses.
+The same set of pulses used for $nn_{\text{corr}}(\theta)$ is used here, so each of these pulses individually consist of the detection of two coincident neutrons.
+%It is required that there is an n-n coincidence in all pulses used for the construction of $nn_{\text{uncorr}}(\theta)$, in order to favor coincident neutrons from fission as opposed to coincident neutrons caused by multiple $(\gamma, n)$ events in a single pulse.
+When constructing $nn_{\text{uncorr}}(\theta)$, it is desirable that the neutrons comprising each uncorrelated n-n pair originated from different pulses that occurred as closely together in time as possible.
+A smaller time difference between pulses that are paired for this purpose increases the chance that both neutrons were detected under the same experimental conditions amid any drifting of accelerator current, PMT voltages, and varying rates of noise.
+However, some time difference between the pulses must be allowed so as not to cause insufficient counting statistics.
+Accordingly, uncorrelated n-n pairs used to construct $nn_{\text{uncorr}}(\theta)$ are formed by neutrons that were detected within 30 minutes or less of each other.
+
+%under the requirement that both pulses occurred within 0.2 seconds of each other.
+%This requirement is imposed in order to ensure that paired neutron events occurred under the same experimental conditions amid possible drifting of accelerator current and PMT voltages, and varying rates of noise.
+%For each , all possible pairs of uncorrelated neutrons are examined (a total of 4 n-n pairs per pulse-pair), and the opening angle of each uncorrelated n-n pair is calculated.
+%The reason for only using pulse-pairs in which each pulse has two events is to reduce differences in the energy distribution of correlated and uncorrelated neutron pairs. %
+
+Uncorrelated n-n pairs will have a slightly different joint energy distribution than correlated n-n pairs, which could affect the extent to which the effects of detector efficiency cancel in Eq.~\ref{eq:angularCorr}. 
+This issue is addressed in section~\ref{sec:n_n_erg_dist}, where it is shown that these differences have little potential to significantly affect the final result.
+
+Figure~\ref{fig:SPDPNormalization}(a) shows the measured yield distribution of correlated neutrons, $nn_{\text{corr}}(\theta)$, from the photofission of $^{238}$U.
+The structure seen here is reflective of the underlying n-n angular correlations as well as the geometric acceptance and efficiencies of the neutron detectors.
+Figure~\ref{fig:SPDPNormalization}(b) reveals how a clear picture of n-n angular correlations emerges when taking the ratio between $nn_{\text{corr}}(\theta)$ and $nn_{\text{uncorr}}(\theta)$.
+Applying the same technique to a measurement of coincident neutrons from the photodisintegration of D$_{2}$O produces a flat line as expected (see Fig.~\ref{fig:D2OCorr}), as in this case all neutron coincidences are accidental.
+
+
+\begin{figure}[]
+\centering
+    \includegraphics[width=\figsmall\textwidth]{SPDPNormalization.png}
+    \caption{ n-n opening angle distribution from the photofission of $^{238}$U before the normalization procedure seen in Eq.~\ref{eq:angularCorr} (a), and after normalization (b).
+    All measured neutrons have an energy greater than 0.4 MeV.}
+    \label{fig:SPDPNormalization}
+\end{figure}
+\begin{figure}[]
+\centering
+    \includegraphics[width=\figsmall\textwidth]{D2OCorr.png}
+    \caption{A measurement of the angular correlation of uncorrelated neutrons emitted by the photodisintegration of D$_{2}$O gives the expected uniform distribution.}
+    \label{fig:D2OCorr}
+\end{figure}
+
+\subsection{Subtraction of Accidental Coincidences}
+\label{Reconstruction of Accidental Coincidence}
+% explicity mention that nn_dp does not require each pulse to have two neutrons.  
+The observation of two uncorrelated signals in the neutron ToF range, whether caused by neutrons, photons, or noise, is referred to as an \emph{accidental coincidence}.
+%A small number of accidental coincidences are due to photons because the smeared gamma flash slightly overlaps with neutron ToF range.
+Accidental coincidences due to noise and photons, which are estimated using a non-neutron producing aluminum target (see Fig.~\ref{fig:Noise}), amount to about 3\% of all coincidences.
+Accidental coincidences due to neutrons are minimized by adjusting the accelerator's current so that there are, on average, less than 1.0 fissions per accelerator pulse.
+Nevertheless, statistical fluctuations in the number of fissions per pulse result in the production of accidental coincident neutrons that originated from different, and therefore, uncorrelated fissions.
+There are also accidental neutron coincidences caused by the occurrence of multiple $(\gamma, n)$ reactions in a single pulse.
+The energy integrated $(\gamma, n)$ cross-section of $^{238}$U, weighted by the bremsstrahlung energy distribution, is about a factor of 5.5 times greater than it is for photofission (see Fig.~\ref{fig:CrossSection}).
+As a result, the raw n-n coincident yield will contain a significant number of n-n coincidences from multiple $(\gamma, n)$ reactions in relation to n-n coincidences from fission.
+The presence of accidental n-n coincidences has the effect of washing out the signal from correlated neutrons. 
+\begin{figure}[]
+\centering
+    \includegraphics[width=\figsize\textwidth]{Noise.png}
+    \caption{An Al target was designed have the same thickness, in radiation lengths, as the $^{238}$U target, thus serving as an equivalent non-neutron producing target well-suited for noise estimates.
+    The rate of the detection of coincident events in the neutron ToF range while using the Al target was 3\% that of the $^{238}$U target.
+    Thus, 3\% of coincident events used in the determination of n-n angular correlations in $^{238}$U can be attributed to noise.
+        }
+    \label{fig:Noise}
+\end{figure}
+\begin{figure}[]
+\centering
+    \includegraphics[width=\figsize\textwidth]{CrossSections.png}
+    \caption{(top) ENDF cross-sections of $(\gamma$,fiss), direct $(\gamma$,n), and direct $(\gamma$,2n).
+    (bottom) Cross-sections weighted by the simulated relative rate of bremsstrahlung photons that reach the target as a function of photon energy. 
+    The integrated cross-sections of $(\gamma, n)$ is 5.5 times greater than for $(\gamma, \text{fiss})$. 
+    Assuming a $\overline{\nu}$ of 2 neutrons/fission, the bremsstrahlung beam produces about 2.7 times more neutrons via $(\gamma$,n) than $(\gamma$,fiss) within the target.
+        \label{fig:CrossSection}
+        }
+\end{figure}
+
+The raw measurement of n-n yield consists of a mix of correlated and accidental neutron coincidences, that is
+\begin{equation}
+\label{eq:corr_uncorr}
+nn_{\text{raw}}(\theta_{nn})= nn_{\text{corr}}(\theta_{nn}) + nn_{\text{acc}}(\theta_{nn}) \, ,
+\end{equation}
+where $nn_{\text{raw}}(\theta_{nn})$ and $nn_{\text{acc}}(\theta_{nn})$ are the per-pulse n-n yields as a function of opening angle, $\theta_{nn}$, for all detected n-n pairs, and detected accidental n-n pairs, respectively. As already defined, $ nn_{\text{corr}}(\theta_{nn})$ is the per-pulse yield of detected correlated n-n pairs.
+
+Because the n-n coincidences comprising $nn_{\text{acc}}(\theta_{nn})$ consist of two independent detected neutrons, they are governed by the exact same physics and are subject to the exact same experimental conditions as n-n coincidences formed by pairing of single neutrons that were detected during different pulses.
+% given that the two different pulses occurred at virtually the same time and thus under the same experimental conditions.
+Therefore, the opening angle distribution formed by pairing neutrons that were detected during different pulses, denoted $nn_{dp}(\theta_{nn})$, is proportional to $nn_{\text{acc}}(\theta_{nn})$.
+$nn_{dp}(\theta_{nn})$ is constructed from the set of all possible pulse-pairs formed by pulses that occurred within 0.2 seconds of each other.
+The restriction in time difference is applied in order to increase the chance that pulse pairs together occurred under similar experimental conditions.
+There are no other restrictions on which pulses can be used in this case.
+Many pulse-pairs used for the construction of $nn_{dp}(\theta_{nn})$ will contain no detected neutrons.
+% This is different than the construction of $nn_{\text{uncorr}}(\theta_{nn})$, which only used pulse-pairs in which there was an n-n coincidence in both pulses.
+
+While $nn_{dp}(\theta_{nn})$ and $nn_{\text{acc}}(\theta_{nn})$ are proportional, $nn_{\text{acc}}(\theta_{nn})$ is not equal to $nn_{dp}(\theta_{nn})$,  because there are, on average, more detected neutrons per pulse-pair than per pulse.
+As the following analysis shows,~$nn_{\text{acc}}(\theta_{nn}) = \frac{1}{2}nn_{dp}(\theta_{nn})$, under the condition that $nn_{\text{acc}}(\theta_{nn})$ is normalized to the number of pulses and $nn_{dp}(\theta_{nn})$ to the number of pulse-pairs considered.
+When looking at single pulses, the probability of there being a detected uncorrelated n-n pair is denoted by $P^{\text{n-n}}_{\text{sp}}$, and when looking at pulse-pairs, by $P^{\text{n-n}}_{\text{dp}}$.
+Thus, $P^{\text{n-n}}_{\text{sp}}$ and $P^{\text{n-n}}_{\text{dp}}$ determine the relative rates of $nn_{\text{acc}}(\theta_{nn})$ and $nn_{dp}(\theta_{nn})$, respectively.
+
+The statistics of the detected uncorrelated neutrons per pulse is assumed to follow a Poisson distribution, which describes the occurrence of independent random events.
+Accordingly, the probability of the detection of $k$ uncorrelated neutrons in a given pulse is
+\begin{equation} \label{math:Pois}
+p(k) = \frac{e^{-\lambda}\lambda^{k}}{k!} \, ,
+\end{equation}
+where $\lambda$ represents the mean number of uncorrelated detected neutrons per pulse.
+In principle, $\lambda$ equals the total number of detected uncorrelated neutrons divided by the total number of pulses.
+%Data from the present experiment consists of accelerator pulses resulting in the detection of either zero, one, or two neutrons.
+%All detected neutrons from accelerator pulses which yield one detected neutron are counted towards the total number of detected uncorrelated neutrons.
+%Accelerator pulses which yield two detected neutrons, however, are counted in one of the following two ways: if the two detected neutrons are uncorrelated, then both neutrons are counted, and, if the two detected neutrons are correlated, then only one is counted because Poissonian statistics can only account for a strictly independent and uncorrelated set of random events.
+%The resulting number of detected neutrons counted is then divided by the total number of pulses to give $\lambda$.
+Determination of $\lambda$ cannot be done in practice, because one would need to know which pairs of detected neutrons are correlated.
+However, the largest possible value for $\lambda$ is the total number of detected neutrons divided by the total number of pulses, as this quantity counts all detected neutrons, whether they are correlated or uncorrelated.
+For this work, that places an upper bound on $\lambda$ of $5.5\times 10^{-3}$ detected uncorrelated neutrons per pulse, which is small enough to enable the truncation of all terms beyond the leading term in the following analysis.
+
+%The probability of there being a detected uncorrelated n-n pair is denoted by $P^{\text{n-n}}_{\text{sp}}$ when looking at single pulses, and by $P^{\text{n-n}}_{\text{dp}}$ when looking at pulse-pairs.
+%As explained above, the set of all detected uncorrelated n-n pairs from the same pulse (from which $nn_{\text{acc}}(\theta_{nn})$ is derived) and the set of all detected uncorrelated n-n pairs from different-pulse pairs (from which $nn_{dp}(\theta_{nn})$ is derived) are governed by the exact same physics and are subject to the exact same experimental conditions.
+%The only difference between $nn_{dp}(\theta_{nn})$ and $nn_{\text{acc}}(\theta_{nn})$ is statistical, in that detected n-n pairs occur twice as frequently in $nn_{dp}(\theta_{nn})$ than in $nn_{\text{acc}}(\theta_{nn})$.
+%Thus, all that remains to be shown is that  $P^{\text{n-n}}_{\text{sp}} = \frac{1}{2} P^{\text{n-n}}_{\text{dp}}$
+
+Because $P^{\text{n-n}}_{\text{sp}}$ represents the probability of the detection of two uncorrelated neutrons in a single pulse, $P^{\text{n-n}}_{\text{sp}}$ is equal to $p(2)$, as per Eq.~\ref{math:Pois}.
+Thus, 
+%The accidental coincidence rate per pulse integrated over all opening angles, denoted by $\sum_{\theta_{nn}} nn_{\text{acc}}(\theta_{nn})$, is equal to the probability of there being exactly two detected uncorrelated neutrons detected in a single pulse
+%\footnote{Cases of greater than two-fold coincidence are not considered in this analysis, as it is not necessary because of the low detection rates during this work.}:% It can be shown, however, that accounting for any number of coincidences, from zero all the way up to $\infty$-fold coincident events in a pulse or pulse-pair, will give the same answer.}:
+\begin{equation} \label{math:SP}
+    \begin{split}
+    P^{\text{n-n}}_{\text{sp}} & = \frac{e^{-\lambda}\lambda^{2}}{2!} \\
+        &\approx \frac{\lambda^2}{{2}} + \mathcal{O}(\lambda^3) \, .
+    \end{split}
+\end{equation}
+
+When considering the case of $P^{\text{n-n}}_{\text{dp}}$, recall that, in this case, uncorrelated n-n pairs are formed by examining pulse-pairs.
+Here, an uncorrelated n-n pair occurs when there is a detected neutron in both pulses.
+Because all terms beyond the leading term are being truncated, pulse-pairs in which one or both of the pulses comprise two or more detected neutrons do not need to be considered.
+Thus, $P^{\text{n-n}}_{\text{dp}}$ is equal to the probability of there being exactly one detected neutron in each pulse, which is the square of the probability of there being exactly one detected neutron in a single pulse, namely, $p(1)^2$. %in Eq.~\ref{math:SP}.
+Thus, again using Eq.~\ref{math:Pois},
+\begin{equation} \label{math:DP}
+    \begin{split}
+  P^{\text{n-n}}_{\text{dp}}&= \left(e^{-\lambda}\lambda\right)^{2} \\
+    &\approx \lambda^2 + \mathcal{O}(\lambda^3) \, .
+    \end{split}
+\end{equation}
+
+Because $P^{\text{n-n}}_{\text{dp}}$ and $P^{\text{n-n}}_{\text{sp}}$ determine the relative rates of $nn_{dp}(\theta_{nn})$ and $nn_{\text{acc}}(\theta_{nn})$, respectively, and because the two distributions have the same shape, from Eq.'s (\ref{math:DP}) and (\ref{math:SP}), it follows that
+\begin{equation}
+\label{eq:uncorr_DP}
+nn_{\text{acc}}(\theta_{nn}) = \frac{1}{2}nn_{dp}(\theta_{nn}) \,.
+\end{equation}
+Finally, from Eq.'s ~\ref{eq:uncorr_DP} and~\ref{eq:corr_uncorr}, the distribution of solely correlated n-n pairs can be recovered from the raw measurement as follows
+\begin{equation}
+\label{math:acc_final}
+nn_{\text{corr}}(\theta_{nn}) = nn_{\text{raw}}(\theta_{nn}) - \frac{1}{2}nn_{dp}(\theta_{nn}) \,.
+\end{equation}
+
+
+\section{Potential sources of error}
+\mysubsection{Correlated versus uncorrelated n-n energy distribution}
+\label{sec:n_n_erg_dist}
+In order to effectively minimize the dependence of the result on detector geometry/efficiency, the numerator and denominator of Eq.~\ref{eq:angularCorr} must comprise neutron pairs with a similar energy distribution.
+Note that accidental coincident neutrons from $(\gamma,n)$ are completely removed from $nn_{\text{corr}}(\theta)$, the numerator in Eq.~\ref{eq:angularCorr}, by the subtraction of accidental coincidences, but are not removed from the denominator, $nn_{\text{uncorr}}(\theta)$.
+This is the reason for using only pulse-pairs that have two events in each pulse when determining the uncorrelated neutron distribution.
+Doing so increases the selection of neutrons from fission as opposed to $(\gamma,n)$. 
+%accidental coincidence neutrons from fission and $(\gamma,n)$ have different energy distributions, and 
+
+When examining differences between the neutron energy distributions in $nn_{\text{corr}}(\theta)$ and $nn_{\text{uncorr}}(\theta)$, it is important to consider how the energies of both neutrons forming n-n pairs vary together, or, in other words, their joint energy distribution.
+Figure~\ref{fig:ErgDiffLego} shows the ratio between the rates for correlated and uncorrelated n-n pairs of various binned energies.
+The effect that these discrepancies in energy distribution have on the final result can be examined by applying a weighting factor to each event in $nn_{\text{uncorr}}(\theta)$ such that a recalculation of the result in Fig.~\ref{fig:ErgDiffLego} produces a flat curve.
+A comparison of the angular correlation with and without the application of these weighting factors to uncorrelated n-n events is seen in Fig.~\ref{fig:WeightedErgDiff}.
+The resulting weighted distribution is identical within experimental uncertainties to the unweighted distribution, suggesting that differences in the energy distributions of $nn_{\text{corr}}(\theta)$ and $nn_{\text{uncorr}}(\theta)$ do not significantly affect the present measurement.
+\begin{figure}[]
+\centering
+    \includegraphics[width=\figsize\textwidth]{ErgDiffLego.png}
+    \caption{
+    The z-axis represents the ratio between the correlated and uncorrelated rates of binned n-n energies.
+    The energy bins are chosen such that each contains an equal number of events, or 1/16th of the total events.
+    }
+    \label{fig:ErgDiffLego}
+\end{figure}
+\begin{figure}[]
+\centering
+    \includegraphics[width=\figsize\textwidth]{WeightedErgDiff.png}
+    \caption{
+Each uncorrelated n-n event can be weighted such that the weighted histograms of the joint n-n energy distributions of correlated and uncorrelated n-n pairs are equal.
+Comparison of the calculated angular correlation results, with and without such weighting factors applied to all uncorrelated n-n events, illustrates that any effects due to the discrepancies in the joint energy distributions of correlated and uncorrelated n-n pairs are negligible.
+    }
+    \label{fig:WeightedErgDiff}
+\end{figure}
+
+\mysubsection{Detector Cross-talk}
+\label{crosstalk}
+Cross-talk occurs when, after a particle is detected once, the same particle, by any means, causes a detection to be registered in a different detector.
+For example, upon detection, a particle may undergo elastic scattering and then travel into another detector where it is detected again, or, it may produce secondary particles that are detected.
+The two coincident detections of a cross-talk event are causally correlated, and thus they have the potential to contaminate the signal from correlated fission neutrons.
+If both detections occur during the ToF range typical for fission neutrons, then the cross-talk event cannot be distinguished from the detection of two correlated neutrons.
+
+Recent works that measured the n-n angular correlations in the spontaneous fission of $^{252}$Cf and $^{240}$Pu~\cite{Pozzi2016,Verbeke2018} addressed this effect by using an MCNP-PoLiMi simulation to estimate and then subtract cross-talk from their measurements.
+In this work, the issue of cross-talk is approached differently by employing the use of detector shielding aimed at reducing cross-talk to a negligible rate.
+By using shielding to reduce cross-talk, this measurement is less dependent on the details of the models used by MCNP-PoLiMi to simulate neutron transport and detection.
+MCNP-PoLiMi simulations are used in this work only to verify that the effect of cross-talk is negligible.
+
+The scintillators used here are much larger than those used in similar works, such as in Refs.~\cite{Pozzi2016,Verbeke2018}, allowing them to be placed much farther from the fission source without causing a detrimental loss in coincidence rates. 
+An increase in the distance between the detectors and the fission source makes this measurement less subject to angular uncertainty, which depends directly on the uncertainty in the position of a detected particle due to, for example, the scattering of neutrons from detector shielding.
+For this reason, larger amounts of shielding can be used without concern of introducing large errors.
+ 
+Furthermore, the geometry of the neutron detection system makes it kinematically impossible for a neutron to undergo a single scattering event with a proton in one detector, which is the basis for scintillation, and then travel directly into another detector with enough kinetic energy to be detected a second time.
+For this reason, upon being detected, a neutron must scatter from one or more intermediate nuclei, such as lead or carbon, in order for it to reach another detector with enough energy to be detected again.
+This fact follows from the conservation of energy and momentum.
+In order to support the claim that the design of the neutron detection system reduced cross-talk to negligible rates, a detailed MCNP-PoliMi~\cite{MCNP_POLIMI} simulation was performed in which a built-in $^{252}$Cf source is positioned at the center of a model of the neutron detection system.
+
+\mysubsubsection{Simulation of Detector Cross-talk}
+The cross-talk simulation included all scintillators, shielding, detector supporting structures, and the concrete walls surrounding the experimental cell.
+MCNP-PoliMi's built-in $^{252}$Cf spontaneous fission source was used, which emits neutrons with the correct correlations and multiplicities according to previous measurements.
+Detector response was modeled using a program included with the MCNP-PoliMi distribution called MPPost~\cite{MPPost}.
+The model is based on the MeV electron equivalent (MeVee) light output produced by particles as they undergo collisions with carbon and hydrogen within organic plastic scintillators.
+A minimum deposited energy of 0.4 MeV (equivalent to 0.05 MeVee for neutrons) was assumed for detectable particles, which was chosen because the neutron detection system exhibited a sharp decline in detection efficiency for neutrons below 0.4 MeV.
+
+For neutron collisions with hydrogen, the light output in MeVee, denoted $L$, is calculated by the following empirically derived formula~\cite{MPPost}
+\begin{displaymath}
+L = 0.0364 \Delta E_n^2 +  0.125 \Delta E_n \, ,
+\end{displaymath}
+where $\Delta E_n$ is equal to the loss in the kinetic energy of the neutron due to the collision.
+Neutron interactions with carbon are assumed to generate a small light output of
+\begin{displaymath}
+L = 0.02 \Delta E_n \, .
+\end{displaymath}
+As seen in Fig.~\ref{fig:Cf252MCNPVsEXP}, this model of the detection process produces a ToF spectrum for the SF of $^{252}$Cf that shows good agreement with the measurement for neutrons with a ToF less than 100 ns and fair agreement for neutrons with a ToF greater than 100 ns.
+\begin{figure}
+    \centering
+    \includegraphics[width = \figsize\textwidth]{Cf252MCNPVsEXP.png}
+    \caption{
+    Measured \textit{versus} simulated ToF spectrum from the SF of $^{252}$Cf.
+    The simulation used the detector response model outlined in ref~\cite{MPPost}.
+    The simulated and measured curves are normalized in order to facilitate comparison.
+    }
+    \label{fig:Cf252MCNPVsEXP}
+\end{figure} % todo: line numbers 
+
+Figure~\ref{fig:CrosstalkVScoincidence} shows the distribution of cross-talk events and true n-n coincidences as a function of reconstructed opening angle.
+It is worth noting that, according to this simulation, the effect of cross-talk is not only small, but is also distributed over a wide range of n-n opening angles rather than being concentrated around 0 degrees as one might expect.
+Angles greater than 125 degrees are not shown in Fig.~\ref{fig:CrosstalkVScoincidence} because cross-talk events at large angles can be readily identified in analysis due to the large amount of time required for a neutron to travel these distances.
+The simulation was initially performed with 5 cm of lead shielding placed behind the scintillators, and the number of cross-talk events accounted for 11\% of the total coincident neutron events.
+This value fell to 3\% when polyethylene was used instead of lead, motivating the placement of 10~cm of polyethylene behind the detectors instead of lead.
+\begin{figure}
+    \centering
+    \includegraphics[width = \figsize\textwidth]{CrosstalkVScoincidence.png}
+    \caption{
+    MCNP-PoLiMi simulation of the number of cross-talk events \textit{versus} correlated n-n events as a function of reconstructed opening angle.
+    Cross-talk accounted for 3\% of total events.
+    Simulated cross-talk events do not occur primarily at small angles, but are instead spread out over a wide range of angles.
+    Any cross-talk occurring at angles larger than 125$^{\circ}$ will be removed from the experimental data by the cuts applied to neutron ToF.
+    }
+    \label{fig:CrosstalkVScoincidence}
+\end{figure}
+
+
+
+\subsection{Neutron Scattering within the Target}
+\label{subsection:Elastic_scattering}
+A potential source of error in opening angle measurements is the scattering of emitted neutrons as they traverse the fission target.
+This is cause for concern because when neutrons scatter from heavy nuclides such as $^{238}$U, they are likely to be deflected at large angles resulting in n-n opening angles that do not reflect the true underlying fission kinematics.
+The effect that this has on this work is assessed by MCNP~\cite{MCNP} simulations.
+In summary, for 6\% of n-n pairs, at least one neutron out of the two scatters before exiting the target, according to the simulation.
+This effect does not have a large influence on the measured $\theta_{nn}$ distribution according to the simulation data shown in Fig.~\ref{fig:ElasticScatteringEffect}.
+
+The rate of elastic scattering is affected by the size and shape of the target.
+A thin strip is the ideal target shape regarding the rate of neutron elastic scattering per unit of total target volume.
+See Fig.~\ref{fig:ElasticScatteringPlot} for the simulated elastic scattering rates for both thin strip and cylindrical shaped targets.
+The simulation indicates that the rate of elastic scattering in cylindrical targets is about a factor of two times greater than in thin strip targets with the same volume.
+\begin{figure}
+    \centering
+    \includegraphics[width = \figsize\textwidth]{EffectOfElasticScattering.png}
+    \caption{
+    MCNP-PoLiMi simulation of correlated $^{252}$Cf neutrons sampled uniformly throughout a 0.05$\times$2$\times$4~cm$^3$ U-238 target.
+    The slight difference between the curves is due solely to the elastic scattering of neutrons within the target, since detector physics was not simulated.
+    In the reconstructed $\theta_{nn}$ distribution ({\tiny \ding{54}}), only neutrons which enter a physical volume at which a detector was located during the experiment are counted.
+   The true $\theta_{nn}$ distribution at the moment of emission is also plotted ($\mathlarger{\mathlarger{\mathlarger{\circ}}}$).
+    }
+    \label{fig:ElasticScatteringEffect}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width = \figsize\textwidth]{ElasticScatteringPlot.png}
+    \caption{
+     Result of an MCNP simulation in which n-n pairs, with energies sampled from a typical watt fission spectrum, were generated uniformly throughout the volume of DU targets.
+        The y-axis is the rate of opening angle contamination due to the scattering of, within the DU target in which they were produced, either one or both of a pair of neutrons.
+    The lack of symmetry of a thin strip target can be removed by slowly rotating the target around the vertical axis during data acquisition, making it the optimal target geometry for the minimization of the rate of neutron scattering.
+    The target used in this work had a length of 4~cm, a width of 2~cm, and a thickness of 0.05~cm.
+    }
+    \label{fig:ElasticScatteringPlot}
+\end{figure}
+
+The target's dimensions are small enough that the rate of photon absorption, and thus photo-neutron production, is virtually uniform throughout the entire target volume.
+An MCNP-PoLiMi simulation was used to generate $^{252}$Cf spontaneous fission events uniformly throughout the target.
+The SF of $^{252}$Cf is used instead of the photofission of $^{238}$U because of the current lack of photofission models.
+However, the underlying fission kinematics are, broadly speaking, the same for the SF of $^{252}$Cf and the photofission of $^{238}$U.
+Thus, the two processes have similar n-n correlations.
+
+Section~\ref{sec:anomaly} discusses the observation of an unexpected drop in correlation around 180$^{\circ}$ n-n opening angle for the photofission of $^{238}$U, as seen in Figs.~\ref{fig:DU(0)} and \ref{fig:DU(2)}.
+This motivated a second simulation regarding elastic scattering which examined whether this decrease in the correlation around 180$^{\circ}$ opening angles reflects the underlying physics of the fission process.
+In particular, note that throughout these measurements, the target was continuously rotated once per 8 seconds.
+This means that for the determination of the uncorrelated opening angle distribution, the trajectories of the two neutrons were taken from two different pulses in which the target was at a different orientation for each of them.
+Additionally, each of the neutrons likely originated from different regions of the target volume.
+On the other hand, for the same-pulse, correlated neutron measurement, the target was in the same orientation and the two neutrons were generated at the same position in the target.
+For these reasons, the rates of neutron scattering within the target are not necessarily equal for the same-pulse and different-pulse cases.
+As such, we investigated whether these differences could cause this apparent decrease in the opening angle distribution near 180$^{\circ}$.
+
+Using the correlated $^{252}$Cf SF source built-in to MCNP-PoLiMi, the opening angle distribution of neutrons at the moment of emission, labeled \emph{true} in Fig.~\ref{fig:ElasticScatteringEffect}, were compared to that of the neutrons after they have escaped the target, labeled \emph{reconstructed} in Fig.~\ref{fig:ElasticScatteringEffect}.
+The location of fission events were sampled uniformly throughout the target's volume.
+The analysis employs the same technique outlined in section~\ref{subsec:SPDPCancelation}, in which a correlated neutron distribution is divided by an uncorrelated neutron distribution.
+The correlated neutron distribution is formed by pairing neutrons emitted during the same fission, and the uncorrelated distribution by the pairing of neutrons emitted during different fissions.
+In order to account for the effect of a rotating target on the trajectories of neutrons from different-pulses, the coordinate system was rotated about the vertical axis accordingly for different fission events.
+The result from this simulation suggests that the rotating 0.05$\times$2$\times$4~cm$^3$ U-238 target does not, due to neutron scattering, result in a measurable departure from the true n-n opening angle distribution.
+
+%Aside from the size, shape, and continuous rotation of the target, the rate of neutron scattering within the target of detected neutrons is also affected by the fact that the detection system does not have 4$\pi$ coverage.
+%The target is itself asymmetrical, and thus not all exit trajectories for a photo-neutrons are created equal regarding the scattering probability.
+%The detection system's limited geometrical coverage has the potential to favor some neutron trajectories over others, possibly causing a relative tendency to detect scattered n-n pairs for particular opening angles.
+%The potential for this to affect the measurement is captured in the simulation by only counting neutrons which enter a physical volume at which a detector was located during the experiment.
+%This distribution is labeled \emph{reconstructed} in Fig.~\ref{fig:ElasticScatteringEffect}, and includes the effects of neutron elastic scattering within the target together with the geometric coverage of the neutron detection system.
+%Plotted alongside the reconstructed distribution is the opening angle distribution of the neutrons at the moment immediately after emission, labeled \emph{true}.
+%A neutron energy cut of 0.4 MeV is applied to all neutrons in both cases in order to be more reflective of the measurement.
+%Fig~\ref{fig:ElasticScatteringEffect} compares the n-n opening angle distribution at the moment immediately after emission (denoted by \emph{true} in figure) to that of neutrons once they have escaped the target (denoted by \emph{reconstructed} in figure).
+
+
+\section{Results}
+\mysubsection{Comparisons with FREYA}
+The n-n opening angle correlation is calculated using the methods outlined in Sec.~\ref{Analysis}, in which a correlated neutron yield is divided by an uncorrelated yield.
+The results are compared with output from FREYA~\cite{FREYAFounders,FREYA2018} (Fission Reaction Event Yield Algorithm), which was developed by the collaborative efforts of researchers from Lawrence Berkeley National Laboratory,  Lawrence Livermore National Laboratory, Los Alamos National Laboratory, and University of Michigan Nuclear Engineering, and has been included in MCNP since version 6.2.
+ 
+The most recent release of FREYA (version 2.0.3) does not contain photofission directly, but instead uses neutron-induced fission as an {\em{ad hoc}} photofission model~\cite{FREYA_photofission}.
+Representing photofission in this manner is a crude approximation, unsupported by experimental verification.
+Nonetheless, due to the current lack of accepted photofission models, the approximate approach included in FREYA version 2.0.3 is compared with the results of the present work.
+%Nonetheless, the results of the present work are compared to this model, as it was the only photofission model available to the authors of the present work.
+
+For a given nucleus with Z protons and A total nucleons, the code selects the neutron-induced fission model for a Z(A-1) nucleus, and chooses an incident neutron energy such that the compound ZA nucleus will have, relative to ZA's ground state, an excitation energy that is equal to the energy of the would-be incident photon.
+
+When using FREYA to model photofission in this work, all model parameters, such as level density and partition parameters, were set to their default values for neutron-induced fission.
+FREYA was configured to use the fission fragment mass distribution, $Y(A)$, and the average total kinetic energy, $\langle$TKE$\rangle(A)$, from the $^{238}$U photofission measurements described in Ref.~\cite{2017Krishichayan}.
+
+%In Ref.~\cite{Talou2018}, the authors warn that using FREYA in this way to model photofission is only an approximation and could lead to incorrect results.
+
+The measured $\theta_{nn}$ distribution from the photofission of $^{238}$U and the SF of $^{252}$Cf are presented with the following two different types of cuts applied to the energies of neutrons in coincidence:
+in Figs.~\ref{fig:DU(0)} ($^{238}$U) and~\ref{fig:Cf(0)} ($^{252}$Cf), a minimum energy threshold is applied to both neutrons, and in Figs.~\ref{fig:DU(2)} ($^{238}$U) and~\ref{fig:Cf(2)} ($^{252}$Cf), the energy of both neutrons are required to fall within a specified range.
+
+In each of Figs.~\ref{fig:DU(0)} through \ref{fig:Cf(2)}, the data are reported using two representations: the classic histogram and the kernel density estimate (KDE).
+When using a histogram to estimate a continuous distribution from the relatively small number of data points obtained in this work, one faces the following dilemma: small bin-widths lead to large uncertainties that are dependent on the chosen bin-width, while large bin-withs obscure potentially useful information. 
+This problem is mitigated by the use of a KDE.
+A KDE is a method for estimating a continuous probability distribution from a finite set of sampled data points.
+The kernel was chosen to be the measurement errors in opening angle as determined by a study using coincident photons from a $^{60}$Co source, which was placed at different locations along a detector.
+The measurement errors in $\theta_{nn}$ are well-described by a gaussian with a standard deviation of 6$^{\circ}$.
+Mathematical details of the KDE method used in this work are outlined in Ref.~\cite{KDE}.
+The error bands seen in Figs.~\ref{fig:DU(0)} through \ref{fig:Cf(2)} correspond to 68\% confidence intervals.
+
+Plotted with each measurement is the result of a FREYA simulation.
+For the measurement of $^{238}$U photofission, there were a total of 2,952 n-n coincident events after the subtraction of accidentals, and for the SF of $^{252}$Cf, there were  21,882.
+
+\begin{figure}
+\centering
+    \includegraphics[width = 0.5\textwidth]{FinalDUResultw_freya0KDE.png}
+    \caption{$\theta_{nn}$ distribution with minimum neutron energy cuts applied.
+    The number of events contributing to each plot, \textbf{n}, is shown. Note that the bottom plots of this figure and Fig.~\ref{fig:DU(2)} are identical.}
+    \label{fig:DU(0)}
+\end{figure}
+\begin{figure}
+\centering
+    \includegraphics[width = \figsize\textwidth]{FinalDUResultw_freya2KDE.png}
+    \caption{ $\theta_{nn}$ distribution with cuts requiring that the energy of both coincident neutrons be within the specified range.
+    The number of events contributing to each plot, \textbf{n}, is shown. Note that the bottom plots of this figure and Fig.~\ref{fig:DU(0)} are identical.}
+    \label{fig:DU(2)}
+\end{figure}
+
+\begin{figure}
+\centering
+    \includegraphics[width = \figsize\textwidth]{FinalCf252Resultw_freya0KDE.png}
+    \caption{
+    $\theta_{nn}$ distribution with minimum neutron energy cuts applied.
+    The number of events contributing to each plot, \textbf{n}, is shown.  Note that the lower right plots of this figure and Fig.~\ref{fig:Cf(2)} are identical.}
+    \label{fig:Cf(0)}
+\end{figure}
+\begin{figure}
+\centering
+    \includegraphics[width = \figsize\textwidth]{FinalCf252Resultw_freya2KDE.png}
+    \caption{$\theta_{nn}$ distribution with cuts requiring that the energy of both coincident neutrons be within the specified range.
+    The number of events contributing to each plot, \textbf{n}, is shown. Note that the lower right plots of this figure and Fig.~\ref{fig:Cf(0)} are identical.}
+    \label{fig:Cf(2)}
+\end{figure}
+%\FloatBarrier
+
+\mysubsection{Anomalous emission at large opening angles}
+\label{sec:anomaly}
+While the results reported in the previous section are consistent with the effect of the kinematic focusing of the neutrons due to the recoil of the fission fragments, the data for U-238 show a statistically significant decrease in the n-n opening angle correlation in the region from about 165$^{\circ}$ to 180$^{\circ}$, which can be seen in Figs.~\ref{fig:SPDPNormalization} and ~\ref{fig:theta_abs_two_neutron}, as well as in Figs.~\ref{fig:DU(0)} and \ref{fig:DU(2)}.
+The effect is particularly strong for the neutron energy cuts being applied in the upper right plots of both Figs.~\ref{fig:DU(0)} and \ref{fig:DU(2)}.
+A comparison of the observed decrease after 160 degrees with the null hypothesis that the true distribution remains constant after 160 degrees yields a p-value of 0.01.
+This indicates a 1\% probability that the data are incompatible with a decrease in the correlation for large opening angles.
+%This indicates a 1\% probability of obtaining data as compatible with the above hypothesis as the data we observed.
+This is a feature which does not seem to universally appear in either neutron-induced or spontaneous fission.
+A similar but less pronounced effect appears in the results reported in Ref.~\cite{Sokolov2010} for the thermal neutron-induced fission of $^{233}$U and $^{235}$U, but not for the spontaneous fission of $^{252}$Cf or the neutron-induced fission of $^{239}$Pu.
+The prominence of this effect observed in the present work may be a characteristic feature of the photofission of the even-even $^{238}$U nucleus.
+
+Interesting effects are also seen when plotting neutron correlation \textit{versus} energy for several different opening angle cuts.
+Fig.~\ref{fig:LargeAngleAnomaly} (top) shows the correlation when a minimum threshold is applied to the absolute difference in the energies of coincident n-n pairs. %Fig.~\ref{fig:Max_cut} shows the case when an upper limit is applied to the energy of both coincident neutrons.
+Note that a suppression of correlated emission for large opening angles only occurs in n-n pairs that have a large difference in energy, as indicated by Fig.~\ref{fig:LargeAngleAnomaly} (top).
+
+While a definitive explanation of these results would be greatly aided by detailed modeling studies,
+these data are consistent with two possible explanations relating to the unique feature of the asymmetric angular emission of fission fragments in photofission.
+First, the neutrons may indeed be emitted isotropically in the rest frame of the fission fragment, but one fragment essentially shadows the neutrons emitted from the other fragment, either through absorption or scattering, leading to a decrease in emission along the fission axis.
+The decrease in correlation at $\theta_{nn}$'s greater than 170$^{\circ}$ for n-n pairs with a large energy difference, as seen in Fig.~\ref{fig:LargeAngleAnomaly} top, is consistent with the proposed shadowing mechanism for the case of neutron pairs emitted along the fission axis from the same fragment, because one neutron receives a boost to higher energy from the fragment and the other a boost to lower energy.
+The neutron boosted to lower energy is directed toward the opposite fission fragment and is potentially subject to interaction with it.
+On the other hand, Fig.~\ref{fig:LargeAngleAnomaly} middle and bottom show no statistically significant dependence in the correlation when maximum (middle) or minimum (bottom) energy cuts are applied to each neutron.
+To summarize the data, when both neutrons are high energy and when both neutrons are low energy, there does not seem to be an effect, but the effect is evident when there is a difference in energy.
+This is suggestive of a scenario whereby the decrease in correlation at large opening angles is associated with the emission of two neutrons from the same fragment.
+
+%Similarly, the decrease in correlation at $\theta_{nn}$'s greater than 170$^{\circ}$ for n-n pairs in which both neutrons have relatively low energy, as seen in Fig.~\ref{fig:LargeAngleAnomaly} middle, is consistent for the case of neutron pairs emitted along the fission axis from opposite fragments, because both neutrons receive a boost to lower energy.
+A second possible explanation for this drop in n-n correlation at large opening angles is that there is, due to unknown reasons, a decrease in neutron emission along the fission axis.
+If it is the former case of shadowing, this effect has the potential to shed light on the time dependence of neutron emission, since shadowing would likely depend on the fission fragment separation.
+A definitive interpretation of this decreased n-n correlation for large opening angles in photofission requires further study.
+
+\begin{figure}
+\centering
+    \includegraphics[width = 0.47\textwidth]{LargeAngleAnomaly.png}
+    \caption{From the photofission of $^{238}$U. The x-axes of each plot correspond to various cuts applied to the energies of the two neutrons forming coincident n-n pairs.
+     (top) cuts are the minimum absolute difference between the energies of both coincident neutrons.
+    (middle) cuts are a maximum energy threshold of both coincident neutrons, \textit{i.e.} the left side of the plot corresponds to n-n pairs in which both neutrons have low energy.
+    (bottom) cuts are a minimum energy threshold of both coincident neutrons, \textit{i.e.} the right side of the plot corresponds to n-n pairs in which both neutrons have high energy.
+}
+    \label{fig:LargeAngleAnomaly}
+\end{figure}
+
+%\begin{figure}
+%\centering
+%    \includegraphics[width = 0.45\textwidth]{Diff_cut.png}
+%    \caption{From the photofission of $^{238}$U. The x-axis corresponds to cuts on the minimum absolute difference between the energies of the two neutrons forming coincident n-n pairs.}
+%    \label{fig:Diff_cut}
+%\end{figure}
+%\begin{figure}
+%\centering
+%    \includegraphics[width = 0.45\textwidth]{Max_Cut.png}
+%    \caption{From the photofission of $^{238}$U. The x-axis corresponds to cuts on the maximum energy of both coincident neutrons.}
+%    \label{fig:Max_cut}
+%\end{figure}
+
+\mysubsection{Considering $\theta_{abs}$}
+As previously discussed in section~\ref{sec:level1}, photofission differs from spontaneous and neutron induced fission in that the fission fragments for the photon-induced reaction exhibit an asymmetry in their angle of emission, with the most likely orientation of the fission axis lying perpendicular to the direction of the incident photon.
+With this in mind, the following series of angular cuts were made on the data.
+Figure~\ref{fig:theta_abs_LEGO} shows the distributions of absolute angles of the n-n events for three different cuts on the value of the n-n opening angle.
+For n-n opening angles between 120$^{\circ}$ and 160$^{\circ}$, there is an increased preponderance of both neutrons being emitted around 90$^{\circ}$, consistent with the interpretation of kinematic focusing of neutrons coming from fission fragments which are themselves being emitted preferentially at 90$^{\circ}$.
+However, in the opening angle region where the n-n correlation is reduced, from about 160$^{\circ}$ to 180$^{\circ}$, this feature is less prominent.
+
+Furthermore, if one plots the opening angle distributions for the case in which at least one neutron is emitted perpendicular to the incident photon \textit{versus} the case in which neither neutron is emitted perpendicular to the incident photon (Fig.~\ref{fig:theta_abs_two_neutron}), one sees distinct differences.
+The fact that there are overall differences is not surprising, because in one case (Fig.~\ref{fig:theta_abs_two_neutron} solid line) at least one neutron preferentially receives a kinematic boost from a fission fragment and in the other case (Fig.~\ref{fig:theta_abs_two_neutron} dotted line) neither neutron does.
+However, the fact that the n-n correlation is reduced at 180$^{\circ}$ in opening angle when at least one of the neutrons is emitted along the preferred fission axis is unexpected.
+This is a feature which does not seem to appear in most previous measurements of either neutron-induced or spontaneous fission, as well as our present measurement on spontaneous fission.
+The attribution of this effect to the geometric coverage of the neutron detection system or to neutron elastic scattering within the target was ruled out using simulations, as discussed in section~\ref{subsection:Elastic_scattering}.
+
+\begin{figure}
+    \includegraphics[width = \figsize\textwidth]{theta_abs_LEGO.png}
+    \caption{Visualization of the correlation between the angles of each neutron with respect to the incident photon beam, denoted by $\theta 1_{abs}$ and $\theta 2_{abs}$.
+    Empty bins exist because of intrinsic geometrical phase-space.
+    Data taken from measurements of $^{238}$U photofission.}
+    \label{fig:theta_abs_LEGO}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=\figsize\textwidth]{theta_abs_two-neutron.png}
+\caption{Requiring that at least one of the coincident neutrons be emitted nearly perpendicular to the photon beam (solid line) produces an opening angle distribution that is different from that produced when it is required that both neutrons are emitted nearly parallel to the photon beam (dotted line).
+Data taken from measurements of $^{238}$U photofission.}
+\label{fig:theta_abs_two_neutron}
+\end{figure}
+
+\section{Concluding Remarks}
+Neutron-neutron angular correlations in the photofission of $^{238}$U were measured using 10.5 MeV end-point bremsstrahlung photons produced via a low duty factor, pulsed linear electron accelerator.
+The measured angular correlations reflect the underlying back-to-back nature of the fission fragments.
+The method of analysis used a single set of experimental data to produce an opening angle distribution of correlated and uncorrelated neutron pairs.
+A ratio is taken between these two sets to provide a self-contained result of angular correlations, in that the result is independent of neutron detector efficiencies.
+Neutron-neutron angular correlation measurements were also made using neutrons from the spontaneous fission of $^{252}$Cf and show good agreement with previous measurements.
+
+Measured n-n opening angle distributions from the photofission of $^{238}$U are not in close agreement with the \textit{ad hoc} photofission model included in FREYA version 2.0.3.
+This is expected, because the model is only a crude approximation which uses a neutron-induced model to approximate photofission.
+The present measurement will be useful for fine-tuning photofission models included in future releases of FREYA.
+
+In addition, we report for the first time a pronounced anomaly in the n-n angular distributions from photofission, in which the rate of neutron emission at opening angles near 180$^{\circ}$ is diminished, resulting in a local maximum at about 160$^{\circ}$ instead of the expected 180$^{\circ}$.
+We offer two possible interpretations for this effect.
+First, the neutrons may indeed be emitted isotropically in the rest frame of the fission fragment, but one fragment essentially shadows the neutrons emitted from the other fragment, either through absorption or scattering.
+Second, that there is, due to unknown reasons, a decrease in neutron emission along the fission axis.
+While these measurements do not provide a definitive interpretation of this decreased n-n correlation for large opening angles in photofission, further study may have the potential to shed light on the time evolution of neutron emission in photofission.
+
+It is our hope that these first measurements of n-n correlations in photofission will provide the impetus for future modeling of the fundamental physics of fission.
+
+
+\section{Acknowledgments}
+This work has been supported by the National Nuclear Security Administration, grant DE-NA002488. We wish to thank the staff of the Idaho Accelerator Center for their assistance in this work.
+We also wish to acknowledge early contributions to this work by our friend and colleague the late David V. Jordan of the Pacific Northwest National Laboratory.
+In addition, the authors wish to express our appreciation to the FREYA Collaboration, who have made their code publicly available.
+
+%\bibliographystyle{plain}
+\bibliography{./refs.bib}
+
+\end{document}
+%
+% ****** End of file apssamp.tex ******

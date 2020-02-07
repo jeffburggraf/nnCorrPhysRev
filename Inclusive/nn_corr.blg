@@ -1,0 +1,51 @@
+This is BibTeX, Version 0.99d (TeX Live 2018)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: nn_corr.aux
+The style file: unsrt.bst
+Database file #1: nn_corrNotes.bib
+Database file #2: ./refs.bib
+Warning--string name "content" is undefined
+--line 207 of file ./refs.bib
+Warning--empty journal in MCNP
+You've used 23 entries,
+            1791 wiz_defined-function locations,
+            620 strings with 9202 characters,
+and the built_in function-call counts, 6289 in all, are:
+= -- 476
+> -- 433
+< -- 3
++ -- 153
+- -- 130
+* -- 557
+:= -- 1059
+add.period$ -- 67
+call.type$ -- 23
+change.case$ -- 22
+chr.to.int$ -- 0
+cite$ -- 24
+duplicate$ -- 224
+empty$ -- 529
+format.name$ -- 130
+if$ -- 1329
+int.to.chr$ -- 0
+int.to.str$ -- 23
+missing$ -- 21
+newline$ -- 116
+num.names$ -- 23
+pop$ -- 43
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 99
+stack$ -- 0
+substring$ -- 431
+swap$ -- 46
+text.length$ -- 3
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 1
+while$ -- 50
+width$ -- 25
+write$ -- 248
+(There were 2 warnings)

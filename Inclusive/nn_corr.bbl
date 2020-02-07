@@ -1,0 +1,155 @@
+\begin{thebibliography}{10}
+
+\bibitem{Caldwell2017DelayedNs}
+J.~T. Caldwell, E.~J. Dowdy, R.~A. Alvarez, B.~L. Berman, and P.~Meyer.
+\newblock Experimental determination of photofission neutron multiplicities for
+  {$^{235}$U}, {$^{236}$U}, {$^{238}$U}, and {$^{232}$Th} using monoenergetic
+  photons.
+\newblock {\em Nuclear Science and Engineering}, 73(2):153--163, 1980.
+
+\bibitem{Scission2005}
+G.~A. Petrov.
+\newblock Current status of the search for scission neutrons in fission and
+  estimation of their main characteristics.
+\newblock {\em AIP Conference Proceedings}, 798(1):205--212, 2005.
+
+\bibitem{Bowman}
+Harry~R. Bowman, Stanley~G. Thompson, J.~C.~D. Milton, and Wladyslaw~J.
+  Swiatecki.
+\newblock Velocity and angular distributions of prompt neutrons from
+  spontaneous fission of {$^{252}$Cf}.
+\newblock {\em Phys. Rev.}, 126:2120--2136, Jun 1962.
+
+\bibitem{JORGENSEN}
+C.~Budtz-Jørgensen and H.-H. Knitter.
+\newblock Simultaneous investigation of fission fragments and neutrons in
+  {$^{252}$Cf (SF)}.
+\newblock {\em Nuclear Physics A}, 490(2):307 -- 328, 1988.
+
+\bibitem{Talou2018}
+P.~Talou, R.~Vogt, J.~Randrup, M.~E. Rising, S.~A. Pozzi, J.~Verbeke, M.~T.
+  Andrews, S.~D. Clarke, P.~Jaffke, M.~Jandel, T.~Kawano, M.~J. Marcath,
+  K.~Meierbachtol, L.~Nakae, G.~Rusev, A.~Sood, I.~Stetcu, and C.~Walker.
+\newblock Correlated prompt fission data in transport simulations.
+\newblock {\em The European Physical Journal A}, 54(1):9, Jan 2018.
+
+\bibitem{1948twoNCorr}
+S.~Debenedetti, J.~E. Francis, W.~M. Preston, and T.~W. Bonner.
+\newblock Angular dependence of coincidences between fission neutrons.
+\newblock {\em Phys. Rev.}, 74:1645--1650, Dec 1948.
+
+\bibitem{1975Cf252}
+J.~S. Pringle and F.~D. Brooks.
+\newblock Angular correlation of neutrons from spontaneous fission of
+  {$^{252}$Cf}.
+\newblock {\em Phys. Rev. Lett.}, 35:1563--1566, Dec 1975.
+
+\bibitem{Pozzi2014}
+Sara~A. Pozzi, Brian Wieger, Andreas Enqvist, Shaun~D. Clarke, Marek Flaska,
+  Matthew Marcath, Edward Larsen, Robert~C. Haight, and Enrico Padovani.
+\newblock Correlated neutron emissions from {$^{252}$Cf}.
+\newblock {\em Nuclear Science and Engineering}, 178(2):250--260, 2014.
+
+\bibitem{2008CF252}
+A.~M. {Gagarski}, I.~S. {Guseva}, V.~E. {Sokolov}, G.~V. {Val'Ski}, G.~A.
+  {Petrov}, D.~O. {Krinitsin}, D.~V. {Nikolaev}, T.~A. {Zavarukhina}, and V.~I.
+  {Petrova}.
+\newblock {Neutron-neutron angular correlations in spontaneous fission of
+  {$^{252}$Cf}}.
+\newblock {\em Bulletin of the Russian Academy of Sciences, Physics},
+  72:773--777, July 2008.
+
+\bibitem{Verbeke2018}
+J.~M. Verbeke, L.~F. Nakae, and R.~Vogt.
+\newblock Neutron-neutron angular correlations in spontaneous fission of
+  {$^{252}$Cf and $^{240}$Pu}.
+\newblock {\em Phys. Rev. C}, 97:044601, Apr 2018.
+
+\bibitem{Sokolov2010}
+V.~E. Sokolov and G.~A. Petrov.
+\newblock Investigation of the angular dependences of neutron-neutron
+  coincidences from {$^{252}$Cf, $^{235}$U, $^{233}$U and $^{239}$Pu} fission
+  in search of scission neutrons.
+\newblock {\em Proc. XVIII Internat. Seminar on Interaction of Neutrons with
+  Nuclei}, pages 108--118, 2010.
+
+\bibitem{Pozzi2016}
+{Matthew J.} Marcath, {Tony H.} Shin, {Shaun D.} Clarke, Paolo Peerani, and
+  {Sara A.} Pozzi.
+\newblock {Neutron angular distribution in $^{240}$Pu spontaneous fission}.
+\newblock {\em Nuclear Instruments and Methods in Physics Research, Section A:
+  Accelerators, Spectrometers, Detectors and Associated Equipment},
+  830:163--169, 9 2016.
+
+\bibitem{1977FragAss}
+S~Nair, D~B Gayther, B~H Patrick, and E~M Bowey.
+\newblock Fission-neutron and fragment angular distributions from threshold
+  photofission of {$^{232}$Th and $^{238}$U}.
+\newblock {\em Journal of Physics G: Nuclear Physics}, 3(7):965, 1977.
+
+\bibitem{Mueller2014}
+J.~M. Mueller, M.~W. Ahmed, R.~H. France, M.~S. Johnson, H.~J. Karwowski, L.~S.
+  Myers, J.~Randrup, M.~H. Sikora, M.~C. Spraker, S.~Stave, J.~R. Tompkins,
+  R.~Vogt, H.~R. Weller, C.~S. Whisnant, and W.~R. Zimmerman.
+\newblock Prompt neutron polarization asymmetries in photofission of
+  $^{232}\mathrm{Th}$, $^{233,235,238}\mathrm{U},$ $^{237}\mathrm{Np}$, and
+  $^{239,240}\mathrm{Pu}$.
+\newblock {\em Phys. Rev. C}, 89:034615, Mar 2014.
+
+\bibitem{CODA}
+{Jefferson Lab}.
+\newblock {\em CODA 2.6}, 2015.
+
+\bibitem{MCNP_POLIMI}
+Sara~A Pozzi, Enrico Padovani, and Marzio Marseguerra.
+\newblock {MCNP-PoliMi: a Monte-Carlo code for correlation measurements}.
+\newblock {\em Nuclear Instruments and Methods in Physics Research Section A:
+  Accelerators, Spectrometers, Detectors and Associated Equipment}, 513(3):550
+  -- 558, 2003.
+
+\bibitem{MPPost}
+{Eric C.} Miller, {Shaun D.} Clarke, Marek Flaska, {Sara A.} Pozzi, and Enrico
+  Padovani.
+\newblock {MCNPX-PoliMi} post-processing algorithm for detector response
+  simulations.
+\newblock {\em JNMM, Journal of the Institute of Nuclear Materials Management},
+  40(2):34--41, 12 2012.
+
+\bibitem{MCNP}
+Christopher~John Werner, Jeffrey~S. Bull, C.~J. Solomon, Forrest~B. Brown,
+  Gregg~Walter McKinney, Michael~Evan Rising, David~A. Dixon, Roger~Lee Martz,
+  Henry~G. Hughes, Lawrence~James Cox, Anthony~J. Zukaitis, J.~C. Armstrong,
+  Robert~Arthur Forster, and Laura Casswell.
+\newblock {MCNP} version 6.2 release notes.
+\newblock 2 2018.
+
+\bibitem{FREYAFounders}
+Christian Hagmann, Jerome Verbeke, Ramona Vogt, and Jorgen Roundrup.
+\newblock Fission reaction event yield algorithm, version 00, 5 2016.
+
+\bibitem{FREYA2018}
+J.M. Verbeke, J.~Randrup, and R.~Vogt.
+\newblock Fission reaction event yield algorithm freya 2.0.2.
+\newblock {\em Computer Physics Communications}, 222:263 -- 266, 2018.
+
+\bibitem{FREYA_photofission}
+S.~D. Clarke, B.~M. Wieger, A.~Enqvist, R.~Vogt, J.~Randrup, R.~C. Haight,
+  H.~Y. Lee, B.~A. Perdue, E.~Kwan, C.~Y. Wu, R.~A. Henderson, and S.~A. Pozzi.
+\newblock Measurement of the energy and multiplicity distributions of neutrons
+  from the photofission of $^{235}\mathrm{U}$.
+\newblock {\em Phys. Rev. C}, 95:064612, Jun 2017.
+
+\bibitem{2017Krishichayan}
+{Krishichayan}, M.~{Bhike}, A.~P. {Tonchev}, and W.~{Tornow}.
+\newblock {Fission product yield measurements using monoenergetic photon
+  beams}.
+\newblock In {\em European Physical Journal Web of Conferences}, volume 146 of
+  {\em European Physical Journal Web of Conferences}, page 04018, September
+  2017.
+
+\bibitem{KDE}
+Kyle Cranmer.
+\newblock Kernel estimation in high-energy physics.
+\newblock {\em Computer Physics Communications}, 136(3):198--207, 2001.
+
+\end{thebibliography}

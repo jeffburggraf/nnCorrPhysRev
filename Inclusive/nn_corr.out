@@ -1,0 +1,30 @@
+\BOOKMARK [0][-]{section*.1}{Neutron-Neutron Correlations in the Photofission of U-238 }{}% 1
+\BOOKMARK [1][-]{section*.2}{Overview of Neutron-Neutron Angular Correlations in Fission}{section*.1}% 2
+\BOOKMARK [2][-]{section*.3}{Theoretical Basis}{section*.2}% 3
+\BOOKMARK [2][-]{section*.4}{Past Measurements: Spontaneous and Neutron Induced Fission}{section*.2}% 4
+\BOOKMARK [2][-]{section*.6}{Considerations for Photofission}{section*.2}% 5
+\BOOKMARK [1][-]{section*.7}{Experimental Setup}{section*.1}% 6
+\BOOKMARK [2][-]{section*.9}{Detectors}{section*.7}% 7
+\BOOKMARK [2][-]{section*.12}{Detector Shielding}{section*.7}% 8
+\BOOKMARK [2][-]{section*.14}{Bremsstrahlung Photon Beam}{section*.7}% 9
+\BOOKMARK [2][-]{section*.16}{DU Target}{section*.7}% 10
+\BOOKMARK [2][-]{section*.17}{Electronics}{section*.7}% 11
+\BOOKMARK [1][-]{section*.19}{Measurement Techniques}{section*.1}% 12
+\BOOKMARK [2][-]{section*.20}{Particle Time of Flight and Energy Determination}{section*.19}% 13
+\BOOKMARK [2][-]{section*.24}{Particle Position Reconstruction}{section*.19}% 14
+\BOOKMARK [2][-]{section*.26}{Measurements with 252Cf}{section*.19}% 15
+\BOOKMARK [1][-]{section*.28}{Analysis}{section*.1}% 16
+\BOOKMARK [2][-]{section*.29}{Cancelation of Detector Efficiencies, Drifts, and Geometric Phase Space}{section*.28}% 17
+\BOOKMARK [2][-]{section*.33}{Subtraction of Accidental Coincidences}{section*.28}% 18
+\BOOKMARK [1][-]{section*.36}{Potential sources of error}{section*.1}% 19
+\BOOKMARK [2][-]{section*.37}{Correlated versus uncorrelated n-n energy distribution}{section*.36}% 20
+\BOOKMARK [2][-]{section*.40}{Detector Cross-talk}{section*.36}% 21
+\BOOKMARK [3][-]{section*.41}{Simulation of Detector Cross-talk}{section*.40}% 22
+\BOOKMARK [2][-]{section*.44}{Neutron Scattering within the Target}{section*.36}% 23
+\BOOKMARK [1][-]{section*.47}{Results}{section*.1}% 24
+\BOOKMARK [2][-]{section*.48}{Comparisons with FREYA}{section*.47}% 25
+\BOOKMARK [2][-]{section*.53}{Anomalous emission at large opening angles}{section*.47}% 26
+\BOOKMARK [2][-]{section*.55}{Considering abs}{section*.47}% 27
+\BOOKMARK [1][-]{section*.58}{Concluding Remarks}{section*.1}% 28
+\BOOKMARK [1][-]{section*.59}{Acknowledgments}{section*.1}% 29
+\BOOKMARK [1][-]{section*.60}{References}{section*.1}% 30
